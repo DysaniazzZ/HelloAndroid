@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.dysaniazzz">
+    
+    <!--Permission-->
+    <!--系统级别的对话框-->
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        
+        <!--Activity-->
+        <!--登录页面-->
+        <activity android:name="com.example.dysaniazzz.activity.LoginActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <!--Demo页-->
+        <activity android:name="com.example.dysaniazzz.activity.DemoActivity"/>
+        <!--主页面-->
+        <activity android:name="com.example.dysaniazzz.activity.MainActivity"/>
+        
+        <!--Receiver-->
+        <!--强制下线的Receiver-->
+        <receiver android:name="com.example.dysaniazzz.receiver.ForceOfflineReceiver">
+            <intent-filter>
+                <!--自定义的action-->
+                <action android:name="com.example.dysaniazzz.FORCE_OFFLINE"/>
+            </intent-filter>
+        </receiver>
+        
+    </application>
+
+</manifest>

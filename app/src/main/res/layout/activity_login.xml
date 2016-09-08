@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 这里使用TableLayout来实现登录页面 -->
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:stretchColumns="1"
+    android:padding="20dp">
+
+    <!-- TableRow中的控件是不能指定宽度的，使用stretchColumns来对一列进行拉伸，这里指定为1表示如果表格不能完全占满屏幕宽度，就将第二列进行拉伸 -->
+    <TableRow>
+        <TextView 
+            android:layout_height="wrap_content"
+            android:text="Account:"/>
+        <EditText 
+            android:id="@+id/et_guide_account"
+            android:layout_height="wrap_content"
+            android:hint="Input your account"/>
+    </TableRow>
+    
+    <TableRow>
+        <TextView 
+            android:layout_height="wrap_content"
+            android:text="Password:"/>
+        <EditText 
+            android:id="@+id/et_guide_password"
+            android:layout_height="wrap_content"
+            android:hint="Input your password"
+            android:inputType="textPassword"/>
+    </TableRow>
+    
+    <TableRow>
+        <Button 
+            android:id="@+id/btn_guide_login"
+            android:layout_height="wrap_content"
+            android:layout_span="2"
+            android:text="Login" />
+    </TableRow>
+</TableLayout>
