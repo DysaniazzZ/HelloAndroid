@@ -15,25 +15,25 @@ public class ActivityCollector {
     private ActivityCollector() {}
     
     //私有静态成员变量
-    private static ActivityCollector mActivityCollector = new ActivityCollector();
+    private static ActivityCollector sActivityCollector = new ActivityCollector();
     
     //公共静态的获取实例方法
     public static ActivityCollector getInstance() {
-        return mActivityCollector;
+        return sActivityCollector;
     }
     
-    public List<Activity> sActivities = new ArrayList<>();
+    public List<Activity> mActivities = new ArrayList<>();
     
     public void addActivity(Activity activity) {
-        sActivities.add(activity);
+        mActivities.add(activity);
     }
     
     public void removeActivity(Activity activity) {
-        sActivities.remove(activity);
+        mActivities.remove(activity);
     }
     
     public void finishAll() {
-        for(Activity activity : sActivities) {
+        for(Activity activity : mActivities) {
             if(!activity.isFinishing()) {
                 activity.finish();
             }

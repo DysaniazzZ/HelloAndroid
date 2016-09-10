@@ -5,8 +5,20 @@ import android.widget.Toast;
 
 /**
  * Created by fengzhenye on 2016/9/8.
+ * 关于UI操作的工具类（单例模式）
  */
 public class UIUtils {
+
+    //私有构造
+    private UIUtils(){}
+
+    //私有静态成员变量
+    private static UIUtils sUIUtils = new UIUtils();
+
+    //公共静态的获取实例的方法
+    public static UIUtils getInstance() {
+        return sUIUtils;
+    }
     
     private static Toast mToast = null;
 
