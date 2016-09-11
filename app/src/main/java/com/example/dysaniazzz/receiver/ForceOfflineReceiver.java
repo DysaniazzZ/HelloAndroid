@@ -19,7 +19,6 @@ public class ForceOfflineReceiver extends BroadcastReceiver {
 
     @Override
     public void onReceive(final Context context, Intent intent) {
-        UIUtils.createToast(context, "Hello");
         AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(context);
         dialogBuilder.setTitle("Warning");
         dialogBuilder.setMessage("You are forced to be offline. Please try to login again.");

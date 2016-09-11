@@ -81,6 +81,8 @@ public class LoginActivity extends BaseActivity {
                 PreferenceUtils.putBoolean(mContext, IGlobalConstants.REMEMBER_PASSWORD, true);
                 PreferenceUtils.putString(mContext, "account", mAccount);
                 PreferenceUtils.putString(mContext, "password", mPassword);
+            } else {
+                PreferenceUtils.putBoolean(mContext, IGlobalConstants.REMEMBER_PASSWORD, false);
             }
             MainActivity.actionStart(mContext);
             finish();

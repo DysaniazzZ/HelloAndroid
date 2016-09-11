@@ -10,4 +10,10 @@
         android:layout_height="wrap_content"
         android:text="Send force offline broadcast"/>
 
+    <Button
+        android:id="@+id/btn_main_create_database"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Create database"/>
+
 </LinearLayout>
