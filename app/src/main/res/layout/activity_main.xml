@@ -16,4 +16,10 @@
         android:layout_height="wrap_content"
         android:text="Create database"/>
 
+    <Button
+        android:id="@+id/btn_main_add_data"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Add data"/>
+
 </LinearLayout>

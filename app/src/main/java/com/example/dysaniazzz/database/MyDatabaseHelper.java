@@ -20,7 +20,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     public static final String CREATE_BOOK = "create table book ("
             + "id integer primary key autoincrement, "
             + "author text, "
-            + "price real, "
+            + "price real, "    //real代表浮点类型
             + "pages integer, "
             + "name text)";
 
