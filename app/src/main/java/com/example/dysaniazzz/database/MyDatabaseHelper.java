@@ -24,6 +24,11 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
             + "pages integer, "
             + "name text)";
 
+    public static final String CREATE_CATEGORY = "create table Category ("
+            + "id integer primary key autoincrement, "
+            + "category_name text, "
+            + "category_code integer)";
+
     /**
      *
      * @param context
@@ -43,6 +48,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(CREATE_BOOK);
+        db.execSQL(CREATE_CATEGORY);
         UIUtils.createToast(mContext, "Create succeeded");
     }
 
@@ -54,7 +60,10 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
      */
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-
+        //如果之前存在同名的数据表，先将其删掉，否则会报错
+        db.execSQL("drop table if exists Book");
+        db.execSQL("drop table if exists Category");
+        onCreate(db);
     }
 
 }

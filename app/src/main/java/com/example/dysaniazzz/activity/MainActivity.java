@@ -34,7 +34,8 @@ public class MainActivity extends BaseActivity {
     }
 
     private void init() {
-        mMyDatabaseHelper = new MyDatabaseHelper(mContext, "BookStore.db", null, 1);
+        //版本号初始至少为1，数据库升级只需修改版本号即可
+        mMyDatabaseHelper = new MyDatabaseHelper(mContext, "BookStore.db", null, 2);
     }
     
     @OnClick(R.id.btn_main_force_offline)
