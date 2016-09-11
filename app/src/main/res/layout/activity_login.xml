@@ -12,9 +12,9 @@
             android:layout_height="wrap_content"
             android:text="Account:"/>
         <EditText 
-            android:id="@+id/et_guide_account"
+            android:id="@+id/et_loign_account"
             android:layout_height="wrap_content"
-            android:hint="Input your account"/>
+            android:hint="@string/login_account_hint"/>
     </TableRow>
     
     <TableRow>
@@ -22,15 +22,25 @@
             android:layout_height="wrap_content"
             android:text="Password:"/>
         <EditText 
-            android:id="@+id/et_guide_password"
+            android:id="@+id/et_login_password"
             android:layout_height="wrap_content"
-            android:hint="Input your password"
+            android:hint="@string/login_password_hint"
             android:inputType="textPassword"/>
+    </TableRow>
+
+    <TableRow>
+        <!-- CheckBox 复选框控件 -->
+        <CheckBox
+            android:id="@+id/cb_login_remember"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:layout_height="wrap_content"
+            android:text="@string/login_remember_hint"/>
     </TableRow>
     
     <TableRow>
         <Button 
-            android:id="@+id/btn_guide_login"
+            android:id="@+id/btn_login_login"
             android:layout_height="wrap_content"
             android:layout_span="2"
             android:text="Login" />
