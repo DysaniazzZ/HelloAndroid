@@ -9,7 +9,6 @@ import android.view.WindowManager;
 
 import com.example.dysaniazzz.activity.LoginActivity;
 import com.example.dysaniazzz.utils.ActivityCollector;
-import com.example.dysaniazzz.utils.UIUtils;
 
 /**
  * Created by fengzhenye on 2016/9/8.
