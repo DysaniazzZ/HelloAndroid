@@ -8,18 +8,28 @@
         android:id="@+id/btn_main_create_database"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textAllCaps="false"
         android:text="Create database"/>
 
     <Button
         android:id="@+id/btn_main_add_data"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textAllCaps="false"
         android:text="Add data"/>
 
     <Button
         android:id="@+id/btn_main_update_data"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textAllCaps="false"
         android:text="Update data"/>
+
+    <Button
+        android:id="@+id/btn_main_delete_data"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAllCaps="false"
+        android:text="Delete data"/>
 
 </LinearLayout>

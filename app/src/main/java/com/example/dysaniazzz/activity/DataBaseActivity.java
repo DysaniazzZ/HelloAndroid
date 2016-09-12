@@ -71,6 +71,12 @@ public class DataBaseActivity extends BaseActivity {
         values.put("price", 10.99);
         db.update("Book", values, "name = ?", new String[]{"The Da Vinci Code"});   //arg2和arg3用于去约束更新某一行或某几行中的数据，不指定则默认更新所有行
     }
+    
+    @OnClick(R.id.btn_main_delete_data)
+    public void onDeleteClick() {
+        SQLiteDatabase db = mMyDatabaseHelper.getReadableDatabase();
+        db.delete("Book", "pages > ?", new String[]{"500"});
+    }
 
     @Override
     protected void onDestroy() {
