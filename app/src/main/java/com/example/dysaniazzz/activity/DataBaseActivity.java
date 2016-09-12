@@ -3,11 +3,13 @@ package com.example.dysaniazzz.activity;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 
 import com.example.dysaniazzz.R;
 import com.example.dysaniazzz.database.MyDatabaseHelper;
+import com.orhanobut.logger.Logger;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -40,13 +42,13 @@ public class DataBaseActivity extends BaseActivity {
         mMyDatabaseHelper = new MyDatabaseHelper(mContext, "BookStore.db", null, 2);
     }
 
-    @OnClick(R.id.btn_main_create_database)
+    @OnClick(R.id.btn_database_create_database)
     public void onCreateClick() {
         //mMyDatabaseHelper.getWritableDatabase();    //当数据库不可写入的时候（如磁盘空间已满）getWritableDatabase()方法则将出现异常
         mMyDatabaseHelper.getReadableDatabase();      //当数据库不可写入的时候（如磁盘空间已满）getReadableDatabase()方法返回的对象将以只读的方式去打开数据库
     }
 
-    @OnClick(R.id.btn_main_add_data)
+    @OnClick(R.id.btn_database_add_data)
     public void onAddClick() {
         SQLiteDatabase db = mMyDatabaseHelper.getReadableDatabase();
         ContentValues values = new ContentValues();
@@ -64,7 +66,7 @@ public class DataBaseActivity extends BaseActivity {
         db.insert("Book", null, values);
     }
 
-    @OnClick(R.id.btn_main_update_data)
+    @OnClick(R.id.btn_database_update_data)
     public void onUpdateClick() {
         SQLiteDatabase db = mMyDatabaseHelper.getReadableDatabase();
         ContentValues values = new ContentValues();
@@ -72,10 +74,39 @@ public class DataBaseActivity extends BaseActivity {
         db.update("Book", values, "name = ?", new String[]{"The Da Vinci Code"});   //arg2和arg3用于去约束更新某一行或某几行中的数据，不指定则默认更新所有行
     }
     
-    @OnClick(R.id.btn_main_delete_data)
+    @OnClick(R.id.btn_database_delete_data)
     public void onDeleteClick() {
         SQLiteDatabase db = mMyDatabaseHelper.getReadableDatabase();
         db.delete("Book", "pages > ?", new String[]{"500"});
+    }
+    
+    @OnClick(R.id.btn_database_query_data)
+    public void onQueryClick() {
+        SQLiteDatabase db = mMyDatabaseHelper.getReadableDatabase();
+        //arg0:table            指定查询的表名
+        //arg1:columns          指定查询的列名，如果不指定则默认查询所有列
+        //arg2:selection        指定where的约束条件
+        //arg3:selectionArgs    为where中的占位符提供具体的值
+        //arg4:groupBy          指定需要group by的列
+        //arg5:having           对group by后的结果进一步约束
+        //arg6:orderBy          指定查询结果的排序方式
+
+        //查询表中多有的数据
+        Cursor cursor = db.query("Book", null, null, null, null, null, null);
+        //遍历Cursor对象，取出数据并打印
+        if (cursor.moveToFirst()) {
+            do {
+                String name = cursor.getString(cursor.getColumnIndex("name"));
+                String author = cursor.getString(cursor.getColumnIndex("author"));
+                int pages = cursor.getInt(cursor.getColumnIndex("pages"));
+                double price = cursor.getDouble(cursor.getColumnIndex("price"));
+                Logger.d("book name is " + name);
+                Logger.d("book author is " + author);
+                Logger.d("book pages is " + pages);
+                Logger.d("book price is " + price);
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
     }
 
     @Override
