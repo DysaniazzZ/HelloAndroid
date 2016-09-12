@@ -22,10 +22,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <!--Demo页-->
-        <activity android:name="com.example.dysaniazzz.activity.DemoActivity"/>
         <!--主页面-->
         <activity android:name="com.example.dysaniazzz.activity.MainActivity"/>
+        <!--Demo页-->
+        <activity android:name="com.example.dysaniazzz.activity.DemoActivity"/>
+        <!--数据库操作-->
+        <activity android:name="com.example.dysaniazzz.activity.DataBaseActivity"/>
         
         <!--Receiver-->
         <!--强制下线的Receiver-->
