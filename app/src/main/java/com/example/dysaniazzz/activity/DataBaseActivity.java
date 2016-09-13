@@ -6,20 +6,24 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.widget.TextView;
 
 import com.example.dysaniazzz.R;
 import com.example.dysaniazzz.database.MyDatabaseHelper;
-import com.orhanobut.logger.Logger;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
 
 /**
  * Created by fengzhenye on 2016/9/12.
- * 数据库操作Demo页面
+ * 数据库操作Demo页面(CRUD)
  */
 public class DataBaseActivity extends BaseActivity {
+    
+    @BindView(R.id.tv_database_info)
+    TextView mTvDatabaseInfo;
 
     Unbinder mUnBinder;
     private MyDatabaseHelper mMyDatabaseHelper;
@@ -48,8 +52,8 @@ public class DataBaseActivity extends BaseActivity {
         mMyDatabaseHelper.getReadableDatabase();      //当数据库不可写入的时候（如磁盘空间已满）getReadableDatabase()方法返回的对象将以只读的方式去打开数据库
     }
 
-    @OnClick(R.id.btn_database_add_data)
-    public void onAddClick() {
+    @OnClick(R.id.btn_database_insert_data)
+    public void onInsertClick() {
         SQLiteDatabase db = mMyDatabaseHelper.getReadableDatabase();
         ContentValues values = new ContentValues();
         //开始组装第一条数据
@@ -93,6 +97,7 @@ public class DataBaseActivity extends BaseActivity {
 
         //查询表中多有的数据
         Cursor cursor = db.query("Book", null, null, null, null, null, null);
+        StringBuilder sb = new StringBuilder();
         //遍历Cursor对象，取出数据并打印
         if (cursor.moveToFirst()) {
             do {
@@ -100,12 +105,50 @@ public class DataBaseActivity extends BaseActivity {
                 String author = cursor.getString(cursor.getColumnIndex("author"));
                 int pages = cursor.getInt(cursor.getColumnIndex("pages"));
                 double price = cursor.getDouble(cursor.getColumnIndex("price"));
-                Logger.d("book name is " + name);
-                Logger.d("book author is " + author);
-                Logger.d("book pages is " + pages);
-                Logger.d("book price is " + price);
+                sb.append("book name is " + name + "\nbook author is " + author + "\nbook pages is " + pages + "\nbook price is " + price + "\n\n");
+                
             } while (cursor.moveToNext());
         }
+        mTvDatabaseInfo.setText(sb.toString());
+        cursor.close();
+    }
+    
+    //使用SQL语句操作数据库
+    @OnClick(R.id.btn_database_sql_insert)
+    public void onSQLInsertClick() {
+        SQLiteDatabase db = mMyDatabaseHelper.getReadableDatabase();
+        db.execSQL("insert into Book (name, author, pages, price) values(?, ?, ?, ?)", new String[] { "解忧杂货店", "东野圭吾", "291", "39.50" });
+    }
+
+    @OnClick(R.id.btn_database_sql_update)
+    public void onSQLUpdateClick() {
+        SQLiteDatabase db = mMyDatabaseHelper.getReadableDatabase();
+        db.execSQL("update Book set price = ? where name = ?", new String[] { "0.00", "解忧杂货店" });
+    }
+
+    @OnClick(R.id.btn_database_sql_delete)
+    public void onSQLDeleteClick() {
+        SQLiteDatabase db = mMyDatabaseHelper.getReadableDatabase();
+        db.execSQL("delete from Book where pages > ?", new String[] { "200" });
+    }
+
+    @OnClick(R.id.btn_database_sql_query)
+    public void onSQLQueryClick() {
+        SQLiteDatabase db = mMyDatabaseHelper.getReadableDatabase();
+        Cursor cursor = db.rawQuery("select * from Book", null);
+        StringBuilder sb = new StringBuilder();
+        //遍历Cursor对象，取出数据并打印
+        if (cursor.moveToFirst()) {
+            do {
+                String name = cursor.getString(cursor.getColumnIndex("name"));
+                String author = cursor.getString(cursor.getColumnIndex("author"));
+                int pages = cursor.getInt(cursor.getColumnIndex("pages"));
+                double price = cursor.getDouble(cursor.getColumnIndex("price"));
+                sb.append("book name is " + name + "\nbook author is " + author + "\nbook pages is " + pages + "\nbook price is " + price + "\n\n");
+
+            } while (cursor.moveToNext());
+        }
+        mTvDatabaseInfo.setText(sb.toString());
         cursor.close();
     }
 
