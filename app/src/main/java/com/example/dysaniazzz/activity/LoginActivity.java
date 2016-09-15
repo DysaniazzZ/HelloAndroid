@@ -84,7 +84,7 @@ public class LoginActivity extends BaseActivity {
             } else {
                 PreferenceUtils.putBoolean(mContext, IGlobalConstants.REMEMBER_PASSWORD, false);
             }
-            DataBaseActivity.actionStart(mContext);
+            MainActivity.actionStart(mContext);
             finish();
         } else {
             UIUtils.createToast(mContext, R.string.login_account_password_error);

@@ -5,9 +5,18 @@
               android:layout_height="match_parent">
     
     <Button
+        android:id="@+id/btn_main_to_database"
+        style="@style/primary_button"
+        android:text="MainActivity to DataBaseActivity"/>
+
+    <Button
+        android:id="@+id/btn_main_to_demo"
+        style="@style/primary_button"
+        android:text="MainActivity to DemoActivity"/>
+
+    <Button
         android:id="@+id/btn_main_force_offline"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        style="@style/primary_button"
         android:text="Send force offline broadcast"/>
 
 </LinearLayout>

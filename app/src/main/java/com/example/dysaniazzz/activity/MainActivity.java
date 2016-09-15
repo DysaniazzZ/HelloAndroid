@@ -34,6 +34,16 @@ public class MainActivity extends BaseActivity {
     private void init() {
         
     }
+
+    @OnClick(R.id.btn_main_to_database)
+    public void onDatabaseClick() {
+        DataBaseActivity.actionStart(mContext);
+    }
+
+    @OnClick(R.id.btn_main_to_demo)
+    public void onDemoClick() {
+        DemoActivity.actionStart(mContext);
+    }
     
     @OnClick(R.id.btn_main_force_offline)
     public void onOfflineClick() {

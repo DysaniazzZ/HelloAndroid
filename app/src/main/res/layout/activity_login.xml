@@ -42,6 +42,7 @@
         <Button 
             android:id="@+id/btn_login_login"
             android:layout_height="wrap_content"
+            android:textAllCaps="false"
             android:layout_span="2"
             android:text="Login" />
     </TableRow>
