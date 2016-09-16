@@ -7,69 +7,56 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
-        
+
         <Button
             android:id="@+id/btn_database_create_database"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Create database"
-            android:textAllCaps="false"/>
+            style="@style/primary_button"
+            android:text="Create database"/>
 
         <Button
             android:id="@+id/btn_database_insert_data"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Insert data"
-            android:textAllCaps="false"/>
+            style="@style/primary_button"
+            android:text="Insert data"/>
 
         <Button
             android:id="@+id/btn_database_update_data"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Update data"
-            android:textAllCaps="false"/>
+            style="@style/primary_button"
+            android:text="Update data"/>
 
         <Button
             android:id="@+id/btn_database_delete_data"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Delete data"
-            android:textAllCaps="false"/>
+            style="@style/primary_button"
+            android:text="Delete data"/>
 
         <Button
             android:id="@+id/btn_database_query_data"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Query data"
-            android:textAllCaps="false"/>
+            style="@style/primary_button"
+            android:text="Query data"/>
 
         <Button
             android:id="@+id/btn_database_sql_insert"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="SQL Insert data"
-            android:textAllCaps="false"/>
+            style="@style/primary_button"
+            android:text="SQL Insert data"/>
 
         <Button
             android:id="@+id/btn_database_sql_update"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="SQL Update data"
-            android:textAllCaps="false"/>
+            style="@style/primary_button"
+            android:text="SQL Update data"/>
 
         <Button
             android:id="@+id/btn_database_sql_delete"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="SQL Delete data"
-            android:textAllCaps="false"/>
+            style="@style/primary_button"
+            android:text="SQL Delete data"/>
 
         <Button
             android:id="@+id/btn_database_sql_query"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="SQL Query data"
-            android:textAllCaps="false"/>
+            style="@style/primary_button"
+            android:text="SQL Query data"/>
+
+        <Button
+            android:id="@+id/btn_database_replace_data"
+            style="@style/primary_button"
+            android:text="Replace data"/>
 
         <TextView
             android:id="@+id/tv_database_info"
