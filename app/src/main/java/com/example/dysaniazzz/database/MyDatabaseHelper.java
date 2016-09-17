@@ -22,7 +22,8 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
             + "author text, "
             + "price real, "    //real代表浮点类型
             + "pages integer, "
-            + "name text)";
+            + "name text, "
+            + "category_id integer)";
 
     public static final String CREATE_CATEGORY = "create table Category ("
             + "id integer primary key autoincrement, "
@@ -68,11 +69,15 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
 
         //Version 1.0：只创建一个Book表
         //Version 2.0：创建Book和Category表
+        //Version 3.0: 在Book表中增加一个category_id字段
         //注意，这里没有用break，是为了保证跨数据库版本升级时也能让每一项操作都执行到
         switch (oldVersion) {
             case 1:
                 //如果之前版本为1，即Book已经存在，只需要创建Category
                 db.execSQL(CREATE_CATEGORY);
+            case 2:
+                //如果之前版本是2，需要在Book表中增加一个字段
+                db.execSQL("alter table Book add column category_id integer");
             default:
         }
     }
