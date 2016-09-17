@@ -48,7 +48,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(CREATE_BOOK);
-        db.execSQL(CREATE_CATEGORY);
+        //db.execSQL(CREATE_CATEGORY);
         UIUtils.createToast(mContext, "Create succeeded");
     }
 
@@ -60,10 +60,11 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
      */
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        //如果之前存在同名的数据表，先将其删掉，否则会报错
-        db.execSQL("drop table if exists Book");
-        db.execSQL("drop table if exists Category");
-        onCreate(db);
+        //升级数据库：如果之前存在同名的数据表，先将其删掉，否则会报错
+        //但是这样会每次都把之前数据库的数据都清除掉，正式项目不建议使用
+        //db.execSQL("drop table if exists Book");
+        //db.execSQL("drop table if exists Category");
+        //onCreate(db);
     }
 
 }
