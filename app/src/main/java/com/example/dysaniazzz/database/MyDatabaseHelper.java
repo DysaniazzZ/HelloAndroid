@@ -48,7 +48,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(CREATE_BOOK);
-        db.execSQL(CREATE_CATEGORY);
+        //db.execSQL(CREATE_CATEGORY);
         UIUtils.createToast(mContext, "Create succeeded");
     }
 
@@ -65,17 +65,6 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         //db.execSQL("drop table if exists Book");
         //db.execSQL("drop table if exists Category");
         //onCreate(db);
-
-        //Version 1.0：只创建一个Book表
-        //Version 2.0：创建Book和Category表
-        switch(oldVersion) {
-            case 1:
-                //如果之前存在旧表，即Book已经存在，只需要创建Category
-                db.execSQL(CREATE_CATEGORY);
-                break;
-            default:
-                break;
-        }
     }
 
 }
