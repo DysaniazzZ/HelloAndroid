@@ -30,7 +30,7 @@ public class LoginActivity extends BaseActivity {
     @BindView(R.id.cb_login_remember)
     CheckBox mCbLoginRemember;
 
-    Unbinder mUnBinder;
+    Unbinder mUnbinder;
     String mAccount;
     String mPassword;
 
@@ -44,7 +44,7 @@ public class LoginActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        mUnBinder = ButterKnife.bind(this);     //ButterKnife别忘了在onDestroy()方法里unbind
+        mUnbinder = ButterKnife.bind(this);     //ButterKnife别忘了在onDestroy()方法里unbind
         init();
     }
 
@@ -94,6 +94,6 @@ public class LoginActivity extends BaseActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        mUnBinder.unbind();
+        mUnbinder.unbind();
     }
 }

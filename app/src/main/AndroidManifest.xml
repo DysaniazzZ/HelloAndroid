@@ -5,6 +5,8 @@
     <!--Permission-->
     <!--系统级别的对话框-->
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <!--读取系统联系人-->
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
 
     <application
         android:allowBackup="true"
@@ -24,10 +26,12 @@
         </activity>
         <!--主页面-->
         <activity android:name="com.example.dysaniazzz.activity.MainActivity"/>
-        <!--Demo页面-->
-        <activity android:name="com.example.dysaniazzz.activity.DemoActivity"/>
         <!--数据库操作页面-->
         <activity android:name="com.example.dysaniazzz.activity.DataBaseActivity"/>
+        <!--联系人页面-->
+        <activity android:name="com.example.dysaniazzz.activity.ContactsActivity"/>
+        <!--Demo页面-->
+        <activity android:name="com.example.dysaniazzz.activity.DemoActivity"/>
         
         <!--Receiver-->
         <!--强制下线的Receiver-->

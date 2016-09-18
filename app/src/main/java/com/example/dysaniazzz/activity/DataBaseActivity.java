@@ -18,14 +18,14 @@ import butterknife.Unbinder;
 
 /**
  * Created by fengzhenye on 2016/9/12.
- * 数据库操作Demo页面(CRUD)
+ * 数据库操作页面(CRUD)
  */
 public class DataBaseActivity extends BaseActivity {
     
     @BindView(R.id.tv_database_info)
     TextView mTvDatabaseInfo;
 
-    Unbinder mUnBinder;
+    Unbinder mUnbinder;
     private MyDatabaseHelper mMyDatabaseHelper;
     private SQLiteDatabase mDatabase;
 
@@ -38,7 +38,7 @@ public class DataBaseActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_database);
-        mUnBinder = ButterKnife.bind(this);
+        mUnbinder = ButterKnife.bind(this);
         init();
     }
 
@@ -173,6 +173,6 @@ public class DataBaseActivity extends BaseActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        mUnBinder.unbind();
+        mUnbinder.unbind();
     }
 }

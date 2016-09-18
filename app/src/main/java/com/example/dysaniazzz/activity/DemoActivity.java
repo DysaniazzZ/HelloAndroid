@@ -8,7 +8,7 @@ import com.example.dysaniazzz.R;
 
 /**
  * Created by fengzhenye on 2016/9/7.
- * 其他Demo页面
+ * Demo页面
  */
 public class DemoActivity extends BaseActivity {
 

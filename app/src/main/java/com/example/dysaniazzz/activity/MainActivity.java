@@ -16,7 +16,7 @@ import butterknife.Unbinder;
  */
 public class MainActivity extends BaseActivity {
 
-    Unbinder mUnBinder;
+    Unbinder mUnbinder;
 
     public static void actionStart(Context context) {
         Intent intent = new Intent(context, MainActivity.class);
@@ -27,7 +27,7 @@ public class MainActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        mUnBinder = ButterKnife.bind(this);
+        mUnbinder = ButterKnife.bind(this);
         init();
     }
 
@@ -38,6 +38,11 @@ public class MainActivity extends BaseActivity {
     @OnClick(R.id.btn_main_to_database)
     public void onDatabaseClick() {
         DataBaseActivity.actionStart(mContext);
+    }
+
+    @OnClick(R.id.btn_main_to_contacts)
+    public void onContactsClick() {
+        ContactsActivity.actionStart(mContext);
     }
 
     @OnClick(R.id.btn_main_to_demo)
@@ -55,6 +60,6 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        mUnBinder.unbind();
+        mUnbinder.unbind();
     }
 }
