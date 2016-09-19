@@ -45,6 +45,11 @@ public class MainActivity extends BaseActivity {
         ContactsActivity.actionStart(mContext);
     }
 
+    @OnClick(R.id.btn_main_to_notification)
+    public void onNotificationClick() {
+        NotificationActivity.actionStart(mContext);
+    }
+
     @OnClick(R.id.btn_main_to_demo)
     public void onDemoClick() {
         DemoActivity.actionStart(mContext);
