@@ -26,7 +26,7 @@ public class ContactsActivity extends BaseActivity {
     @BindView(R.id.lv_contacts_info)
     ListView mLvContactsInfo;
 
-    private Unbinder mUnBinder;
+    private Unbinder mUnbinder;
     private ArrayAdapter<String> mContactsAdapter;
     private List<String> mContactsList = new ArrayList<String>();
 
@@ -39,7 +39,7 @@ public class ContactsActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contacts);
-        mUnBinder = ButterKnife.bind(this);
+        mUnbinder = ButterKnife.bind(this);
         init();
     }
 
@@ -73,6 +73,6 @@ public class ContactsActivity extends BaseActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        mUnBinder.unbind();
+        mUnbinder.unbind();
     }
 }

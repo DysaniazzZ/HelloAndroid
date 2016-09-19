@@ -104,7 +104,6 @@ public class DataBaseActivity extends BaseActivity {
                 int pages = cursor.getInt(cursor.getColumnIndex("pages"));
                 double price = cursor.getDouble(cursor.getColumnIndex("price"));
                 sb.append("book name is " + name + "\nbook author is " + author + "\nbook pages is " + pages + "\nbook price is " + price + "\n\n");
-                
             } while (cursor.moveToNext());
         }
         mTvDatabaseInfo.setText(sb.toString());

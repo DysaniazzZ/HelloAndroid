@@ -42,6 +42,14 @@
             </intent-filter>
         </receiver>
         
+        <!--Provider-->
+        <!--自定义的数据库Provider-->
+        <provider
+            android:name="com.example.dysaniazzz.provider.DatabaseProvider"
+            android:authorities="com.example.dysaniazzz.provider"
+            android:exported="true">
+        </provider>
+        
     </application>
 
 </manifest>

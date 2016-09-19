@@ -4,8 +4,6 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import com.example.dysaniazzz.utils.UIUtils;
-
 /**
  * Created by Dysania on 2016/9/11.
  * 数据库的操作类
@@ -50,7 +48,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(CREATE_BOOK);
         db.execSQL(CREATE_CATEGORY);
-        UIUtils.createToast(mContext, "Create succeeded");
+        //UIUtils.createToast(mContext, "Create succeeded");
     }
 
     /**

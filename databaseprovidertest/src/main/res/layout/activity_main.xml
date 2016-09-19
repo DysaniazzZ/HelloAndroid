@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/add_data"
+            style="@style/primary_button"
+            android:text="Add To Book"/>
+
+        <Button
+            android:id="@+id/delete_data"
+            style="@style/primary_button"
+            android:text="Delete From Book"/>
+
+        <Button
+            android:id="@+id/update_data"
+            style="@style/primary_button"
+            android:text="Update Book"/>
+
+        <Button
+            android:id="@+id/query_data"
+            style="@style/primary_button"
+            android:text="Query From Book"/>
+
+        <TextView
+            android:id="@+id/data_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text=""/>
+
+    </LinearLayout>
+
+</ScrollView>
