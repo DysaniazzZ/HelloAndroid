@@ -50,6 +50,11 @@ public class MainActivity extends BaseActivity {
         NotificationActivity.actionStart(mContext);
     }
 
+    @OnClick(R.id.btn_main_to_sms)
+    public void onSmsClick() {
+        SmsActivity.actionStart(mContext);
+    }
+
     @OnClick(R.id.btn_main_to_demo)
     public void onDemoClick() {
         DemoActivity.actionStart(mContext);
