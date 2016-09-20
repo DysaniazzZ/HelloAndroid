@@ -55,6 +55,11 @@ public class MainActivity extends BaseActivity {
         SmsActivity.actionStart(mContext);
     }
 
+    @OnClick(R.id.btn_main_to_choosepic)
+    public void onChoosePicClick() {
+        ChoosePicActivity.actionStart(mContext);
+    }
+
     @OnClick(R.id.btn_main_to_demo)
     public void onDemoClick() {
         DemoActivity.actionStart(mContext);

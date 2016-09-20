@@ -13,6 +13,8 @@
     <uses-permission android:name="android.permission.RECEIVE_SMS" />
     <!--发送短信-->
     <uses-permission android:name="android.permission.SEND_SMS" />
+    <!--向SD卡中写数据-->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -40,6 +42,8 @@
         <activity android:name=".activity.NotificationActivity"/>
         <!--短信页面-->
         <activity android:name=".activity.SmsActivity"/>
+        <!--选择相片页面-->
+        <activity android:name=".activity.ChoosePicActivity"/>
         <!--Demo页面-->
         <activity android:name=".activity.DemoActivity"/>
         
