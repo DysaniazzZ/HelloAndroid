@@ -1,5 +1,6 @@
 package com.example.dysaniazzz.activity;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -11,9 +12,10 @@ import android.provider.MediaStore;
 import android.widget.ImageView;
 
 import com.example.dysaniazzz.R;
+import com.example.dysaniazzz.utils.UIUtils;
+import com.example.dysaniazzz.view.ChoosePicPopView;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -24,15 +26,19 @@ import butterknife.Unbinder;
  * Created by Dysania on 2016/9/19.
  * 选择照片页面
  */
-public class ChoosePicActivity extends BaseActivity {
+public class ChoosePicActivity extends BaseActivity implements ChoosePicPopView.IChoosePicListener {
 
     @BindView(R.id.iv_choosepic_picture)
     ImageView mIvChoosepicPicture;
 
     Unbinder mUnbinder;
-    private Uri mImageUri;
-    public static final int TAKE_PHOTO = 1;
-    public static final int CROP_PHOTO = 2;
+    private ChoosePicPopView mChoosePicPopView;
+    private Uri mTempPhotoUri;      //拍照后临时图像Uri
+    private Uri mCropPhotoUri;      //剪切后缓存图像Uri
+
+    private static final int CAMERA_REQUEST_CODE = 1;
+    private static final int GALLERY_REQUEST_CODE = 2;
+    private static final int CROP_REQUEST_CODE = 3;
 
     public static void actionStart(Context context) {
         Intent intent = new Intent(context, ChoosePicActivity.class);
@@ -44,53 +50,125 @@ public class ChoosePicActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choosepic);
         mUnbinder = ButterKnife.bind(this);
+        init();
     }
 
-    @OnClick(R.id.btn_choosepic_takephoto)
-    public void onTakephotoClick() {
-        //创建File对象，用于存储拍照后的图片
-        File outputImage = new File(Environment.getExternalStorageDirectory(), "tempImage.jpg");
+    private void init() {
+        mTempPhotoUri = Uri.fromFile(new File(Environment.getExternalStorageDirectory() + File.separator + "temp_photo.jpg"));
+        mCropPhotoUri = Uri.fromFile(new File(Environment.getExternalStorageDirectory() + File.separator + "crop_image.jpg"));
+        mChoosePicPopView = new ChoosePicPopView(mContext);
+        mChoosePicPopView.setIChoosePicListener(this);
+    }
 
-        /*try {
-            if (outputImage.exists()) {
-                outputImage.delete();
-            }
-            outputImage.createNewFile();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }*/
+    @OnClick(R.id.btn_choosepic_choose)
+    public void onChooseClick() {
+        mChoosePicPopView.show((Activity) mContext);
+    }
 
-        mImageUri = Uri.fromFile(outputImage);
-        Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
-        intent.putExtra(MediaStore.EXTRA_OUTPUT, mImageUri);
-        startActivityForResult(intent, TAKE_PHOTO);                     //启动相机程序
+    @Override
+    public void onChose(int type) {
+        switch (type) {
+            case ChoosePicPopView.TAKE_PHOTO:
+                mChoosePicPopView.dismiss();
+                takePhoto();
+                break;
+            case ChoosePicPopView.FROM_ALBUM:
+                UIUtils.createToast(mContext, "choose from album");
+                break;
+            case ChoosePicPopView.CANCEL:
+                mChoosePicPopView.dismiss();
+                break;
+            default:
+                break;
+        }
+    }
+
+    private void takePhoto() {
+        Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        //指定调用相机拍照后的照片存储的路径
+        intent.putExtra(MediaStore.EXTRA_OUTPUT, mTempPhotoUri);
+        startActivityForResult(intent, ChoosePicPopView.TAKE_PHOTO);
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         switch (requestCode) {
-            case TAKE_PHOTO:
-                if (resultCode == RESULT_OK) {
-                    Intent intent = new Intent("com.android.camera.action.CROP");
-                    intent.setDataAndType(mImageUri, "image/*");
-                    intent.putExtra("scale", true);
-                    intent.putExtra(MediaStore.EXTRA_OUTPUT, mImageUri);
-                    startActivityForResult(intent, CROP_PHOTO);         //启动裁剪程序
+            case CAMERA_REQUEST_CODE:
+                if(resultCode == RESULT_OK) {
+                    cropPhoto(mTempPhotoUri, mCropPhotoUri, mIvChoosepicPicture.getWidth(), mIvChoosepicPicture.getHeight(), CROP_REQUEST_CODE);
+                } else {
+                    UIUtils.createToast(mContext, "Take Photo Failed");
                 }
                 break;
-            case CROP_PHOTO:
-                if (resultCode == RESULT_OK) {
-                    try {
-                        Bitmap bitmap = BitmapFactory.decodeStream(getContentResolver().openInputStream(mImageUri));
-                        mIvChoosepicPicture.setImageBitmap(bitmap);     //将裁剪后的照片显示出来
-                    } catch (FileNotFoundException e) {
-                        e.printStackTrace();
-                    }
+            case GALLERY_REQUEST_CODE:
+                break;
+            case CROP_REQUEST_CODE:
+                Bitmap bitmap = decodeUriAsBitmap(mContext, mCropPhotoUri);
+                if(bitmap != null) {
+                    mIvChoosepicPicture.setImageBitmap(bitmap);
                 }
                 break;
             default:
                 break;
         }
+
+    }
+
+    /**
+     * 剪裁图片
+     * @param orgUri
+     * @param desUri
+     * @param width
+     * @param height
+     * @param requestCode
+     */
+    private void cropPhoto(Uri orgUri, Uri desUri, int width, int height, int requestCode) {
+        Intent intent = new Intent("com.android.camera.action.CROP");
+        intent.setDataAndType(orgUri, "image/*");
+        //设置是否可剪裁
+        intent.putExtra("crop", "true");
+        //设置剪裁的宽高比
+        intent.putExtra("aspectX", 1);
+        intent.putExtra("aspectY", 1);
+        //设置剪裁图片宽高
+        intent.putExtra("outputX", width);
+        intent.putExtra("outputY", height);
+        //设置是否可缩放
+        intent.putExtra("scale", true);
+        //将剪切的图片保存到目标Uri中
+        intent.putExtra(MediaStore.EXTRA_OUTPUT, desUri);
+        intent.putExtra("return-data", false);
+        intent.putExtra("outputFormat", Bitmap.CompressFormat.JPEG.toString());
+        intent.putExtra("noFaceDetection", true);
+        startActivityForResult(intent, requestCode);
+    }
+
+    /**
+     * 由Uri解析成Bitmap对象
+     * @param context
+     * @param uri
+     * @return
+     */
+    private Bitmap decodeUriAsBitmap(Context context, Uri uri) {
+        Bitmap bitmap = null;
+        try {
+            bitmap = BitmapFactory.decodeStream(context.getContentResolver().openInputStream(uri));
+            /*下面注释的方法是将裁剪之后的图片以Base64Coder的字符方式上传到服务器，QQ头像上传采用的方法跟这个类似
+            ByteArrayOutputStream stream = new ByteArrayOutputStream();
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 60, stream);
+            byte[] b = stream.toByteArray();
+            //将图片流以字符串形式存储下来
+            tp = new String(Base64Coder.encodeLines(b));
+            这个地方大家可以写下给服务器上传图片的实现，直接把tp直接上传就可以了，服务器处理的方法是服务器那边的事了
+
+            如果下载到的服务器的数据还是以Base64Coder的形式的话，可以用以下方式转换为我们可以用的图片类型就OK啦
+            Bitmap dBitmap = BitmapFactory.decodeFile(tp);
+            Drawable drawable = new BitmapDrawable(dBitmap);*/
+        } catch(Exception e) {
+            e.printStackTrace();
+            return bitmap;
+        }
+        return bitmap;
     }
 
     @Override
@@ -98,4 +176,5 @@ public class ChoosePicActivity extends BaseActivity {
         super.onDestroy();
         mUnbinder.unbind();
     }
+
 }

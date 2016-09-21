@@ -1,6 +1,8 @@
 package com.example.dysaniazzz.utils;
 
 import android.content.Context;
+import android.content.res.Resources;
+import android.util.TypedValue;
 import android.widget.Toast;
 
 /**
@@ -46,5 +48,25 @@ public class UIUtils {
             return;
         }
         createToast(context, context.getResources().getString(strId));
+    }
+
+    /**
+     * dp转成px的方法
+     * @param v
+     * @return
+     */
+    public static int dpToPx(float v) {
+        Resources resource = Resources.getSystem();
+        return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, v, resource.getDisplayMetrics());
+    }
+
+    /**
+     *sp转成px的方法
+     * @param v
+     * @return
+     */
+    public static int spToPx(float v) {
+        Resources resource = Resources.getSystem();
+        return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, v, resource.getDisplayMetrics());
     }
 }
