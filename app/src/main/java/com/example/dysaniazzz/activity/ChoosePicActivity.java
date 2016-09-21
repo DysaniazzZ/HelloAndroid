@@ -168,7 +168,7 @@ public class ChoosePicActivity extends BaseActivity implements ChoosePicPopView.
             e.printStackTrace();
             return bitmap;
         }
-        return bitmap;
+        return UIUtils.getRoundedBitmap(bitmap);
     }
 
     @Override
