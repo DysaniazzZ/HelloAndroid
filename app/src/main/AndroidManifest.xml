@@ -59,7 +59,15 @@
                 <action android:name="com.example.dysaniazzz.FORCE_OFFLINE"/>
             </intent-filter>
         </receiver>
-        
+        <!--定时器的Receiver-->
+        <receiver android:name=".receiver.AlarmReceiver"/>
+
+        <!--Service-->
+        <!--MyService-->
+        <service android:name=".service.DemoService"/>
+        <!--LongRunningService-->
+        <service android:name=".service.LongRunningService"/>
+
         <!--Provider-->
         <!--自定义的数据库Provider-->
         <provider

@@ -58,7 +58,6 @@ public class NotificationActivity extends BaseActivity {
         builder.setContentText("Notification Content");
         //补充内容
         builder.setContentInfo("Notification Supplement");
-        builder.setDefaults(Notification.DEFAULT_ALL);
         //通知的时间
         builder.setWhen(System.currentTimeMillis());
 

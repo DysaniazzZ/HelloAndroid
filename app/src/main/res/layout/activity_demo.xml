@@ -4,9 +4,34 @@
               android:layout_height="match_parent"
               android:orientation="vertical">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Hello Android"/>
+    <Button
+        android:id="@+id/btn_demo_startservice"
+        style="@style/primary_button"
+        android:text="Start Service"/>
+
+    <Button
+        android:id="@+id/btn_demo_stopservice"
+        style="@style/primary_button"
+        android:text="Stop Service"/>
+
+    <Button
+        android:id="@+id/btn_demo_bindservice"
+        style="@style/primary_button"
+        android:text="Bind Service"/>
+
+    <Button
+        android:id="@+id/btn_demo_unbindservice"
+        style="@style/primary_button"
+        android:text="Unbind Service"/>
+
+    <Button
+        android:id="@+id/btn_demo_starttask"
+        style="@style/primary_button"
+        android:text="Start Alarm Task"/>
+
+    <Button
+        android:id="@+id/btn_demo_stoptask"
+        style="@style/primary_button"
+        android:text="Stop Alarm Task"/>
 
 </LinearLayout>
