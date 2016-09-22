@@ -33,8 +33,9 @@ public class ChoosePicActivity extends BaseActivity implements ChoosePicPopView.
 
     Unbinder mUnbinder;
     private ChoosePicPopView mChoosePicPopView;
-    private Uri mTempPhotoUri;      //拍照后临时图像Uri
+    private Uri mTakePhotoUri;      //拍照后临时图像Uri
     private Uri mCropPhotoUri;      //剪切后缓存图像Uri
+    private Uri mTempPhotoUri;      //相册选取的图像Uri
 
     private static final int CAMERA_REQUEST_CODE = 1;
     private static final int GALLERY_REQUEST_CODE = 2;
@@ -54,8 +55,9 @@ public class ChoosePicActivity extends BaseActivity implements ChoosePicPopView.
     }
 
     private void init() {
+        mTakePhotoUri = Uri.fromFile(new File(Environment.getExternalStorageDirectory() + File.separator + "take_photo.jpg"));
+        mCropPhotoUri = Uri.fromFile(new File(Environment.getExternalStorageDirectory() + File.separator + "crop_photo.jpg"));
         mTempPhotoUri = Uri.fromFile(new File(Environment.getExternalStorageDirectory() + File.separator + "temp_photo.jpg"));
-        mCropPhotoUri = Uri.fromFile(new File(Environment.getExternalStorageDirectory() + File.separator + "crop_image.jpg"));
         mChoosePicPopView = new ChoosePicPopView(mContext);
         mChoosePicPopView.setIChoosePicListener(this);
     }
@@ -67,16 +69,15 @@ public class ChoosePicActivity extends BaseActivity implements ChoosePicPopView.
 
     @Override
     public void onChose(int type) {
+        mChoosePicPopView.dismiss();
         switch (type) {
             case ChoosePicPopView.TAKE_PHOTO:
-                mChoosePicPopView.dismiss();
                 takePhoto();
                 break;
             case ChoosePicPopView.FROM_ALBUM:
-                UIUtils.createToast(mContext, "choose from album");
+                fromAlbum();
                 break;
             case ChoosePicPopView.CANCEL:
-                mChoosePicPopView.dismiss();
                 break;
             default:
                 break;
@@ -86,8 +87,15 @@ public class ChoosePicActivity extends BaseActivity implements ChoosePicPopView.
     private void takePhoto() {
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         //指定调用相机拍照后的照片存储的路径
+        intent.putExtra(MediaStore.EXTRA_OUTPUT, mTakePhotoUri);
+        startActivityForResult(intent, CAMERA_REQUEST_CODE);
+    }
+
+    private void fromAlbum() {
+        Intent intent = new Intent("android.intent.action.GET_CONTENT");
+        intent.setType("image/*");
         intent.putExtra(MediaStore.EXTRA_OUTPUT, mTempPhotoUri);
-        startActivityForResult(intent, ChoosePicPopView.TAKE_PHOTO);
+        startActivityForResult(intent, GALLERY_REQUEST_CODE);
     }
 
     @Override
@@ -95,34 +103,40 @@ public class ChoosePicActivity extends BaseActivity implements ChoosePicPopView.
         switch (requestCode) {
             case CAMERA_REQUEST_CODE:
                 if(resultCode == RESULT_OK) {
-                    cropPhoto(mTempPhotoUri, mCropPhotoUri, mIvChoosepicPicture.getWidth(), mIvChoosepicPicture.getHeight(), CROP_REQUEST_CODE);
+                    cropPhoto(mTakePhotoUri, mCropPhotoUri, CROP_REQUEST_CODE);
                 } else {
                     UIUtils.createToast(mContext, "Take Photo Failed");
                 }
                 break;
             case GALLERY_REQUEST_CODE:
+                if(resultCode == RESULT_OK) {
+                    cropPhoto(data.getData(), mCropPhotoUri, CROP_REQUEST_CODE);
+                } else {
+                    UIUtils.createToast(mContext, "From Album Failed");
+                }
                 break;
             case CROP_REQUEST_CODE:
-                Bitmap bitmap = decodeUriAsBitmap(mContext, mCropPhotoUri);
-                if(bitmap != null) {
-                    mIvChoosepicPicture.setImageBitmap(bitmap);
+                if(resultCode == RESULT_OK) {
+                    Bitmap bitmap = decodeUriAsBitmap(mContext, mCropPhotoUri);
+                    if(bitmap != null) {
+                        mIvChoosepicPicture.setImageBitmap(bitmap);
+                    }
+                } else {
+                    UIUtils.createToast(mContext, "Crop Photo Failed");
                 }
                 break;
             default:
                 break;
         }
-
     }
 
     /**
      * 剪裁图片
      * @param orgUri
      * @param desUri
-     * @param width
-     * @param height
      * @param requestCode
      */
-    private void cropPhoto(Uri orgUri, Uri desUri, int width, int height, int requestCode) {
+    private void cropPhoto(Uri orgUri, Uri desUri, int requestCode) {
         Intent intent = new Intent("com.android.camera.action.CROP");
         intent.setDataAndType(orgUri, "image/*");
         //设置是否可剪裁
@@ -130,9 +144,6 @@ public class ChoosePicActivity extends BaseActivity implements ChoosePicPopView.
         //设置剪裁的宽高比
         intent.putExtra("aspectX", 1);
         intent.putExtra("aspectY", 1);
-        //设置剪裁图片宽高
-        intent.putExtra("outputX", width);
-        intent.putExtra("outputY", height);
         //设置是否可缩放
         intent.putExtra("scale", true);
         //将剪切的图片保存到目标Uri中
@@ -174,6 +185,10 @@ public class ChoosePicActivity extends BaseActivity implements ChoosePicPopView.
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        //防止android.view.WindowLeaked
+        if(mChoosePicPopView != null) {
+            mChoosePicPopView.dismiss();
+        }
         mUnbinder.unbind();
     }
 
