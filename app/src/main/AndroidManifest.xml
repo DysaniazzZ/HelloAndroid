@@ -35,7 +35,7 @@
         <!--主页面-->
         <activity android:name=".activity.MainActivity"/>
         <!--数据库操作页面-->
-        <activity android:name=".activity.DataBaseActivity"/>
+        <activity android:name=".activity.DatabaseActivity"/>
         <!--联系人页面-->
         <activity android:name=".activity.ContactsActivity"/>
         <!--通知栏页面-->
@@ -44,6 +44,8 @@
         <activity android:name=".activity.SmsActivity"/>
         <!--选择相片页面-->
         <activity android:name=".activity.ChoosePicActivity"/>
+        <!--音频播放页面-->
+        <activity android:name=".activity.AudioPlayActivity"/>
         <!--Demo页面-->
         <activity android:name=".activity.DemoActivity"/>
         

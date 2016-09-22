@@ -20,7 +20,7 @@ import butterknife.Unbinder;
  * Created by fengzhenye on 2016/9/12.
  * 数据库操作页面(CRUD)
  */
-public class DataBaseActivity extends BaseActivity {
+public class DatabaseActivity extends BaseActivity {
     
     @BindView(R.id.tv_database_info)
     TextView mTvDatabaseInfo;
@@ -30,7 +30,7 @@ public class DataBaseActivity extends BaseActivity {
     private SQLiteDatabase mDatabase;
 
     public static void actionStart(Context context) {
-        Intent intent = new Intent(context, DataBaseActivity.class);
+        Intent intent = new Intent(context, DatabaseActivity.class);
         context.startActivity(intent);
     }
 
