@@ -8,6 +8,7 @@ import android.content.IntentFilter;
 import android.os.Bundle;
 import android.telephony.SmsManager;
 import android.telephony.SmsMessage;
+import android.text.TextUtils;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -110,10 +111,14 @@ public class SmsActivity extends BaseActivity {
 
     @OnClick(R.id.btn_sms_send)
     public void onSendSmsClick() {
-        SmsManager smsManager = SmsManager.getDefault();
-        Intent sentIntent = new Intent("SENT_SMS_ACTION");
-        PendingIntent pi = PendingIntent.getBroadcast(mContext, 0, sentIntent, 0);
-        smsManager.sendTextMessage(mEtSmsTo.getText().toString(), null, mEtSmsMsg.getText().toString(), pi, null);
+        String to = mEtSmsTo.getText().toString();
+        String msg = mEtSmsMsg.getText().toString();
+        if(!TextUtils.isEmpty(to) && !TextUtils.isEmpty(msg)) {
+            SmsManager smsManager = SmsManager.getDefault();
+            Intent sentIntent = new Intent("SENT_SMS_ACTION");
+            PendingIntent pi = PendingIntent.getBroadcast(mContext, 0, sentIntent, 0);
+            smsManager.sendTextMessage(mEtSmsTo.getText().toString(), null, mEtSmsMsg.getText().toString(), pi, null);
+        }
     }
 
     @Override
