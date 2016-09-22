@@ -65,6 +65,11 @@ public class MainActivity extends BaseActivity {
         AudioPlayActivity.actionStart(mContext);
     }
 
+    @OnClick(R.id.btn_main_to_videoplay)
+    public void onVideoPlayClick() {
+        VideoPlayActivity.actionStart(mContext);
+    }
+
     @OnClick(R.id.btn_main_to_demo)
     public void onDemoClick() {
         DemoActivity.actionStart(mContext);

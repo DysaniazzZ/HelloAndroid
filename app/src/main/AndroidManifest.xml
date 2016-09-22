@@ -46,6 +46,8 @@
         <activity android:name=".activity.ChoosePicActivity"/>
         <!--音频播放页面-->
         <activity android:name=".activity.AudioPlayActivity"/>
+        <!--视频播放页面-->
+        <activity android:name=".activity.VideoPlayActivity"/>
         <!--Demo页面-->
         <activity android:name=".activity.DemoActivity"/>
         

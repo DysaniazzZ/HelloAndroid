@@ -16,6 +16,7 @@ import butterknife.Unbinder;
 
 /**
  * Created by Dysania on 2016/9/22.
+ * 音频播放页面
  */
 public class AudioPlayActivity extends BaseActivity {
 
@@ -37,8 +38,9 @@ public class AudioPlayActivity extends BaseActivity {
 
     private void initMediaPlayer() {
         try {
+            //指定音频文件路径
             File file = new File(Environment.getExternalStorageDirectory(), "Evil and Angel.mp3");
-            mMediaPlayer.setDataSource(file.getPath()); //指定音频文件路径
+            mMediaPlayer.setDataSource(file.getPath());
             mMediaPlayer.prepare();                     //让MediaPlayer进入到准备状态
         } catch (Exception e) {
             e.printStackTrace();
