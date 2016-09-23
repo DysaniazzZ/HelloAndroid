@@ -70,9 +70,9 @@ public class MainActivity extends BaseActivity {
         VideoPlayActivity.actionStart(mContext);
     }
 
-    @OnClick(R.id.btn_main_to_demo)
-    public void onDemoClick() {
-        DemoActivity.actionStart(mContext);
+    @OnClick(R.id.btn_main_to_service)
+    public void onServiceClick() {
+        ServiceActivity.actionStart(mContext);
     }
     
     @OnClick(R.id.btn_main_force_offline)

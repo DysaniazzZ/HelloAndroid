@@ -5,32 +5,32 @@
               android:orientation="vertical">
 
     <Button
-        android:id="@+id/btn_demo_startservice"
+        android:id="@+id/btn_service_startservice"
         style="@style/primary_button"
         android:text="Start Service"/>
 
     <Button
-        android:id="@+id/btn_demo_stopservice"
+        android:id="@+id/btn_service_stopservice"
         style="@style/primary_button"
         android:text="Stop Service"/>
 
     <Button
-        android:id="@+id/btn_demo_bindservice"
+        android:id="@+id/btn_service_bindservice"
         style="@style/primary_button"
         android:text="Bind Service"/>
 
     <Button
-        android:id="@+id/btn_demo_unbindservice"
+        android:id="@+id/btn_service_unbindservice"
         style="@style/primary_button"
         android:text="Unbind Service"/>
 
     <Button
-        android:id="@+id/btn_demo_starttask"
+        android:id="@+id/btn_service_starttask"
         style="@style/primary_button"
         android:text="Start Alarm Task"/>
 
     <Button
-        android:id="@+id/btn_demo_stoptask"
+        android:id="@+id/btn_service_stoptask"
         style="@style/primary_button"
         android:text="Stop Alarm Task"/>
 

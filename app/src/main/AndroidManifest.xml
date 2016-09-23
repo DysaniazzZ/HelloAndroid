@@ -48,8 +48,8 @@
         <activity android:name=".activity.AudioPlayActivity"/>
         <!--视频播放页面-->
         <activity android:name=".activity.VideoPlayActivity"/>
-        <!--Demo页面-->
-        <activity android:name=".activity.DemoActivity"/>
+        <!--操作服务页面-->
+        <activity android:name=".activity.ServiceActivity"/>
         
         <!--Receiver-->
         <!--强制下线的Receiver-->
