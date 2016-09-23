@@ -74,6 +74,11 @@ public class MainActivity extends BaseActivity {
     public void onWebClick() {
         WebActivity.actionStart(mContext);
     }
+
+    @OnClick(R.id.btn_main_to_location)
+    public void onLocationClick() {
+        LocationActivity.actionStart(mContext);
+    }
     
     @OnClick(R.id.btn_main_force_offline)
     public void onOfflineClick() {
