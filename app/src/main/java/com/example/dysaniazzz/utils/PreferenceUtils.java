@@ -5,7 +5,7 @@ import android.content.SharedPreferences;
 
 /**
  * Created by Dysania on 2016/9/10.
- * SharePreferenceUtils的工具类，用于回显数据
+ * SharePreferenceUtils的工具类
  */
 public class PreferenceUtils {
 

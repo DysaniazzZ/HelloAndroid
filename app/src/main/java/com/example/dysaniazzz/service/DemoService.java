@@ -10,7 +10,7 @@ import com.orhanobut.logger.Logger;
 
 /**
  * Created by Dysania on 2016/9/22.
- * 一个
+ * 用来演示服务的生命周期
  */
 public class DemoService extends Service {
 

@@ -15,7 +15,7 @@ import java.util.Date;
 
 /**
  * Created by Dysania on 2016/9/22.
- * 一个可以长期在后台运行的服务
+ * 可以长期在后台运行的服务
  */
 public class LongRunningService extends Service {
 
@@ -39,7 +39,7 @@ public class LongRunningService extends Service {
         }).start();
 
         //定时发送广播，开启服务
-        AlarmManager mAlarmManager =  (AlarmManager) getSystemService(ALARM_SERVICE);
+        mAlarmManager =  (AlarmManager) getSystemService(ALARM_SERVICE);
         int interval = 10 * 1000;
         //开机至今再加上延迟执行的时间
         long triggerAtTime = SystemClock.elapsedRealtime() + interval;

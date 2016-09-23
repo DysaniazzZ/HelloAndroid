@@ -18,6 +18,7 @@ import butterknife.OnClick;
 
 /**
  * Created by Dysania on 2016/9/21.
+ * 选择照片的自定义PopupWindow
  */
 public class ChoosePicPopView extends PopupWindow {
 
