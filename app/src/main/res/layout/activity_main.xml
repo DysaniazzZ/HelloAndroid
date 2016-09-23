@@ -1,73 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent">
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-    <!-- 数据库操作页面 -->
-    <Button
-        android:id="@+id/btn_main_to_database"
-        style="@style/primary_button"
-        android:text="MainActivity to DataBaseActivity"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <!-- 联系人页面 -->
-    <Button
-        android:id="@+id/btn_main_to_contacts"
-        style="@style/primary_button"
-        android:text="MainActivity to ContactsActivity"/>
+        <!-- 数据库操作页面 -->
+        <Button
+            android:id="@+id/btn_main_to_database"
+            style="@style/primary_button"
+            android:text="MainActivity to DataBaseActivity"/>
 
-    <!-- 通知栏页面 -->
-    <Button
-        android:id="@+id/btn_main_to_notification"
-        style="@style/primary_button"
-        android:text="MainActivity to NotificationActivity"/>
+        <!-- 联系人页面 -->
+        <Button
+            android:id="@+id/btn_main_to_contacts"
+            style="@style/primary_button"
+            android:text="MainActivity to ContactsActivity"/>
 
-    <!-- 短信页面 -->
-    <Button
-        android:id="@+id/btn_main_to_sms"
-        style="@style/primary_button"
-        android:text="MainActivity to SmsActivity"/>
+        <!-- 通知栏页面 -->
+        <Button
+            android:id="@+id/btn_main_to_notification"
+            style="@style/primary_button"
+            android:text="MainActivity to NotificationActivity"/>
 
-    <!-- 选择相片页面 -->
-    <Button
-        android:id="@+id/btn_main_to_choosepic"
-        style="@style/primary_button"
-        android:text="MainActivity to ChoosePicActivity"/>
+        <!-- 短信页面 -->
+        <Button
+            android:id="@+id/btn_main_to_sms"
+            style="@style/primary_button"
+            android:text="MainActivity to SmsActivity"/>
 
-    <!-- 音频播放页面 -->
-    <Button
-        android:id="@+id/btn_main_to_audioplay"
-        style="@style/primary_button"
-        android:text="MainActivity to AudioPlayActivity"/>
+        <!-- 选择相片页面 -->
+        <Button
+            android:id="@+id/btn_main_to_choosepic"
+            style="@style/primary_button"
+            android:text="MainActivity to ChoosePicActivity"/>
 
-    <!-- 视频播放页面 -->
-    <Button
-        android:id="@+id/btn_main_to_videoplay"
-        style="@style/primary_button"
-        android:text="MainActivity to VideoPlayActivity"/>
+        <!-- 音频播放页面 -->
+        <Button
+            android:id="@+id/btn_main_to_audioplay"
+            style="@style/primary_button"
+            android:text="MainActivity to AudioPlayActivity"/>
 
-    <!-- 操作服务页面 -->
-    <Button
-        android:id="@+id/btn_main_to_service"
-        style="@style/primary_button"
-        android:text="MainActivity to ServiceActivity"/>
+        <!-- 视频播放页面 -->
+        <Button
+            android:id="@+id/btn_main_to_videoplay"
+            style="@style/primary_button"
+            android:text="MainActivity to VideoPlayActivity"/>
 
-    <!-- 展示网页页面 -->
-    <Button
-        android:id="@+id/btn_main_to_web"
-        style="@style/primary_button"
-        android:text="MainActivity to WebActivity"/>
+        <!-- 操作服务页面 -->
+        <Button
+            android:id="@+id/btn_main_to_service"
+            style="@style/primary_button"
+            android:text="MainActivity to ServiceActivity"/>
 
-    <!-- 获取定位页面 -->
-    <Button
-        android:id="@+id/btn_main_to_location"
-        style="@style/primary_button"
-        android:text="MainActivity to LocationActivity"/>
+        <!-- 展示网页页面 -->
+        <Button
+            android:id="@+id/btn_main_to_web"
+            style="@style/primary_button"
+            android:text="MainActivity to WebActivity"/>
 
-    <!-- 发送强制下线广播 -->
-    <Button
-        android:id="@+id/btn_main_force_offline"
-        style="@style/primary_button"
-        android:text="Send force offline broadcast"/>
+        <!-- 获取定位页面 -->
+        <Button
+            android:id="@+id/btn_main_to_location"
+            style="@style/primary_button"
+            android:text="MainActivity to LocationActivity"/>
 
-</LinearLayout>
+        <!-- 百度地图页面 -->
+        <Button
+            android:id="@+id/btn_main_to_baidumap"
+            style="@style/primary_button"
+            android:text="MainActivity to BaiduMapActivity"/>
+
+        <!-- 发送强制下线广播 -->
+        <Button
+            android:id="@+id/btn_main_force_offline"
+            style="@style/primary_button"
+            android:text="Send force offline broadcast"/>
+
+    </LinearLayout>
+
+</ScrollView>

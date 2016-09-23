@@ -79,6 +79,11 @@ public class MainActivity extends BaseActivity {
     public void onLocationClick() {
         LocationActivity.actionStart(mContext);
     }
+
+    @OnClick(R.id.btn_main_to_baidumap)
+    public void onBaidumapClick() {
+        BaiduMapActivity.actionStart(mContext);
+    }
     
     @OnClick(R.id.btn_main_force_offline)
     public void onOfflineClick() {
