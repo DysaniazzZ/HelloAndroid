@@ -28,11 +28,6 @@ public class MainActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mUnbinder = ButterKnife.bind(this);
-        init();
-    }
-
-    private void init() {
-        
     }
 
     @OnClick(R.id.btn_main_to_database)
@@ -74,6 +69,11 @@ public class MainActivity extends BaseActivity {
     public void onServiceClick() {
         ServiceActivity.actionStart(mContext);
     }
+
+    @OnClick(R.id.btn_main_to_web)
+    public void onWebClick() {
+        WebActivity.actionStart(mContext);
+    }
     
     @OnClick(R.id.btn_main_force_offline)
     public void onOfflineClick() {
@@ -87,4 +87,5 @@ public class MainActivity extends BaseActivity {
         super.onDestroy();
         mUnbinder.unbind();
     }
+
 }

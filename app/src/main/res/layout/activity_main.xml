@@ -46,11 +46,17 @@
         style="@style/primary_button"
         android:text="MainActivity to VideoPlayActivity"/>
 
-    <!-- Demo页面 -->
+    <!-- 操作服务页面 -->
     <Button
         android:id="@+id/btn_main_to_service"
         style="@style/primary_button"
         android:text="MainActivity to ServiceActivity"/>
+
+    <!-- 展示网页页面 -->
+    <Button
+        android:id="@+id/btn_main_to_web"
+        style="@style/primary_button"
+        android:text="MainActivity to WebActivity"/>
 
     <!-- 发送强制下线广播 -->
     <Button
