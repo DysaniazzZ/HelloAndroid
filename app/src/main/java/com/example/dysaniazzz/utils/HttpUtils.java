@@ -24,6 +24,8 @@ public class HttpUtils {
                     connection.setRequestMethod("GET");
                     connection.setConnectTimeout(8000);
                     connection.setReadTimeout(8000);
+                    //添加API KEY到HTTP请求头
+                    connection.setRequestProperty("apikey",  "1ace5a5fc9b05ec68706295e075bd5a3");
                     connection.setDoInput(true);
                     connection.setDoOutput(true);
                     //对获取到的输入流进行读取

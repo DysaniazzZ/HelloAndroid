@@ -8,11 +8,17 @@ import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v4.app.ActivityCompat;
+import android.text.TextUtils;
 import android.widget.TextView;
 
 import com.example.dysaniazzz.R;
+import com.example.dysaniazzz.utils.HttpUtils;
 import com.example.dysaniazzz.utils.UIUtils;
+import com.google.gson.Gson;
+import com.orhanobut.logger.Logger;
 
 import java.util.List;
 
@@ -26,12 +32,15 @@ import butterknife.Unbinder;
  */
 public class LocationActivity extends BaseActivity {
 
+    @BindView(R.id.tv_location_coordinate)
+    TextView mTvLocationCoordinate;
     @BindView(R.id.tv_location_position)
     TextView mTvLocationPosition;
 
     Unbinder mUnbinder;
     private String mProvider;
     private LocationManager mLocationManager;
+    private static final int SHOW_LOCATION = 1;
 
     LocationListener mLocationListener = new LocationListener() {
         @Override
@@ -53,6 +62,20 @@ public class LocationActivity extends BaseActivity {
         @Override
         public void onProviderDisabled(String provider) {
 
+        }
+    };
+
+    Handler mHandler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            switch (msg.what) {
+                case SHOW_LOCATION:
+                    String position = (String) msg.obj;
+                    mTvLocationPosition.setText(position);
+                    break;
+                default:
+                    break;
+            }
         }
     };
 
@@ -102,9 +125,56 @@ public class LocationActivity extends BaseActivity {
 
     }
 
-    private void showLocation(Location location) {
-        String currentPosition = "latitude is " + location.getLatitude() + "\n" + "longitude is " + location.getLongitude();
-        mTvLocationPosition.setText(currentPosition);
+    private void showLocation(final Location location) {
+        //显示当前的经纬度坐标
+        String currentPosition = "Latitude is " + location.getLatitude() + "\n" + "Longitude is " + location.getLongitude();
+        mTvLocationCoordinate.setText(currentPosition);
+        //联网获取位置信息
+        StringBuilder url = new StringBuilder();
+        url.append("http://apis.baidu.com/wxlink/here/here?");
+        url.append("lat=");
+        url.append(location.getLatitude());
+        url.append("&lng=");
+        url.append(location.getLongitude());
+        url.append("&cst=1");
+        HttpUtils.sendHttpRequest(url.toString(), new HttpUtils.HttpCallbackListener() {
+            @Override
+            public void onFinish(String response) {
+                if(!TextUtils.isEmpty(response)) {
+                    LocationResult locationResult = new Gson().fromJson(response, LocationResult.class);
+                    if(locationResult != null && locationResult.result != null) {
+                        List<LocationResult.District> districts = locationResult.result;
+                        StringBuilder stringBuilder = new StringBuilder();
+                        for(LocationResult.District district : districts) {
+                            stringBuilder.append(district.DistrictName);
+                            stringBuilder.append("\n");
+                        }
+                        Message message = new Message();
+                        message.what = SHOW_LOCATION;
+                        message.obj = stringBuilder.toString();
+                        mHandler.sendMessage(message);
+                    }
+                }
+            }
+
+            @Override
+            public void onError(Exception e) {
+                Logger.d(e.getMessage());
+            }
+        });
+
+    }
+
+    class LocationResult {
+        public List<District> result;
+        public String msg;
+        public String code;
+
+        class District {
+            public String ID;
+            public String DistrictName;
+            public String TypeName;
+        }
     }
 
     @Override
