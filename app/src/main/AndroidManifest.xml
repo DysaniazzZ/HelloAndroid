@@ -82,6 +82,8 @@
         <activity android:name=".activity.BaiduMapActivity"/>
         <!--传感器页面-->
         <activity android:name=".activity.SensorActivity"/>
+        <!--指南针页面-->
+        <activity android:name=".activity.CompassActivity"/>
         
         <!--Receiver-->
         <!--强制下线的Receiver-->

@@ -89,6 +89,11 @@ public class MainActivity extends BaseActivity {
     public void onSensorClick() {
         SensorActivity.actionStart(mContext);
     }
+
+    @OnClick(R.id.btn_main_to_compass)
+    public void onCompassClick() {
+        CompassActivity.actionStart(mContext);
+    }
     
     @OnClick(R.id.btn_main_force_offline)
     public void onOfflineClick() {
