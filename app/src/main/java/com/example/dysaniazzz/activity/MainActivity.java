@@ -82,7 +82,7 @@ public class MainActivity extends BaseActivity {
 
     @OnClick(R.id.btn_main_to_baidumap)
     public void onBaidumapClick() {
-        BaiduMapActivity.actionStart(mContext);
+        BaiduMapActivity.actionStart(mContext, -1, -1);
     }
     
     @OnClick(R.id.btn_main_force_offline)

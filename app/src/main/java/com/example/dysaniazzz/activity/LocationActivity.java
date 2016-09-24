@@ -185,6 +185,7 @@ public class LocationActivity extends BaseActivity {
     public void onDetailClick() {
         if(mLatitude != -1 && mLongitude != -1) {
             BaiduMapActivity.actionStart(mContext, mLatitude, mLongitude);
+            finish();
         } else {
             UIUtils.createToast(mContext, "Get Coordinate Failed");
         }
