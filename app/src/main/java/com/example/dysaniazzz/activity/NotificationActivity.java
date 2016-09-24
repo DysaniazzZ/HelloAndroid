@@ -43,7 +43,7 @@ public class NotificationActivity extends BaseActivity {
     public void onSendNoticeClick() {
         //Android 6.0以前的写法：
         //NotificationManager manager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-        //Notification notification = new Notification(R.mipmap.notification_icon, "This is ticker text", System.currentTimeMillis());
+        //Notification notification = new Notification(R.mipmap.ic_notification, "This is ticker text", System.currentTimeMillis());
         //notification.setLatestEventInfo(this, "This is content title", "This is content text", null);
         //manager.notify(1, notification);
 
@@ -73,9 +73,9 @@ public class NotificationActivity extends BaseActivity {
         builder.setDefaults(Notification.DEFAULT_ALL);
 
         //通知小图标
-        builder.setSmallIcon(R.mipmap.notification_icon);
+        builder.setSmallIcon(R.mipmap.ic_notification);
         //下拉通知栏大图标
-        builder.setLargeIcon(BitmapFactory.decodeResource(getResources(), R.mipmap.notification_icon));
+        builder.setLargeIcon(BitmapFactory.decodeResource(getResources(), R.mipmap.ic_notification));
         //是否可以自动取消
         builder.setAutoCancel(true);
         //设置通知的点击事件（PendingIntent可理解为延时意图）
