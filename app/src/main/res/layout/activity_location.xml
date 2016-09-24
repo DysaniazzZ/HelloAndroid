@@ -14,4 +14,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
+    <Button
+        android:id="@+id/btn_location_detail"
+        style="@style/primary_button"
+        android:text="Get detail position"/>
+
 </LinearLayout>

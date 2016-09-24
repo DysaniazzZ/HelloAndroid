@@ -24,6 +24,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import butterknife.Unbinder;
 
 /**
@@ -41,6 +42,8 @@ public class LocationActivity extends BaseActivity {
     private String mProvider;
     private LocationManager mLocationManager;
     private static final int SHOW_LOCATION = 1;
+    private double mLatitude = -1;
+    private double mLongitude = -1;
 
     LocationListener mLocationListener = new LocationListener() {
         @Override
@@ -127,15 +130,17 @@ public class LocationActivity extends BaseActivity {
 
     private void showLocation(final Location location) {
         //显示当前的经纬度坐标
-        String currentPosition = "Latitude is " + location.getLatitude() + "\n" + "Longitude is " + location.getLongitude();
+        mLatitude = location.getLatitude();
+        mLongitude = location.getLongitude();
+        String currentPosition = "Latitude is " + mLatitude + "\n" + "Longitude is " + mLongitude;
         mTvLocationCoordinate.setText(currentPosition);
         //联网获取位置信息
         StringBuilder url = new StringBuilder();
         url.append("http://apis.baidu.com/wxlink/here/here?");
         url.append("lat=");
-        url.append(location.getLatitude());
+        url.append(mLatitude);
         url.append("&lng=");
-        url.append(location.getLongitude());
+        url.append(mLongitude);
         url.append("&cst=1");
         HttpUtils.sendHttpRequest(url.toString(), new HttpUtils.HttpCallbackListener() {
             @Override
@@ -156,7 +161,6 @@ public class LocationActivity extends BaseActivity {
                     }
                 }
             }
-
             @Override
             public void onError(Exception e) {
                 Logger.d(e.getMessage());
@@ -174,6 +178,15 @@ public class LocationActivity extends BaseActivity {
             public String ID;
             public String DistrictName;
             public String TypeName;
+        }
+    }
+
+    @OnClick(R.id.btn_location_detail)
+    public void onDetailClick() {
+        if(mLatitude != -1 && mLongitude != -1) {
+            BaiduMapActivity.actionStart(mContext, mLatitude, mLongitude);
+        } else {
+            UIUtils.createToast(mContext, "Get Coordinate Failed");
         }
     }
 
