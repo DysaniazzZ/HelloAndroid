@@ -1,6 +1,7 @@
 package com.example.dysaniazzz;
 
 import android.app.Application;
+import android.content.Context;
 import android.os.Environment;
 
 import com.baidu.mapapi.SDKInitializer;
@@ -14,6 +15,8 @@ import java.io.PrintWriter;
  * 自定义的Application（注意需要修改清单文件application的name属性）
  */
 public class MyApplication extends Application {
+
+    private static Context mContext;
 
     private Thread.UncaughtExceptionHandler mUncaughtExceptionHandler = new Thread.UncaughtExceptionHandler() {
         @Override
@@ -39,11 +42,23 @@ public class MyApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        mContext = getApplicationContext();
         initializeSdk();
         //捕获全局未处理异常
         Thread.setDefaultUncaughtExceptionHandler(mUncaughtExceptionHandler);
     }
 
+    /**
+     * 获取全局的Context
+     * @return
+     */
+    public static Context getContext() {
+        return mContext;
+    }
+
+    /**
+     * 初始化一些集成的SDK
+     */
     private void initializeSdk() {
         //initialize baidu map
         SDKInitializer.initialize(getApplicationContext());

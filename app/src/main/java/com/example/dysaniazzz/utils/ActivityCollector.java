@@ -25,7 +25,9 @@ public class ActivityCollector {
     public List<Activity> mActivities = new ArrayList<>();
     
     public void addActivity(Activity activity) {
-        mActivities.add(activity);
+        if(!mActivities.contains(activity)) {
+            mActivities.add(activity);
+        }
     }
     
     public void removeActivity(Activity activity) {
