@@ -84,6 +84,11 @@ public class MainActivity extends BaseActivity {
     public void onBaidumapClick() {
         BaiduMapActivity.actionStart(mContext, -1, -1);
     }
+
+    @OnClick(R.id.btn_main_to_sensor)
+    public void onSensorClick() {
+        SensorActivity.actionStart(mContext);
+    }
     
     @OnClick(R.id.btn_main_force_offline)
     public void onOfflineClick() {
