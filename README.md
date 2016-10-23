@@ -1,3 +1,3 @@
 # HelloAndroid
-* A primary application
-* The tutorial of Android
+* A primary tutorial app that uses common APIs.
+* Most codes are from the book of GuoLin's FirstLine.
