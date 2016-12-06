@@ -1,5 +1,4 @@
 apply plugin: 'com.android.application'
-apply plugin: 'android-apt'
 
 android {
     compileSdkVersion 24
@@ -25,13 +24,7 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:24.1.1'
     compile 'com.jakewharton:butterknife:8.4.0'
-    apt 'com.jakewharton:butterknife-compiler:8.4.0'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
     compile 'com.orhanobut:logger:1.15'
     compile 'com.google.code.gson:gson:2.7'
-    compile files('libs/baidumapapi_base_v4_0_0.jar')
-    compile files('libs/baidumapapi_cloud_v4_0_0.jar')
-    compile files('libs/baidumapapi_map_v4_0_0.jar')
-    compile files('libs/baidumapapi_radar_v4_0_0.jar')
-    compile files('libs/baidumapapi_search_v4_0_0.jar')
-    compile files('libs/baidumapapi_util_v4_0_0.jar')
 }
