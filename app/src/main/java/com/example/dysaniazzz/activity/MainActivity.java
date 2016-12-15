@@ -11,7 +11,7 @@ import butterknife.OnClick;
 import butterknife.Unbinder;
 
 /**
- * Created by fengzhenye on 2016/9/8.
+ * Created by DysaniazzZ on 2016/9/8.
  * 主页面
  */
 public class MainActivity extends BaseActivity {
@@ -28,6 +28,11 @@ public class MainActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mUnbinder = ButterKnife.bind(this);
+    }
+
+    @OnClick(R.id.btn_main_to_menu)
+    public void onMenuClick() {
+        MenuActivity.actionStart(mContext);
     }
 
     @OnClick(R.id.btn_main_to_database)
@@ -107,5 +112,4 @@ public class MainActivity extends BaseActivity {
         super.onDestroy();
         mUnbinder.unbind();
     }
-
 }

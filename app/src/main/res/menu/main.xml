@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/to_browser"
+        android:title="Browser"/>
+    <item
+        android:id="@+id/to_dial"
+        android:title="Dial"/>
+
+    <item
+        android:id="@+id/to_dialog"
+        android:title="Dialog"/>
+</menu>

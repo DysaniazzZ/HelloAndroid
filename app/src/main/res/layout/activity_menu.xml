@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <Button
+        android:id="@+id/btn_menu_showProgress"
+        style="@style/primary_button"
+        android:text="Show Progress"/>
+
+    <Button
+        android:id="@+id/btn_menu_showAlertDialog"
+        style="@style/primary_button"
+        android:text="Show Alert Dialog"/>
+
+    <Button
+        android:id="@+id/btn_menu_showProgressDialog"
+        style="@style/primary_button"
+        android:text="Show Progress Dialog"/>
+
+    <ProgressBar
+        android:id="@+id/pb_menu_horizontal_progress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="?android:progressBarStyleHorizontal"
+        android:progressTint="#ff0000"
+        android:progressTintMode="src_atop"
+        android:secondaryProgressTint="#0000ff"
+        android:secondaryProgressTintMode="src_atop"
+        android:progressBackgroundTint="#00ff00"
+        android:progressBackgroundTintMode="src_atop"
+        android:max="100"/>
+
+    <ProgressBar
+        android:id="@+id/pb_menu_normal_progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:indeterminateTint="@color/colorProgress"
+        android:indeterminateTintMode="src_atop"/>
+
+    <!--百分比布局-->
+    <android.support.percent.PercentFrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <View
+            android:layout_gravity="center"
+            app:layout_widthPercent="70%"
+            app:layout_heightPercent="70%"
+            android:background="@color/colorPrimaryDark"/>
+
+        <View
+            android:layout_gravity="center"
+            app:layout_widthPercent="50%"
+            app:layout_heightPercent="50%"
+            android:background="@color/colorPrimary"/>
+
+        <View
+            android:layout_gravity="center"
+            app:layout_widthPercent="30%"
+            app:layout_heightPercent="30%"
+            android:background="@color/colorAccent"/>
+
+    </android.support.percent.PercentFrameLayout>
+</LinearLayout>

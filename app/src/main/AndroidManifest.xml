@@ -1,39 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.dysaniazzz">
-    
-    <!--Permission-->
-    <!--系统级别的对话框-->
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
-    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
-    <!--读取系统联系人-->
-    <uses-permission android:name="android.permission.READ_CONTACTS" />
-    <!--控制手机震动-->
-    <uses-permission android:name="android.permission.VIBRATE" />
-    <!--接收短信-->
-    <uses-permission android:name="android.permission.RECEIVE_SMS" />
-    <!--发送短信-->
-    <uses-permission android:name="android.permission.SEND_SMS" />
-    <!--向SD卡中写数据-->
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <!--访问网络-->
-    <uses-permission android:name="android.permission.INTERNET" />
-    <!--GPS定位-->
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+          package="com.example.dysaniazzz">
 
-    <!--Baidu Map Start -->
+    <!-- Permission -->
+    <!-- 系统级别的对话框 -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <!-- 读取系统联系人 -->
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <!-- 控制手机震动 -->
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <!-- 接收短信 -->
+    <uses-permission android:name="android.permission.RECEIVE_SMS"/>
+    <!-- 发送短信 -->
+    <uses-permission android:name="android.permission.SEND_SMS"/>
+    <!-- 向SD卡中写数据 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <!-- 访问网络 -->
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <!-- GPS定位 -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+
+    <!-- Baidu Map Start -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS" />
+    <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS"/>
     <uses-permission android:name="android.permission.WAKE_LOCK"/>
-    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
-    <!--Baidu Map Stop -->
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
 
+    <!-- Baidu Map Stop -->
     <application
         android:name=".MyApplication"
         android:allowBackup="true"
@@ -42,74 +42,79 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <!--配置开发者Key-->
+        <!-- 配置开发者Key -->
         <meta-data
             android:name="com.baidu.lbsapi.API_KEY"
-            android:value="HGf1ycGxjAV1D4tGGLEaPpz1XYRcXUMF" />
+            android:value="HGf1ycGxjAV1D4tGGLEaPpz1XYRcXUMF"/>
 
-        <!--Activity-->
-        <!--登录页面-->
+        <!-- Activity -->
+        <!-- 登录页面 -->
         <activity android:name=".activity.LoginActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <!--主页面-->
+        <!-- 主页面 -->
         <activity android:name=".activity.MainActivity"/>
-        <!--数据库操作页面-->
+        <!-- 菜单页面 -->
+        <activity android:name=".activity.MenuActivity"/>
+        <!--对话框页面-->
+        <activity android:name=".activity.DialogActivity"
+            android:theme="@style/Theme.AppCompat.Dialog"/>
+        <!-- 数据库操作页面 -->
         <activity android:name=".activity.DatabaseActivity"/>
-        <!--联系人页面-->
+        <!-- 联系人页面 -->
         <activity android:name=".activity.ContactsActivity"/>
-        <!--通知栏页面-->
+        <!-- 通知栏页面 -->
         <activity android:name=".activity.NotificationActivity"/>
-        <!--短信页面-->
+        <!-- 短信页面 -->
         <activity android:name=".activity.SmsActivity"/>
-        <!--选择相片页面-->
+        <!-- 选择相片页面 -->
         <activity android:name=".activity.ChoosePicActivity"/>
-        <!--音频播放页面-->
+        <!-- 音频播放页面 -->
         <activity android:name=".activity.AudioPlayActivity"/>
-        <!--视频播放页面-->
+        <!-- 视频播放页面 -->
         <activity android:name=".activity.VideoPlayActivity"/>
-        <!--操作服务页面-->
+        <!-- 操作服务页面 -->
         <activity android:name=".activity.ServiceActivity"/>
-        <!--展示网页页面-->
+        <!-- 展示网页页面 -->
         <activity android:name=".activity.WebActivity"/>
-        <!--获取定位页面-->
+        <!-- 获取定位页面 -->
         <activity android:name=".activity.LocationActivity"/>
-        <!--百度地图页面-->
+        <!-- 百度地图页面 -->
         <activity android:name=".activity.BaiduMapActivity"/>
-        <!--传感器页面-->
+        <!-- 传感器页面 -->
         <activity android:name=".activity.SensorActivity"/>
-        <!--指南针页面-->
+        <!-- 指南针页面 -->
         <activity android:name=".activity.CompassActivity"/>
-        
-        <!--Receiver-->
-        <!--强制下线的Receiver-->
+
+        <!-- Receiver -->
+        <!-- 强制下线的Receiver -->
         <receiver android:name=".receiver.ForceOfflineReceiver">
             <intent-filter>
-                <!--自定义的action-->
+
+                <!-- 自定义的action -->
                 <action android:name="com.example.dysaniazzz.FORCE_OFFLINE"/>
             </intent-filter>
         </receiver>
-        <!--定时器的Receiver-->
+        <!-- 定时器的Receiver -->
         <receiver android:name=".receiver.AlarmReceiver"/>
 
-        <!--Service-->
-        <!--MyService-->
+        <!-- Service -->
+        <!-- MyService -->
         <service android:name=".service.DemoService"/>
-        <!--LongRunningService-->
+        <!-- LongRunningService -->
         <service android:name=".service.LongRunningService"/>
 
-        <!--Provider-->
-        <!--自定义的数据库Provider-->
+        <!-- Provider -->
+        <!-- 自定义的数据库Provider -->
         <provider
             android:name=".provider.DatabaseProvider"
             android:authorities="com.example.dysaniazzz.provider"
             android:exported="true">
         </provider>
-        
     </application>
 
 </manifest>
