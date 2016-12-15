@@ -5,7 +5,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 /**
- * Created by Dysania on 2016/9/11.
+ * Created by DysaniazzZ on 2016/9/11.
  * 数据库的操作类
  */
 public class MyDatabaseHelper extends SQLiteOpenHelper {
@@ -29,11 +29,10 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
             + "category_code integer)";
 
     /**
-     *
      * @param context
-     * @param name      数据库名字
-     * @param factory   Cursor
-     * @param version   数据库版本
+     * @param name    数据库名字
+     * @param factory Cursor
+     * @param version 数据库版本
      */
     public MyDatabaseHelper(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
         super(context, name, factory, version);
@@ -42,6 +41,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
 
     /**
      * 创建数据库
+     *
      * @param db
      */
     @Override
@@ -53,6 +53,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
 
     /**
      * 更新数据库
+     *
      * @param db
      * @param oldVersion
      * @param newVersion
@@ -79,5 +80,4 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
             default:
         }
     }
-
 }

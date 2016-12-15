@@ -7,7 +7,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 /**
- * Created by Dysania on 2016/9/23.
+ * Created by DysaniazzZ on 2016/9/23.
  * 网络请求的工具类
  */
 public class HttpUtils {
@@ -25,7 +25,7 @@ public class HttpUtils {
                     connection.setConnectTimeout(8000);
                     connection.setReadTimeout(8000);
                     //添加API KEY到HTTP请求头
-                    connection.setRequestProperty("apikey",  "1ace5a5fc9b05ec68706295e075bd5a3");
+                    connection.setRequestProperty("apikey", "1ace5a5fc9b05ec68706295e075bd5a3");
                     connection.setDoInput(true);
                     connection.setDoOutput(true);
                     //对获取到的输入流进行读取
@@ -59,7 +59,7 @@ public class HttpUtils {
      */
     public interface HttpCallbackListener {
         void onFinish(String response);
+
         void onError(Exception e);
     }
-
 }

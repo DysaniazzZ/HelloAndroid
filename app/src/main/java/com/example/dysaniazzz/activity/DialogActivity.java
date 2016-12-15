@@ -4,6 +4,9 @@ import android.os.Bundle;
 
 import com.example.dysaniazzz.R;
 
+/**
+ * 对话框页面
+ */
 public class DialogActivity extends BaseActivity {
 
     @Override

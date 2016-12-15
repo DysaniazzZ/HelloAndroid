@@ -11,7 +11,7 @@ import java.io.File;
 import java.io.PrintWriter;
 
 /**
- * Created by Dysania on 2016/9/23.
+ * Created by DysaniazzZ on 2016/9/23.
  * 自定义的Application（注意需要修改清单文件application的name属性）
  */
 public class MyApplication extends Application {
@@ -50,6 +50,7 @@ public class MyApplication extends Application {
 
     /**
      * 获取全局的Context
+     *
      * @return
      */
     public static Context getContext() {
@@ -63,5 +64,4 @@ public class MyApplication extends Application {
         //initialize baidu map
         SDKInitializer.initialize(getApplicationContext());
     }
-
 }

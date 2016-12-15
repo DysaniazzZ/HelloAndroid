@@ -28,7 +28,7 @@ import butterknife.OnClick;
 import butterknife.Unbinder;
 
 /**
- * Created by Dysania on 2016/9/23.
+ * Created by DysaniazzZ on 2016/9/23.
  * 获取定位页面
  */
 public class LocationActivity extends BaseActivity {
@@ -145,12 +145,12 @@ public class LocationActivity extends BaseActivity {
         HttpUtils.sendHttpRequest(url.toString(), new HttpUtils.HttpCallbackListener() {
             @Override
             public void onFinish(String response) {
-                if(!TextUtils.isEmpty(response)) {
+                if (!TextUtils.isEmpty(response)) {
                     LocationResult locationResult = new Gson().fromJson(response, LocationResult.class);
-                    if(locationResult != null && locationResult.result != null) {
+                    if (locationResult != null && locationResult.result != null) {
                         List<LocationResult.District> districts = locationResult.result;
                         StringBuilder stringBuilder = new StringBuilder();
-                        for(LocationResult.District district : districts) {
+                        for (LocationResult.District district : districts) {
                             stringBuilder.append(district.DistrictName);
                             stringBuilder.append("\n");
                         }
@@ -161,6 +161,7 @@ public class LocationActivity extends BaseActivity {
                     }
                 }
             }
+
             @Override
             public void onError(Exception e) {
                 Logger.d(e.getMessage());
@@ -183,7 +184,7 @@ public class LocationActivity extends BaseActivity {
 
     @OnClick(R.id.btn_location_detail)
     public void onDetailClick() {
-        if(mLatitude != -1 && mLongitude != -1) {
+        if (mLatitude != -1 && mLongitude != -1) {
             BaiduMapActivity.actionStart(mContext, mLatitude, mLongitude);
             finish();
         } else {
@@ -208,5 +209,4 @@ public class LocationActivity extends BaseActivity {
         }
         mUnbinder.unbind();
     }
-
 }

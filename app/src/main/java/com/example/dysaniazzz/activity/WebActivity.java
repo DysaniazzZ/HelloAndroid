@@ -108,5 +108,4 @@ public class WebActivity extends BaseActivity {
         super.onDestroy();
         mUnbinder.unbind();
     }
-
 }

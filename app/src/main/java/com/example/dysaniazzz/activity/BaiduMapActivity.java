@@ -18,7 +18,7 @@ import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
 /**
- * Created by Dysania on 2016/9/23.
+ * Created by DysaniazzZ on 2016/9/23.
  * 百度地图页面
  */
 public class BaiduMapActivity extends BaseActivity {
@@ -74,7 +74,7 @@ public class BaiduMapActivity extends BaseActivity {
         //mMvBaidumapMapview.setLogoPosition(LogoPosition.logoPostionRightTop);
 
         //地图标注
-        if(mLatitude != -1 && mLongitude != -1) {
+        if (mLatitude != -1 && mLongitude != -1) {
             //定义Maker图标
             LatLng point = new LatLng(mLatitude, mLongitude);
             //构建Maker图标
@@ -107,5 +107,4 @@ public class BaiduMapActivity extends BaseActivity {
         mMvBaidumapMapview.onDestroy();
         mUnbinder.unbind();
     }
-
 }

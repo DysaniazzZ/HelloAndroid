@@ -11,7 +11,7 @@ import com.example.dysaniazzz.activity.LoginActivity;
 import com.example.dysaniazzz.utils.ActivityCollector;
 
 /**
- * Created by fengzhenye on 2016/9/8.
+ * Created by DysaniazzZ on 2016/9/8.
  * 接收强制下线的广播
  */
 public class ForceOfflineReceiver extends BroadcastReceiver {

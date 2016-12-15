@@ -23,7 +23,7 @@ import butterknife.OnClick;
 import butterknife.Unbinder;
 
 /**
- * Created by Dysania on 2016/9/19.
+ * Created by DysaniazzZ on 2016/9/19.
  * 选择照片页面
  */
 public class ChoosePicActivity extends BaseActivity implements ChoosePicPopView.IChoosePicListener {
@@ -102,23 +102,23 @@ public class ChoosePicActivity extends BaseActivity implements ChoosePicPopView.
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         switch (requestCode) {
             case CAMERA_REQUEST_CODE:
-                if(resultCode == RESULT_OK) {
+                if (resultCode == RESULT_OK) {
                     cropPhoto(mTakePhotoUri, mCropPhotoUri, CROP_REQUEST_CODE);
                 } else {
                     UIUtils.createToast(mContext, "Take Photo Failed");
                 }
                 break;
             case GALLERY_REQUEST_CODE:
-                if(resultCode == RESULT_OK) {
+                if (resultCode == RESULT_OK) {
                     cropPhoto(data.getData(), mCropPhotoUri, CROP_REQUEST_CODE);
                 } else {
                     UIUtils.createToast(mContext, "From Album Failed");
                 }
                 break;
             case CROP_REQUEST_CODE:
-                if(resultCode == RESULT_OK) {
+                if (resultCode == RESULT_OK) {
                     Bitmap bitmap = decodeUriAsBitmap(mContext, mCropPhotoUri);
-                    if(bitmap != null) {
+                    if (bitmap != null) {
                         mIvChoosepicPicture.setImageBitmap(bitmap);
                     }
                 } else {
@@ -132,6 +132,7 @@ public class ChoosePicActivity extends BaseActivity implements ChoosePicPopView.
 
     /**
      * 剪裁图片
+     *
      * @param orgUri
      * @param desUri
      * @param requestCode
@@ -156,6 +157,7 @@ public class ChoosePicActivity extends BaseActivity implements ChoosePicPopView.
 
     /**
      * 由Uri解析成Bitmap对象
+     *
      * @param context
      * @param uri
      * @return
@@ -175,7 +177,7 @@ public class ChoosePicActivity extends BaseActivity implements ChoosePicPopView.
             如果下载到的服务器的数据还是以Base64Coder的形式的话，可以用以下方式转换为我们可以用的图片类型就OK啦
             Bitmap dBitmap = BitmapFactory.decodeFile(tp);
             Drawable drawable = new BitmapDrawable(dBitmap);*/
-        } catch(Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
             return bitmap;
         }
@@ -186,10 +188,9 @@ public class ChoosePicActivity extends BaseActivity implements ChoosePicPopView.
     protected void onDestroy() {
         super.onDestroy();
         //防止android.view.WindowLeaked
-        if(mChoosePicPopView != null) {
+        if (mChoosePicPopView != null) {
             mChoosePicPopView.dismiss();
         }
         mUnbinder.unbind();
     }
-
 }

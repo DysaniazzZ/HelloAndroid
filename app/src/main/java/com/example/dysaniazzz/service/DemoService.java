@@ -9,7 +9,7 @@ import android.support.annotation.Nullable;
 import com.orhanobut.logger.Logger;
 
 /**
- * Created by Dysania on 2016/9/22.
+ * Created by DysaniazzZ on 2016/9/22.
  * 用来演示服务的生命周期
  */
 public class DemoService extends Service {

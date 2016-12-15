@@ -17,11 +17,11 @@ import butterknife.OnClick;
 import butterknife.Unbinder;
 
 /**
- * Created by fengzhenye on 2016/9/12.
+ * Created by DysaniazzZ on 2016/9/12.
  * 数据库操作页面(CRUD)
  */
 public class DatabaseActivity extends BaseActivity {
-    
+
     @BindView(R.id.tv_database_info)
     TextView mTvDatabaseInfo;
 
@@ -77,12 +77,12 @@ public class DatabaseActivity extends BaseActivity {
         values.put("price", 10.99);
         mDatabase.update("Book", values, "name = ?", new String[]{"The Da Vinci Code"});   //arg2和arg3用于去约束更新某一行或某几行中的数据，不指定则默认更新所有行
     }
-    
+
     @OnClick(R.id.btn_database_delete_data)
     public void onDeleteClick() {
         mDatabase.delete("Book", "pages > ?", new String[]{"500"});
     }
-    
+
     @OnClick(R.id.btn_database_query_data)
     public void onQueryClick() {
         //arg0:table            指定查询的表名
@@ -109,21 +109,21 @@ public class DatabaseActivity extends BaseActivity {
         mTvDatabaseInfo.setText(sb.toString());
         cursor.close();
     }
-    
+
     //使用SQL语句操作数据库
     @OnClick(R.id.btn_database_sql_insert)
     public void onSQLInsertClick() {
-        mDatabase.execSQL("insert into Book (name, author, pages, price) values(?, ?, ?, ?)", new String[] { "解忧杂货店", "东野圭吾", "291", "39.50" });
+        mDatabase.execSQL("insert into Book (name, author, pages, price) values(?, ?, ?, ?)", new String[]{"解忧杂货店", "东野圭吾", "291", "39.50"});
     }
 
     @OnClick(R.id.btn_database_sql_update)
     public void onSQLUpdateClick() {
-        mDatabase.execSQL("update Book set price = ? where name = ?", new String[] { "0.00", "解忧杂货店" });
+        mDatabase.execSQL("update Book set price = ? where name = ?", new String[]{"0.00", "解忧杂货店"});
     }
 
     @OnClick(R.id.btn_database_sql_delete)
     public void onSQLDeleteClick() {
-        mDatabase.execSQL("delete from Book where pages > ?", new String[] { "200" });
+        mDatabase.execSQL("delete from Book where pages > ?", new String[]{"200"});
     }
 
     @OnClick(R.id.btn_database_sql_query)
@@ -151,7 +151,7 @@ public class DatabaseActivity extends BaseActivity {
         mDatabase.beginTransaction();               //开启事务
         try {
             mDatabase.delete("Book", null, null);
-            if(true) {
+            if (true) {
                 //在这里手动抛出一个异常，让事务失败
                 throw new NullPointerException("Custom Exception");
             }

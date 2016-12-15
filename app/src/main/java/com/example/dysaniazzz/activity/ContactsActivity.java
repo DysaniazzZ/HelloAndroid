@@ -18,7 +18,7 @@ import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
 /**
- * Created by Dysania on 2016/9/18.
+ * Created by DysaniazzZ on 2016/9/18.
  * 联系人页面
  */
 public class ContactsActivity extends BaseActivity {
@@ -54,7 +54,7 @@ public class ContactsActivity extends BaseActivity {
         try {
             //查询联系人数据
             cursor = getContentResolver().query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI, null, null, null, null);
-            while(cursor.moveToNext()) {
+            while (cursor.moveToNext()) {
                 //获取联系人姓名
                 String displayName = cursor.getString(cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME));
                 //获取联系人手机号
@@ -64,7 +64,7 @@ public class ContactsActivity extends BaseActivity {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            if(cursor != null) {
+            if (cursor != null) {
                 cursor.close();
             }
         }

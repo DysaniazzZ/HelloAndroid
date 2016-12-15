@@ -7,7 +7,7 @@ import android.content.Intent;
 import com.example.dysaniazzz.service.LongRunningService;
 
 /**
- * Created by Dysania on 2016/9/22.
+ * Created by DysaniazzZ on 2016/9/22.
  * 接收定时器发送的广播
  */
 public class AlarmReceiver extends BroadcastReceiver {

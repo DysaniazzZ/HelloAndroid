@@ -16,7 +16,7 @@ import butterknife.OnClick;
 import butterknife.Unbinder;
 
 /**
- * Created by Dysania on 2016/9/22.
+ * Created by DysaniazzZ on 2016/9/22.
  * 视频播放页面
  */
 public class VideoPlayActivity extends BaseActivity {
@@ -47,21 +47,21 @@ public class VideoPlayActivity extends BaseActivity {
 
     @OnClick(R.id.btn_videoplay_play)
     public void onPlayClick() {
-        if(!mVvVideoPlayView.isPlaying()) {
+        if (!mVvVideoPlayView.isPlaying()) {
             mVvVideoPlayView.start();   //开始播放
         }
     }
 
     @OnClick(R.id.btn_videoplay_pause)
     public void onPauseClick() {
-        if(mVvVideoPlayView.isPlaying()) {
+        if (mVvVideoPlayView.isPlaying()) {
             mVvVideoPlayView.pause();   //暂停播放
         }
     }
 
     @OnClick(R.id.btn_videoplay_replay)
     public void onReplayClick() {
-        if(mVvVideoPlayView.isPlaying()) {
+        if (mVvVideoPlayView.isPlaying()) {
             mVvVideoPlayView.resume();  //重新播放
         }
     }
@@ -70,10 +70,9 @@ public class VideoPlayActivity extends BaseActivity {
     protected void onDestroy() {
         super.onDestroy();
         //释放相关资源
-        if(mVvVideoPlayView != null) {
+        if (mVvVideoPlayView != null) {
             mVvVideoPlayView.suspend();
         }
         mUnbinder.unbind();
     }
-
 }

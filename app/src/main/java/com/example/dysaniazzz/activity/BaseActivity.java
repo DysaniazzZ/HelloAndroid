@@ -10,11 +10,11 @@ import com.orhanobut.logger.LogLevel;
 import com.orhanobut.logger.Logger;
 
 /**
- * Created by fengzhenye on 2016/9/5.
+ * Created by DysaniazzZ on 2016/9/5.
  * 所有Activity的基类
  */
 public class BaseActivity extends AppCompatActivity {
-    
+
     public Context mContext;
     public static final String TAG = "BaseActivity";
 
@@ -23,13 +23,13 @@ public class BaseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         init();
     }
-    
+
     private void init() {
         mContext = this;
         ActivityCollector.getInstance().addActivity(this);
 
         //init the log tag and don't show log for the release versions
-        if(BuildConfig.DEBUG) {
+        if (BuildConfig.DEBUG) {
             Logger.init(TAG).logLevel(LogLevel.FULL);   //for debug mode, print all log
         } else {
             Logger.init().logLevel(LogLevel.NONE);      //fot release mode, remove any log

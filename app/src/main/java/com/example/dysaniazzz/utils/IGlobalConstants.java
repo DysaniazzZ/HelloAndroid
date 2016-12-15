@@ -1,7 +1,7 @@
 package com.example.dysaniazzz.utils;
 
 /**
- * Created by Dysania on 2016/9/11.
+ * Created by DysaniazzZ on 2016/9/11.
  * 全局的常量
  */
 public interface IGlobalConstants {

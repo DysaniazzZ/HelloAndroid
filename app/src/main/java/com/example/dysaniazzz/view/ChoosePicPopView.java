@@ -17,7 +17,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 /**
- * Created by Dysania on 2016/9/21.
+ * Created by DysaniazzZ on 2016/9/21.
  * 选择照片的自定义PopupWindow
  */
 public class ChoosePicPopView extends PopupWindow {
@@ -51,21 +51,21 @@ public class ChoosePicPopView extends PopupWindow {
 
     @OnClick(R.id.btn_choosepic_takephoto)
     public void onTakephotoClick() {
-        if(mIChoosePicListener != null) {
+        if (mIChoosePicListener != null) {
             mIChoosePicListener.onChose(TAKE_PHOTO);
         }
     }
 
     @OnClick(R.id.btn_choosepic_fromalbum)
     public void onFromalbumClick() {
-        if(mIChoosePicListener != null) {
+        if (mIChoosePicListener != null) {
             mIChoosePicListener.onChose(FROM_ALBUM);
         }
     }
 
     @OnClick(R.id.btn_choosepic_cancel)
     public void onCancelClick() {
-        if(mIChoosePicListener != null) {
+        if (mIChoosePicListener != null) {
             mIChoosePicListener.onChose(CANCEL);
         }
     }
@@ -79,6 +79,7 @@ public class ChoosePicPopView extends PopupWindow {
 
     /**
      * 设置接口回调监听
+     *
      * @param iChoosePicListener
      */
     public void setIChoosePicListener(IChoosePicListener iChoosePicListener) {
@@ -86,7 +87,7 @@ public class ChoosePicPopView extends PopupWindow {
     }
 
     public void show(Activity activity) {
-        if(mPopupWindow == null) {
+        if (mPopupWindow == null) {
             mPopupWindow = new PopupWindow(mMenuView, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
             //注意：必须要设置背景，播放动画有一个前提，就是窗体必须有背景
             mPopupWindow.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
@@ -100,10 +101,9 @@ public class ChoosePicPopView extends PopupWindow {
     }
 
     public void dismiss() {
-        if(mPopupWindow != null && mPopupWindow.isShowing()) {
+        if (mPopupWindow != null && mPopupWindow.isShowing()) {
             mPopupWindow.dismiss();
             mPopupWindow = null;
         }
     }
-
 }

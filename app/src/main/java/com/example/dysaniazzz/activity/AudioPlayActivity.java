@@ -15,7 +15,7 @@ import butterknife.OnClick;
 import butterknife.Unbinder;
 
 /**
- * Created by Dysania on 2016/9/22.
+ * Created by DysaniazzZ on 2016/9/22.
  * 音频播放页面
  */
 public class AudioPlayActivity extends BaseActivity {
@@ -49,14 +49,14 @@ public class AudioPlayActivity extends BaseActivity {
 
     @OnClick(R.id.btn_audioplay_play)
     public void onPlayClick() {
-        if(!mMediaPlayer.isPlaying()) {
+        if (!mMediaPlayer.isPlaying()) {
             mMediaPlayer.start();   //开始播放
         }
     }
 
     @OnClick(R.id.btn_audioplay_pause)
     public void onPauseClick() {
-        if(mMediaPlayer.isPlaying()) {
+        if (mMediaPlayer.isPlaying()) {
             mMediaPlayer.pause();   //暂停播放
         }
     }
@@ -64,8 +64,8 @@ public class AudioPlayActivity extends BaseActivity {
     @OnClick(R.id.btn_audioplay_stop)
     public void onStopClick() {
         //if(mMediaPlayer.isPlaying()) {
-            mMediaPlayer.reset();    //停止播放
-            initMediaPlayer();
+        mMediaPlayer.reset();    //停止播放
+        initMediaPlayer();
         //}
     }
 
@@ -73,11 +73,10 @@ public class AudioPlayActivity extends BaseActivity {
     protected void onDestroy() {
         super.onDestroy();
         //释放相关资源
-        if(mMediaPlayer != null) {
+        if (mMediaPlayer != null) {
             mMediaPlayer.stop();
             mMediaPlayer.release();
         }
         mUnbinder.unbind();
     }
-
 }

@@ -6,7 +6,6 @@ import android.app.Service;
 import android.content.Intent;
 import android.os.IBinder;
 import android.os.SystemClock;
-import android.support.annotation.Nullable;
 
 import com.example.dysaniazzz.receiver.AlarmReceiver;
 import com.orhanobut.logger.Logger;
@@ -14,7 +13,7 @@ import com.orhanobut.logger.Logger;
 import java.util.Date;
 
 /**
- * Created by Dysania on 2016/9/22.
+ * Created by DysaniazzZ on 2016/9/22.
  * 可以长期在后台运行的服务
  */
 public class LongRunningService extends Service {
@@ -22,7 +21,6 @@ public class LongRunningService extends Service {
     private AlarmManager mAlarmManager;
     private PendingIntent mOperation;
 
-    @Nullable
     @Override
     public IBinder onBind(Intent intent) {
         return null;
@@ -39,7 +37,7 @@ public class LongRunningService extends Service {
         }).start();
 
         //定时发送广播，开启服务
-        mAlarmManager =  (AlarmManager) getSystemService(ALARM_SERVICE);
+        mAlarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
         int interval = 10 * 1000;
         //开机至今再加上延迟执行的时间
         long triggerAtTime = SystemClock.elapsedRealtime() + interval;
@@ -57,5 +55,4 @@ public class LongRunningService extends Service {
         //取消定时器
         mAlarmManager.cancel(mOperation);
     }
-
 }

@@ -18,7 +18,7 @@ import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
 /**
- * Created by Dysania on 2016/9/24.
+ * Created by DysaniazzZ on 2016/9/24.
  * 指南针页面
  */
 public class CompassActivity extends BaseActivity {
@@ -63,10 +63,10 @@ public class CompassActivity extends BaseActivity {
         @Override
         public void onSensorChanged(SensorEvent event) {
             //判断当前是加速度传感器还是地磁传感器
-            if(event.sensor.getType() == Sensor.TYPE_ACCELEROMETER) {
+            if (event.sensor.getType() == Sensor.TYPE_ACCELEROMETER) {
                 //注意赋值时调用clone()方法
                 accelerometerValues = event.values.clone();
-            } else if(event.sensor.getType() == Sensor.TYPE_MAGNETIC_FIELD) {
+            } else if (event.sensor.getType() == Sensor.TYPE_MAGNETIC_FIELD) {
                 //注意赋值时调用clone()方法
                 magneticValues = event.values.clone();
             }
@@ -78,7 +78,7 @@ public class CompassActivity extends BaseActivity {
             mSensorManager.getOrientation(R, values);
             //values[0]表示手机围绕Z轴旋转的弧度
             //将计算出的角度取反，用于旋转指南针背景图
-            float rotateDegree = -(float)Math.toDegrees(values[0]);
+            float rotateDegree = -(float) Math.toDegrees(values[0]);
             if (Math.abs(rotateDegree - lastRotateDegree) > 1) {
                 RotateAnimation animation = new RotateAnimation(lastRotateDegree, rotateDegree, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
                 animation.setFillAfter(true);
@@ -96,10 +96,9 @@ public class CompassActivity extends BaseActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        if(mSensorManager != null) {
+        if (mSensorManager != null) {
             mSensorManager.unregisterListener(mListener);
         }
         mUnbinder.unbind();
     }
-
 }

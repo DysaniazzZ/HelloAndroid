@@ -21,7 +21,7 @@ import butterknife.OnClick;
 import butterknife.Unbinder;
 
 /**
- * Created by Dysania on 2016/9/19.
+ * Created by DysaniazzZ on 2016/9/19.
  * 短信页面
  */
 public class SmsActivity extends BaseActivity {
@@ -113,7 +113,7 @@ public class SmsActivity extends BaseActivity {
     public void onSendSmsClick() {
         String to = mEtSmsTo.getText().toString();
         String msg = mEtSmsMsg.getText().toString();
-        if(!TextUtils.isEmpty(to) && !TextUtils.isEmpty(msg)) {
+        if (!TextUtils.isEmpty(to) && !TextUtils.isEmpty(msg)) {
             SmsManager smsManager = SmsManager.getDefault();
             Intent sentIntent = new Intent("SENT_SMS_ACTION");
             PendingIntent pi = PendingIntent.getBroadcast(mContext, 0, sentIntent, 0);

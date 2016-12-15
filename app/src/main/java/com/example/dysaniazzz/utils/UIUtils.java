@@ -13,15 +13,16 @@ import android.util.TypedValue;
 import android.widget.Toast;
 
 /**
- * Created by fengzhenye on 2016/9/8.
+ * Created by DysaniazzZ on 2016/9/8.
  * 关于UI操作的工具类
  */
 public class UIUtils {
-    
+
     private static Toast mToast = null;
 
     /**
      * 创建Toast并显示
+     *
      * @param context
      * @param msg
      */
@@ -36,8 +37,9 @@ public class UIUtils {
 
     /**
      * 创建Toast并显示
+     *
      * @param context
-     * @param strId strings里的字符串id
+     * @param strId   strings里的字符串id
      */
     public static void createToast(Context context, int strId) {
         if (context == null) {
@@ -48,6 +50,7 @@ public class UIUtils {
 
     /**
      * dp转成px的方法
+     *
      * @param v
      * @return
      */
@@ -57,7 +60,8 @@ public class UIUtils {
     }
 
     /**
-     *sp转成px的方法
+     * sp转成px的方法
+     *
      * @param v
      * @return
      */
@@ -68,6 +72,7 @@ public class UIUtils {
 
     /**
      * 获取圆形图片
+     *
      * @param bitmap
      * @return
      */
@@ -105,5 +110,4 @@ public class UIUtils {
         canvas.drawBitmap(bitmap, rect, rect, paint);
         return output;
     }
-
 }

@@ -18,7 +18,7 @@ import butterknife.OnClick;
 import butterknife.Unbinder;
 
 /**
- * Created by fengzhenye on 2016/9/5.
+ * Created by DysaniazzZ on 2016/9/5.
  * 登录页面
  */
 public class LoginActivity extends BaseActivity {
@@ -51,7 +51,7 @@ public class LoginActivity extends BaseActivity {
     private void init() {
         //判断是否保存密码
         boolean isRemember = PreferenceUtils.getBoolean(mContext, IGlobalConstants.REMEMBER_PASSWORD, false);
-        if(isRemember) {
+        if (isRemember) {
             //回显账号和密码
             mAccount = PreferenceUtils.getString(mContext, "account", "");
             mPassword = PreferenceUtils.getString(mContext, "password", "");
@@ -66,18 +66,18 @@ public class LoginActivity extends BaseActivity {
     public void onClick() {
         mAccount = mEtLoginAccount.getText().toString();
         mPassword = mEtLoginPassword.getText().toString();
-        if(TextUtils.isEmpty(mAccount)) {
+        if (TextUtils.isEmpty(mAccount)) {
             UIUtils.createToast(mContext, R.string.login_account_empty);
             return;
         }
-        if(TextUtils.isEmpty(mPassword)) {
+        if (TextUtils.isEmpty(mPassword)) {
             UIUtils.createToast(mContext, R.string.login_password_empty);
             return;
         }
         //TODO 简单实现，初始账号为admin，密码为123456
-        if("admin".equals(mAccount) && "123456".equals(mPassword)) {
+        if ("admin".equals(mAccount) && "123456".equals(mPassword)) {
             //检查CheckBox的选中状态
-            if(mCbLoginRemember.isChecked()) {
+            if (mCbLoginRemember.isChecked()) {
                 PreferenceUtils.putBoolean(mContext, IGlobalConstants.REMEMBER_PASSWORD, true);
                 PreferenceUtils.putString(mContext, "account", mAccount);
                 PreferenceUtils.putString(mContext, "password", mPassword);

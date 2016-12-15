@@ -6,9 +6,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.RequiresApi;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ProgressBar;
@@ -46,7 +44,6 @@ public class MenuActivity extends BaseActivity {
         mUnbinder = ButterKnife.bind(this);
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.M)
     @OnClick(R.id.btn_menu_showProgress)
     public void onShowProgressClick() {
         int progress = mPbMenuHorizontalProgress.getProgress();

@@ -11,7 +11,7 @@ import android.support.annotation.Nullable;
 import com.example.dysaniazzz.database.MyDatabaseHelper;
 
 /**
- * Created by Dysania on 2016/9/18.
+ * Created by DysaniazzZ on 2016/9/18.
  * 自定义的内容提供者，用来共享数据库数据
  */
 public class DatabaseProvider extends ContentProvider {
@@ -37,6 +37,7 @@ public class DatabaseProvider extends ContentProvider {
     /**
      * 初始化内容提供者时调用，通常在这里完成对数据库的创建和升级等操作
      * 只用当ContentResolver尝试访问我们程序中的数据时，内容提供者才会被初始化
+     *
      * @return true表示内容提供者初始化成功，false则表示初始化失败
      */
     @Override
@@ -47,6 +48,7 @@ public class DatabaseProvider extends ContentProvider {
 
     /**
      * 根据传入的内容URI来返回相应的MIME类型
+     *
      * @param uri
      * @return
      */
@@ -73,11 +75,12 @@ public class DatabaseProvider extends ContentProvider {
 
     /**
      * 从内容提供者中查询数据
-     * @param uri 查询哪张表
-     * @param projection 查询哪些列
-     * @param selection 约束查询那些行
+     *
+     * @param uri           查询哪张表
+     * @param projection    查询哪些列
+     * @param selection     约束查询那些行
      * @param selectionArgs 约束查询的占位符填充
-     * @param sortOrder 对结果进行排序
+     * @param sortOrder     对结果进行排序
      * @return 返回带有查询结果的Cursor对象
      */
     @Nullable
@@ -113,7 +116,8 @@ public class DatabaseProvider extends ContentProvider {
 
     /**
      * 向内容提供者添加一条数据
-     * @param uri 确定要添加到的表
+     *
+     * @param uri    确定要添加到的表
      * @param values 待添加的数据保存在values参数中
      * @return 返回一个用于表示这条新纪录的URI
      */
@@ -142,8 +146,9 @@ public class DatabaseProvider extends ContentProvider {
 
     /**
      * 从内容提供者中删除数据
-     * @param uri 确定要删除哪一张表中的数据
-     * @param selection 约束要删除那些行
+     *
+     * @param uri           确定要删除哪一张表中的数据
+     * @param selection     约束要删除那些行
      * @param selectionArgs 约束条件的占位符填充
      * @return 返回受影响的行数
      */
@@ -158,7 +163,7 @@ public class DatabaseProvider extends ContentProvider {
                 break;
             case BOOK_ITEM:
                 String bookId = uri.getPathSegments().get(1);
-                deletedRows = db.delete("Book", "id = ?", new String[] {bookId});
+                deletedRows = db.delete("Book", "id = ?", new String[]{bookId});
                 break;
             case CATEGORY_DIR:
                 deletedRows = db.delete("Category", selection, selectionArgs);
@@ -175,9 +180,10 @@ public class DatabaseProvider extends ContentProvider {
 
     /**
      * 更新内容提供者中已有的数据
-     * @param uri 确定要更新哪一张表中的数据
-     * @param values 新数据保存在values中
-     * @param selection 约束要更新哪些行
+     *
+     * @param uri           确定要更新哪一张表中的数据
+     * @param values        新数据保存在values中
+     * @param selection     约束要更新哪些行
      * @param selectionArgs 约束条件的占位符填充
      * @return 返回受影响的行数
      */
@@ -206,5 +212,4 @@ public class DatabaseProvider extends ContentProvider {
         }
         return updatedRows;
     }
-
 }

@@ -17,7 +17,7 @@ import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
 /**
- * Created by Dysania on 2016/9/24.
+ * Created by DysaniazzZ on 2016/9/24.
  * 传感器页面
  */
 public class SensorActivity extends BaseActivity {
@@ -93,7 +93,7 @@ public class SensorActivity extends BaseActivity {
     protected void onDestroy() {
         super.onDestroy();
         //释放相关资源
-        if(mSensorManager != null) {
+        if (mSensorManager != null) {
             mSensorManager.unregisterListener(mLightListener);
             mSensorManager.unregisterListener(mAccelerometerListener);
         }

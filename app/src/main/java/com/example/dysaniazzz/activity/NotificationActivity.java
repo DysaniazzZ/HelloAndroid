@@ -19,7 +19,7 @@ import butterknife.OnClick;
 import butterknife.Unbinder;
 
 /**
- * Created by Dysania on 2016/9/19.
+ * Created by DysaniazzZ on 2016/9/19.
  * 通知栏页面
  */
 public class NotificationActivity extends BaseActivity {
@@ -83,7 +83,7 @@ public class NotificationActivity extends BaseActivity {
         PendingIntent pendingIntent = PendingIntent.getActivity(mContext, 0, intent, PendingIntent.FLAG_CANCEL_CURRENT);
         builder.setContentIntent(pendingIntent);
         Notification notification = builder.build();
-        manager.notify(NOTIFICATION_ID ++, notification);
+        manager.notify(NOTIFICATION_ID++, notification);
     }
 
     @Override

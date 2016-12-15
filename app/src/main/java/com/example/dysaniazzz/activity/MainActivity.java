@@ -99,7 +99,7 @@ public class MainActivity extends BaseActivity {
     public void onCompassClick() {
         CompassActivity.actionStart(mContext);
     }
-    
+
     @OnClick(R.id.btn_main_force_offline)
     public void onOfflineClick() {
         //发送强制下线的广播
