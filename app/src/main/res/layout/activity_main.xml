@@ -14,6 +14,12 @@
             style="@style/primary_button"
             android:text="MainActivity to MenuActivity"/>
 
+        <!-- RecyclerView页面 -->
+        <Button
+            android:id="@+id/btn_main_to_recyclerview"
+            style="@style/primary_button"
+            android:text="MainActivity to RecyclerViewActivity"/>
+
         <!-- 数据库操作页面 -->
         <Button
             android:id="@+id/btn_main_to_database"

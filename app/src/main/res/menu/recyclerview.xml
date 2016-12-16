@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/make_horizontal"
+        android:title="horizontal"/>
+    <item
+        android:id="@+id/make_vertical"
+        android:title="vertical"/>
+    <item
+        android:id="@+id/make_grid"
+        android:title="grid"/>
+    <item
+        android:id="@+id/make_stagger"
+        android:title="stagger"/>
+</menu>

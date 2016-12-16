@@ -35,6 +35,11 @@ public class MainActivity extends BaseActivity {
         MenuActivity.actionStart(mContext);
     }
 
+    @OnClick(R.id.btn_main_to_recyclerview)
+    public void onRecyclerViewClick() {
+        RecyclerViewActivity.actionStart(mContext);
+    }
+
     @OnClick(R.id.btn_main_to_database)
     public void onDatabaseClick() {
         DatabaseActivity.actionStart(mContext);

@@ -6,7 +6,6 @@
     <item
         android:id="@+id/to_dial"
         android:title="Dial"/>
-
     <item
         android:id="@+id/to_dialog"
         android:title="Dialog"/>
