@@ -20,6 +20,12 @@
             style="@style/primary_button"
             android:text="MainActivity to RecyclerViewActivity"/>
 
+        <!-- 聊天页面 -->
+        <Button
+            android:id="@+id/btn_main_to_chat"
+            style="@style/primary_button"
+            android:text="MainActivity to ChatActivity"/>
+
         <!-- 数据库操作页面 -->
         <Button
             android:id="@+id/btn_main_to_database"

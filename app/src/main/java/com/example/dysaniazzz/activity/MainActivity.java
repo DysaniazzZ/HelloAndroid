@@ -40,6 +40,11 @@ public class MainActivity extends BaseActivity {
         RecyclerViewActivity.actionStart(mContext);
     }
 
+    @OnClick(R.id.btn_main_to_chat)
+    public void onChatClick() {
+        ChatActivity.actionStart(mContext);
+    }
+
     @OnClick(R.id.btn_main_to_database)
     public void onDatabaseClick() {
         DatabaseActivity.actionStart(mContext);
