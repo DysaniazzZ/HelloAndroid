@@ -78,7 +78,7 @@ public class BaiduMapActivity extends BaseActivity {
             //定义Maker图标
             LatLng point = new LatLng(mLatitude, mLongitude);
             //构建Maker图标
-            BitmapDescriptor bitmap = BitmapDescriptorFactory.fromResource(R.mipmap.ic_marka);
+            BitmapDescriptor bitmap = BitmapDescriptorFactory.fromResource(R.drawable.ic_marka);
             //构建MakerOption，用于在地图上添加Maker
             OverlayOptions option = new MarkerOptions().position(point).icon(bitmap);
             //在地图上添加Maker，并显示

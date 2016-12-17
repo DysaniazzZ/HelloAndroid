@@ -84,16 +84,16 @@ public class RecyclerViewActivity extends BaseActivity {
     private void initData(boolean isRandom) {
         mFruitBeanList.clear();
         for (int i = 0; i < 2; i++) {
-            FruitBean apple = new FruitBean(getRandomLengthName("Apple", isRandom), R.mipmap.apple_pic);
-            FruitBean banana = new FruitBean(getRandomLengthName("Banana", isRandom), R.mipmap.banana_pic);
-            FruitBean orange = new FruitBean(getRandomLengthName("Orange", isRandom), R.mipmap.orange_pic);
-            FruitBean watermelon = new FruitBean(getRandomLengthName("Watermelon", isRandom), R.mipmap.watermelon_pic);
-            FruitBean pear = new FruitBean(getRandomLengthName("Pear", isRandom), R.mipmap.pear_pic);
-            FruitBean grape = new FruitBean(getRandomLengthName("Grape", isRandom), R.mipmap.grape_pic);
-            FruitBean pineapple = new FruitBean(getRandomLengthName("Pineapple", isRandom), R.mipmap.pineapple_pic);
-            FruitBean strawberry = new FruitBean(getRandomLengthName("Strawberry", isRandom), R.mipmap.strawberry_pic);
-            FruitBean cherry = new FruitBean(getRandomLengthName("Cherry", isRandom), R.mipmap.cherry_pic);
-            FruitBean mango = new FruitBean(getRandomLengthName("Mango", isRandom), R.mipmap.mango_pic);
+            FruitBean apple = new FruitBean(getRandomLengthName("Apple", isRandom), R.drawable.ic_apple);
+            FruitBean banana = new FruitBean(getRandomLengthName("Banana", isRandom), R.drawable.ic_banana);
+            FruitBean orange = new FruitBean(getRandomLengthName("Orange", isRandom), R.drawable.ic_orange);
+            FruitBean watermelon = new FruitBean(getRandomLengthName("Watermelon", isRandom), R.drawable.ic_watermelon);
+            FruitBean pear = new FruitBean(getRandomLengthName("Pear", isRandom), R.drawable.ic_pear);
+            FruitBean grape = new FruitBean(getRandomLengthName("Grape", isRandom), R.drawable.ic_grape);
+            FruitBean pineapple = new FruitBean(getRandomLengthName("Pineapple", isRandom), R.drawable.ic_pineapple);
+            FruitBean strawberry = new FruitBean(getRandomLengthName("Strawberry", isRandom), R.drawable.ic_strawberry);
+            FruitBean cherry = new FruitBean(getRandomLengthName("Cherry", isRandom), R.drawable.ic_cherry);
+            FruitBean mango = new FruitBean(getRandomLengthName("Mango", isRandom), R.drawable.ic_mango);
             mFruitBeanList.add(apple);
             mFruitBeanList.add(banana);
             mFruitBeanList.add(orange);
