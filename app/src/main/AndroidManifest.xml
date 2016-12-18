@@ -69,6 +69,8 @@
         <activity android:name=".activity.ChatActivity"/>
         <!-- Fragment页面 -->
         <activity android:name=".activity.FragmentActivity"/>
+        <!-- 新闻内容页面 -->
+        <activity android:name=".activity.NewsContentActivity"/>
         <!-- 数据库操作页面 -->
         <activity android:name=".activity.DatabaseActivity"/>
         <!-- 联系人页面 -->
