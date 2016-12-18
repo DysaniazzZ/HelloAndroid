@@ -26,6 +26,12 @@
             style="@style/primary_button"
             android:text="MainActivity to ChatActivity"/>
 
+        <!-- Fragment页面 -->
+        <Button
+            android:id="@+id/btn_main_to_fragment"
+            style="@style/primary_button"
+            android:text="MainActivity to FragmentActivity"/>
+
         <!-- 数据库操作页面 -->
         <Button
             android:id="@+id/btn_main_to_database"

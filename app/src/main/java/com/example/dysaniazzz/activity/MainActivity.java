@@ -45,6 +45,11 @@ public class MainActivity extends BaseActivity {
         ChatActivity.actionStart(mContext);
     }
 
+    @OnClick(R.id.btn_main_to_fragment)
+    public void onFragmentClick() {
+        FragmentActivity.actionStart(mContext);
+    }
+
     @OnClick(R.id.btn_main_to_database)
     public void onDatabaseClick() {
         DatabaseActivity.actionStart(mContext);

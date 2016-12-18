@@ -5,7 +5,9 @@
     <color name="colorAccent">#FF4081</color>
 
     <color name="colorProgress">#32fddf</color>
-
     <color name="colorBackground">#d8e0e8</color>
     <color name="colorWhite">#ffffff</color>
+    <color name="colorGreen">#00ff00</color>
+    <color name="colorYellow">#ffff00</color>
+    <color name="colorBlack">#000000</color>
 </resources>

@@ -60,13 +60,15 @@
         <activity android:name=".activity.MainActivity"/>
         <!-- 菜单页面 -->
         <activity android:name=".activity.MenuActivity"/>
-        <!--对话框页面-->
+        <!-- 对话框页面 -->
         <activity android:name=".activity.DialogActivity"
             android:theme="@style/Theme.AppCompat.Dialog"/>
-        <!--RecyclerView页面-->
+        <!-- RecyclerView页面 -->
         <activity android:name=".activity.RecyclerViewActivity"/>
-        <!--聊天页面-->
+        <!-- 聊天页面 -->
         <activity android:name=".activity.ChatActivity"/>
+        <!-- Fragment页面 -->
+        <activity android:name=".activity.FragmentActivity"/>
         <!-- 数据库操作页面 -->
         <activity android:name=".activity.DatabaseActivity"/>
         <!-- 联系人页面 -->
