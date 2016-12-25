@@ -9,7 +9,7 @@ import android.widget.EditText;
 
 import com.example.dysaniazzz.R;
 import com.example.dysaniazzz.utils.IGlobalConstants;
-import com.example.dysaniazzz.utils.PreferenceUtils;
+import com.example.dysaniazzz.utils.PreferencesUtils;
 import com.example.dysaniazzz.utils.UIUtils;
 
 import butterknife.BindView;
@@ -50,11 +50,11 @@ public class LoginActivity extends BaseActivity {
 
     private void init() {
         //判断是否保存密码
-        boolean isRemember = PreferenceUtils.getBoolean(mContext, IGlobalConstants.REMEMBER_PASSWORD, false);
+        boolean isRemember = PreferencesUtils.getBoolean(mContext, IGlobalConstants.REMEMBER_PASSWORD, false);
         if (isRemember) {
             //回显账号和密码
-            mAccount = PreferenceUtils.getString(mContext, "account", "");
-            mPassword = PreferenceUtils.getString(mContext, "password", "");
+            mAccount = PreferencesUtils.getString(mContext, "account", "");
+            mPassword = PreferencesUtils.getString(mContext, "password", "");
             mEtLoginAccount.setText(mAccount);
             mEtLoginPassword.setText(mPassword);
             //这时的CheckBox为选中状态
@@ -78,11 +78,12 @@ public class LoginActivity extends BaseActivity {
         if ("admin".equals(mAccount) && "123456".equals(mPassword)) {
             //检查CheckBox的选中状态
             if (mCbLoginRemember.isChecked()) {
-                PreferenceUtils.putBoolean(mContext, IGlobalConstants.REMEMBER_PASSWORD, true);
-                PreferenceUtils.putString(mContext, "account", mAccount);
-                PreferenceUtils.putString(mContext, "password", mPassword);
+                PreferencesUtils.putBoolean(mContext, IGlobalConstants.REMEMBER_PASSWORD, true);
+                PreferencesUtils.putString(mContext, "account", mAccount);
+                PreferencesUtils.putString(mContext, "password", mPassword);
             } else {
-                PreferenceUtils.putBoolean(mContext, IGlobalConstants.REMEMBER_PASSWORD, false);
+                PreferencesUtils.clear(mContext);
+                //PreferencesUtils.putBoolean(mContext, IGlobalConstants.REMEMBER_PASSWORD, false);
             }
             MainActivity.actionStart(mContext);
             finish();

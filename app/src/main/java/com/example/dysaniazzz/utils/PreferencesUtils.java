@@ -7,7 +7,7 @@ import android.content.SharedPreferences;
  * Created by DysaniazzZ on 2016/9/10.
  * SharePreferenceUtils的工具类
  */
-public class PreferenceUtils {
+public class PreferencesUtils {
 
     private static SharedPreferences sp;
 
@@ -20,7 +20,7 @@ public class PreferenceUtils {
 
     public static void putBoolean(Context context, String key, boolean value) {
         sp = getSharedPreferences(context);
-        sp.edit().putBoolean(key, value).commit();
+        sp.edit().putBoolean(key, value).apply();
     }
 
     public static boolean getBoolean(Context context, String key, boolean defValue) {
@@ -30,7 +30,7 @@ public class PreferenceUtils {
 
     public static void putString(Context context, String key, String value) {
         sp = getSharedPreferences(context);
-        sp.edit().putString(key, value).commit();
+        sp.edit().putString(key, value).apply();
     }
 
     public static String getString(Context context, String key, String defValue) {
@@ -40,7 +40,7 @@ public class PreferenceUtils {
 
     public static void putInt(Context context, String key, int value) {
         sp = getSharedPreferences(context);
-        sp.edit().putInt(key, value).commit();
+        sp.edit().putInt(key, value).apply();
     }
 
     public static int getInt(Context context, String key, int defValue) {
@@ -50,6 +50,11 @@ public class PreferenceUtils {
 
     public static void remove(Context context, String key) {
         sp = getSharedPreferences(context);
-        sp.edit().remove(key).commit();
+        sp.edit().remove(key).apply();
+    }
+
+    public static void clear(Context context) {
+        sp = getSharedPreferences(context);
+        sp.edit().clear().apply();
     }
 }
