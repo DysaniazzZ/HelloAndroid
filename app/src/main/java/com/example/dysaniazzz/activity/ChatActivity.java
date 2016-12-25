@@ -11,7 +11,16 @@ import android.widget.EditText;
 import com.example.dysaniazzz.R;
 import com.example.dysaniazzz.adapter.MsgAdapter;
 import com.example.dysaniazzz.bean.MsgBean;
+import com.example.dysaniazzz.utils.StreamUtils;
+import com.example.dysaniazzz.utils.UIUtils;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,6 +41,7 @@ public class ChatActivity extends BaseActivity {
     EditText mEtChatInput;
 
     private Unbinder mUnbinder;
+    private String mChatMsg;
     private MsgAdapter mMsgAdapter;
     private List<MsgBean> mMsgBeanList = new ArrayList<>();
 
@@ -56,6 +66,26 @@ public class ChatActivity extends BaseActivity {
         mMsgBeanList.add(msg1);
         mMsgBeanList.add(msg2);
         mMsgBeanList.add(msg3);
+        mChatMsg = load();
+    }
+
+    private String load() {
+        FileInputStream fis = null;
+        BufferedReader br = null;
+        StringBuilder content = new StringBuilder();
+        try {
+            fis = openFileInput("ChatMsg");
+            br = new BufferedReader(new InputStreamReader(fis));
+            String line = "";
+            while ((line = br.readLine()) != null) {
+                content.append(line);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            StreamUtils.endStream(br);
+        }
+        return content.toString();
     }
 
     private void initView() {
@@ -63,6 +93,11 @@ public class ChatActivity extends BaseActivity {
         mRvChatMsg.setLayoutManager(layoutManager);
         mMsgAdapter = new MsgAdapter(mMsgBeanList);
         mRvChatMsg.setAdapter(mMsgAdapter);
+        if (!TextUtils.isEmpty(mChatMsg)) {
+            mEtChatInput.setText(mChatMsg);
+            mEtChatInput.setSelection(mChatMsg.length());
+            UIUtils.createToast(mContext, "Restoring Succeed");
+        }
     }
 
     @OnClick(R.id.btn_chat_send)
@@ -79,7 +114,24 @@ public class ChatActivity extends BaseActivity {
 
     @Override
     protected void onDestroy() {
+        //获取没有发送的内容，并保存到文件中
+        mChatMsg = mEtChatInput.getText().toString();
+        save(mChatMsg);
         mUnbinder.unbind();
         super.onDestroy();
+    }
+
+    private void save(String chatMsg) {
+        FileOutputStream fos = null;
+        BufferedWriter bw = null;
+        try {
+            fos = openFileOutput("ChatMsg", Context.MODE_PRIVATE);
+            bw = new BufferedWriter(new OutputStreamWriter(fos));
+            bw.write(chatMsg);
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            StreamUtils.endStream(bw);
+        }
     }
 }
