@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <!-- 动态注册网络变化监听广播 -->
+    <Button
+        android:id="@+id/btn_broadcast_register_network_receiver"
+        style="@style/primary_button"
+        android:text="Register dynamic receiver for network"/>
+
+    <!-- 注册自定义的本地广播 -->
+    <Button
+        android:id="@+id/btn_broadcast_send_local_broadcast"
+        style="@style/primary_button"
+        android:text="Send local custom broadcast"/>
+
+    <!-- 发送强制下线广播 -->
+    <Button
+        android:id="@+id/btn_broadcast_force_offline"
+        style="@style/primary_button"
+        android:text="Send force offline broadcast"/>
+
+</LinearLayout>

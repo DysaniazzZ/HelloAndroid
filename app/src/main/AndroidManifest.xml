@@ -3,9 +3,11 @@
           package="com.example.dysaniazzz">
 
     <!-- Permission -->
+    <!-- 访问系统的网络状态 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <!-- 接收开机启动广播 -->
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
     <!-- 系统级别的对话框 -->
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
     <!-- 读取系统联系人 -->
     <uses-permission android:name="android.permission.READ_CONTACTS"/>
@@ -21,6 +23,7 @@
     <uses-permission android:name="android.permission.INTERNET"/>
     <!-- GPS定位 -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
 
     <!-- Baidu Map Start -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
@@ -52,7 +55,6 @@
         <activity android:name=".activity.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
-
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
@@ -61,7 +63,8 @@
         <!-- 菜单页面 -->
         <activity android:name=".activity.MenuActivity"/>
         <!-- 对话框页面 -->
-        <activity android:name=".activity.DialogActivity"
+        <activity
+            android:name=".activity.DialogActivity"
             android:theme="@style/Theme.AppCompat.Dialog"/>
         <!-- RecyclerView页面 -->
         <activity android:name=".activity.RecyclerViewActivity"/>
@@ -71,6 +74,8 @@
         <activity android:name=".activity.FragmentActivity"/>
         <!-- 新闻内容页面 -->
         <activity android:name=".activity.NewsContentActivity"/>
+        <!-- 广播接收者页面 -->
+        <activity android:name=".activity.BroadcastActivity"/>
         <!-- 数据库操作页面 -->
         <activity android:name=".activity.DatabaseActivity"/>
         <!-- 联系人页面 -->
@@ -99,12 +104,13 @@
         <activity android:name=".activity.CompassActivity"/>
 
         <!-- Receiver -->
-        <!-- 强制下线的Receiver -->
-        <receiver android:name=".receiver.ForceOfflineReceiver">
+        <!-- 开机启动的Receiver，这个广播已经被好多定制ROM屏蔽掉了 -->
+        <receiver
+            android:name=".receiver.BootCompleteReceiver"
+            android:enabled="true"
+            android:exported="true">
             <intent-filter>
-
-                <!-- 自定义的action -->
-                <action android:name="com.example.dysaniazzz.FORCE_OFFLINE"/>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
             </intent-filter>
         </receiver>
         <!-- 定时器的Receiver -->

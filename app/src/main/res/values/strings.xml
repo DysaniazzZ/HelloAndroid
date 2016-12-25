@@ -5,8 +5,9 @@
     <string name="login_account_empty">account can\'t be empty</string><!-- 注意 ' 前面要加 \ -->
     <string name="login_password_empty">password can\'t be empty</string>
     <string name="login_account_password_error">account or password is invalid</string>
-    <string name="login_account_hint">input your account</string>
-    <string name="login_password_hint">input your password</string>
+    <string name="login_account_hint">Account</string>
+    <string name="login_password_hint">Password</string>
     <string name="login_remember_hint">remember password</string>
+    <string name="login_login_text">Login</string>
 
 </resources>

@@ -44,7 +44,7 @@ public class MenuActivity extends BaseActivity {
         mUnbinder = ButterKnife.bind(this);
     }
 
-    @OnClick(R.id.btn_menu_showProgress)
+    @OnClick(R.id.btn_menu_changeProgress)
     public void onShowProgressClick() {
         int progress = mPbMenuHorizontalProgress.getProgress();
         int secondProgress = mPbMenuHorizontalProgress.getSecondaryProgress();

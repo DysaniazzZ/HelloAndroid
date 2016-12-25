@@ -50,6 +50,11 @@ public class MainActivity extends BaseActivity {
         FragmentActivity.actionStart(mContext);
     }
 
+    @OnClick(R.id.btn_main_to_broadcast)
+    public void onBroadcastClick() {
+        BroadcastActivity.actionStart(mContext);
+    }
+
     @OnClick(R.id.btn_main_to_database)
     public void onDatabaseClick() {
         DatabaseActivity.actionStart(mContext);
@@ -115,16 +120,9 @@ public class MainActivity extends BaseActivity {
         CompassActivity.actionStart(mContext);
     }
 
-    @OnClick(R.id.btn_main_force_offline)
-    public void onOfflineClick() {
-        //发送强制下线的广播
-        Intent intent = new Intent("com.example.dysaniazzz.FORCE_OFFLINE");
-        sendBroadcast(intent);
-    }
-
     @Override
     protected void onDestroy() {
-        super.onDestroy();
         mUnbinder.unbind();
+        super.onDestroy();
     }
 }

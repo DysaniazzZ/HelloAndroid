@@ -23,7 +23,7 @@ import butterknife.Unbinder;
  */
 public class LoginActivity extends BaseActivity {
 
-    @BindView(R.id.et_loign_account)
+    @BindView(R.id.et_login_account)
     EditText mEtLoginAccount;
     @BindView(R.id.et_login_password)
     EditText mEtLoginPassword;
@@ -74,7 +74,7 @@ public class LoginActivity extends BaseActivity {
             UIUtils.createToast(mContext, R.string.login_password_empty);
             return;
         }
-        //TODO 简单实现，初始账号为admin，密码为123456
+        //简单实现，初始账号为admin，密码为123456
         if ("admin".equals(mAccount) && "123456".equals(mPassword)) {
             //检查CheckBox的选中状态
             if (mCbLoginRemember.isChecked()) {
@@ -93,7 +93,7 @@ public class LoginActivity extends BaseActivity {
 
     @Override
     protected void onDestroy() {
-        super.onDestroy();
         mUnbinder.unbind();
+        super.onDestroy();
     }
 }

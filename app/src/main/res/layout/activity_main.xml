@@ -32,6 +32,12 @@
             style="@style/primary_button"
             android:text="MainActivity to FragmentActivity"/>
 
+        <!-- 广播接收者页面 -->
+        <Button
+            android:id="@+id/btn_main_to_broadcast"
+            style="@style/primary_button"
+            android:text="MainActivity to BroadcastActivity"/>
+
         <!-- 数据库操作页面 -->
         <Button
             android:id="@+id/btn_main_to_database"
@@ -109,12 +115,6 @@
             android:id="@+id/btn_main_to_compass"
             style="@style/primary_button"
             android:text="MainActivity to CompassActivity"/>
-
-        <!-- 发送强制下线广播 -->
-        <Button
-            android:id="@+id/btn_main_force_offline"
-            style="@style/primary_button"
-            android:text="Send force offline broadcast"/>
 
     </LinearLayout>
 

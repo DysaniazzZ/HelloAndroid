@@ -7,4 +7,6 @@ package com.example.dysaniazzz.utils;
 public interface IGlobalConstants {
     //是否记住密码
     String REMEMBER_PASSWORD = "remember_password";
+    //强制下线广播
+    String FORCE_OFFLINE_BROADCAST = "com.example.dysaniazzz.FORCE_OFFLINE";
 }
