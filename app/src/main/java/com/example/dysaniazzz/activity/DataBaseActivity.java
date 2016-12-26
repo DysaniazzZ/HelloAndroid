@@ -63,6 +63,7 @@ public class DatabaseActivity extends BaseActivity {
         values.put("pages", 454);
         values.put("price", 16.96);
         mDatabase.insert("Book", null, values);    //arg0:表名   arg1:如果未指定数据自动赋值为NULL   arg2:用于添加数据
+        values.clear();
         //开始组装第二条数据
         values.put("name", "The Lost Symbol");
         values.put("author", "Dan Brown");
