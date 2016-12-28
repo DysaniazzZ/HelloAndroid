@@ -8,7 +8,9 @@
     <!-- 接收开机启动广播 -->
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
     <!-- 系统级别的对话框 -->
-    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <!--<uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>-->
+    <!-- 拨打电话 -->
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
     <!-- 读取系统联系人 -->
     <uses-permission android:name="android.permission.READ_CONTACTS"/>
     <!-- 控制手机震动 -->
@@ -78,6 +80,8 @@
         <activity android:name=".activity.BroadcastActivity"/>
         <!-- 数据库操作页面 -->
         <activity android:name=".activity.DatabaseActivity"/>
+        <!-- 运行时权限页面 -->
+        <activity android:name=".activity.RuntimePermissionActivity"/>
         <!-- 联系人页面 -->
         <activity android:name=".activity.ContactsActivity"/>
         <!-- 通知栏页面 -->

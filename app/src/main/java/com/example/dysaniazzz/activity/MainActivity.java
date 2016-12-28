@@ -60,6 +60,11 @@ public class MainActivity extends BaseActivity {
         DatabaseActivity.actionStart(mContext);
     }
 
+    @OnClick(R.id.btn_main_to_runtimepermission)
+    public void onPermissionClick() {
+        RuntimePermissionActivity.actionStart(mContext);
+    }
+
     @OnClick(R.id.btn_main_to_contacts)
     public void onContactsClick() {
         ContactsActivity.actionStart(mContext);

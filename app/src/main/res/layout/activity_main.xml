@@ -44,6 +44,12 @@
             style="@style/primary_button"
             android:text="MainActivity to DatabaseActivity"/>
 
+        <!-- 动态权限页面 -->
+        <Button
+            android:id="@+id/btn_main_to_runtimepermission"
+            style="@style/primary_button"
+            android:text="MainActivity to RuntimePermissionActivity"/>
+
         <!-- 联系人页面 -->
         <Button
             android:id="@+id/btn_main_to_contacts"
