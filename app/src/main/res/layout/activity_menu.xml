@@ -41,6 +41,14 @@
         android:indeterminateTint="@color/colorProgress"
         android:indeterminateTintMode="src_atop"/>
 
+    <!--<ProgressBar-->
+        <!--android:id="@+id/pb_menu_normal_progress"-->
+        <!--android:layout_width="50dp"-->
+        <!--android:layout_height="50dp"-->
+        <!--android:layout_gravity="center_horizontal"-->
+        <!--android:indeterminate="true"-->
+        <!--android:indeterminateDrawable="@drawable/rotate_progress"/>-->
+
     <SeekBar
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>

@@ -42,6 +42,11 @@ public class MenuActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
         mUnbinder = ButterKnife.bind(this);
+
+        //第一种兼容方案：可以设置成同一种颜色，不过在5.0之前的效果不太好
+//        mPbMenuNormalProgress.getIndeterminateDrawable().setColorFilter(ContextCompat.getColor(mContext, R.color.colorProgress), PorterDuff.Mode.SRC_IN);
+        //第二种兼容方案：直接改成自己定义的Loading效果
+//        mPbMenuNormalProgress.setIndeterminateDrawable(getResources().getDrawable(R.drawable.rotate_progress));
     }
 
     @OnClick(R.id.btn_menu_changeProgress)
