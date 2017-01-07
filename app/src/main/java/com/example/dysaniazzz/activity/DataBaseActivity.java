@@ -149,7 +149,7 @@ public class DatabaseActivity extends BaseActivity {
     //使用事务
     @OnClick(R.id.btn_database_replace_data)
     public void onReplaceClick() {
-        mDatabase.beginTransaction();               //开启事务
+        mDatabase.beginTransaction();                   //开启事务
         try {
             mDatabase.delete("Book", null, null);
             if (true) {
@@ -162,11 +162,11 @@ public class DatabaseActivity extends BaseActivity {
             values.put("pages", 720);
             values.put("price", 20.85);
             mDatabase.insert("Book", null, values);
-            mDatabase.setTransactionSuccessful();   //事务已经执行成功
+            mDatabase.setTransactionSuccessful();      //事务已经执行成功
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            mDatabase.endTransaction();             //结束事务
+            mDatabase.endTransaction();                //结束事务
         }
     }
 
