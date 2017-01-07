@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">DysaniazzZ</string>
+    <string name="app_name">HelloAndroid</string>
 
     <!--登录页面-->
     <string name="login_account_empty">account can\'t be empty</string><!-- 注意 ' 前面要加 \ -->
