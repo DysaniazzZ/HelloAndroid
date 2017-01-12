@@ -3,6 +3,7 @@ package com.example.dysaniazzz.chapter02;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import com.example.dysaniazzz.R;
 import com.example.dysaniazzz.activity.BaseActivity;
@@ -31,9 +32,16 @@ public class Chapter02Activity extends BaseActivity {
         mUnbinder = ButterKnife.bind(this);
     }
 
-    @OnClick(R.id.btn_chapter02_lifecycle_test)
-    public void onClick() {
-        LifeCycleTestActivity.actionStart(mContext);
+    @OnClick({R.id.btn_chapter02_lifecycle_test, R.id.btn_chapter02_common_usage})
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.btn_chapter02_lifecycle_test:
+                LifeCycleTestActivity.actionStart(mContext);
+                break;
+            case R.id.btn_chapter02_common_usage:
+                CommonUsageActivity.actionStart(mContext);
+                break;
+        }
     }
 
     @Override

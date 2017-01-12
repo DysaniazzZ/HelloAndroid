@@ -74,6 +74,7 @@
         <activity android:name=".chapter02.NormalActivity"/>
         <activity android:name=".chapter02.DialogActivity"
             android:theme="@style/Theme.AppCompat.Dialog"/>
+        <activity android:name=".chapter02.CommonUsageActivity"/>
 
         <!-- 菜单页面 -->
         <activity android:name=".activity.MenuActivity"/>
