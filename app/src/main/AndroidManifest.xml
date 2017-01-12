@@ -68,12 +68,15 @@
         <activity android:name=".chapter01.Chapter01Activity"/>
         <activity android:name=".chapter01.HelloAndroidActivity"/>
 
+        <!--第二章页面-->
+        <activity android:name=".chapter02.Chapter02Activity"/>
+        <activity android:name=".chapter02.LifeCycleTestActivity"/>
+        <activity android:name=".chapter02.NormalActivity"/>
+        <activity android:name=".chapter02.DialogActivity"
+            android:theme="@style/Theme.AppCompat.Dialog"/>
+
         <!-- 菜单页面 -->
         <activity android:name=".activity.MenuActivity"/>
-        <!-- 对话框页面 -->
-        <activity
-            android:name=".activity.DialogActivity"
-            android:theme="@style/Theme.AppCompat.Dialog"/>
         <!-- RecyclerView页面 -->
         <activity android:name=".activity.RecyclerViewActivity"/>
         <!-- 聊天页面 -->

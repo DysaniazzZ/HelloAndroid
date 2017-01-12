@@ -6,6 +6,7 @@ import android.os.Bundle;
 
 import com.example.dysaniazzz.R;
 import com.example.dysaniazzz.chapter01.Chapter01Activity;
+import com.example.dysaniazzz.chapter02.Chapter02Activity;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -34,6 +35,11 @@ public class MainActivity extends BaseActivity {
     @OnClick(R.id.btn_main_to_chapter01)
     public void onChapter01Click() {
         Chapter01Activity.actionStart(mContext);
+    }
+
+    @OnClick(R.id.btn_main_to_chapter02)
+    public void onChapter02Click() {
+        Chapter02Activity.actionStart(mContext);
     }
 
     @OnClick(R.id.btn_main_to_menu)

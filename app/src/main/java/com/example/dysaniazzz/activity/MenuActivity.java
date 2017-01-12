@@ -12,6 +12,7 @@ import android.view.MenuItem;
 import android.widget.ProgressBar;
 
 import com.example.dysaniazzz.R;
+import com.example.dysaniazzz.chapter02.DialogActivity;
 import com.example.dysaniazzz.utils.UIUtils;
 
 import butterknife.BindView;

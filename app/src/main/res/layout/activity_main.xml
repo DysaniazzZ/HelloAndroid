@@ -16,6 +16,12 @@
             style="@style/primary_button"
             android:text="Chapter 01"/>
 
+        <!-- 第二章 -->
+        <Button
+            android:id="@+id/btn_main_to_chapter02"
+            style="@style/primary_button"
+            android:text="Chapter 02"/>
+
         <!-- 菜单页面 -->
         <Button
             android:id="@+id/btn_main_to_menu"
