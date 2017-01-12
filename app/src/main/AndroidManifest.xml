@@ -60,8 +60,14 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+
         <!-- 主页面 -->
         <activity android:name=".activity.MainActivity"/>
+
+        <!--第一章页面-->
+        <activity android:name=".chapter01.Chapter01Activity"/>
+        <activity android:name=".chapter01.HelloAndroidActivity"/>
+
         <!-- 菜单页面 -->
         <activity android:name=".activity.MenuActivity"/>
         <!-- 对话框页面 -->

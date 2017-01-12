@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.example.dysaniazzz.R;
+import com.example.dysaniazzz.chapter01.Chapter01Activity;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -28,6 +29,11 @@ public class MainActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mUnbinder = ButterKnife.bind(this);
+    }
+
+    @OnClick(R.id.btn_main_to_chapter01)
+    public void onChapter01Click() {
+        Chapter01Activity.actionStart(mContext);
     }
 
     @OnClick(R.id.btn_main_to_menu)
