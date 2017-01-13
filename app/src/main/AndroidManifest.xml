@@ -72,9 +72,30 @@
         <activity android:name=".chapter02.Chapter02Activity"/>
         <activity android:name=".chapter02.LifeCycleTestActivity"/>
         <activity android:name=".chapter02.NormalActivity"/>
-        <activity android:name=".chapter02.DialogActivity"
+        <activity
+            android:name=".chapter02.DialogActivity"
             android:theme="@style/Theme.AppCompat.Dialog"/>
         <activity android:name=".chapter02.CommonUsageActivity"/>
+        <activity android:name=".chapter02.ExampleActivity">
+            <intent-filter>
+                <action android:name="com.example.dysaniazzz.ACTION_START"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="com.example.dysaniazzz.MY_CATEGORY"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".chapter02.StandardActivity"
+            android:launchMode="standard"/>
+        <activity
+            android:name=".chapter02.SingleTopActivity"
+            android:launchMode="singleTop"/>
+        <activity
+            android:name=".chapter02.SingleTaskActivity"
+            android:launchMode="singleTask"/>
+        <activity
+            android:name=".chapter02.SingleInstanceActivity"
+            android:launchMode="singleInstance"/>
 
         <!-- 菜单页面 -->
         <activity android:name=".activity.MenuActivity"/>

@@ -5,4 +5,29 @@
               android:orientation="vertical"
               android:padding="@dimen/common_padding">
 
+    <Button
+        android:id="@+id/btn_usage_explicit_intent"
+        style="@style/primary_button"
+        android:text="Explicit Intent"/>
+
+    <Button
+        android:id="@+id/btn_usage_implicit_intent"
+        style="@style/primary_button"
+        android:text="Implicit Intent"/>
+
+    <Button
+        android:id="@+id/btn_usage_send_data"
+        style="@style/primary_button"
+        android:text="Send Data"/>
+
+    <Button
+        android:id="@+id/btn_usage_start_for_result"
+        style="@style/primary_button"
+        android:text="Start For Result"/>
+
+    <Button
+        android:id="@+id/btn_usage_launch_mode"
+        style="@style/primary_button"
+        android:text="Launch Mode"/>
+
 </LinearLayout>
