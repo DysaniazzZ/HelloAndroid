@@ -48,11 +48,6 @@ public class MainActivity extends BaseActivity {
         Chapter03Activity.actionStart(mContext);
     }
 
-    @OnClick(R.id.btn_main_to_chat)
-    public void onChatClick() {
-        ChatActivity.actionStart(mContext);
-    }
-
     @OnClick(R.id.btn_main_to_fragment)
     public void onFragmentClick() {
         FragmentActivity.actionStart(mContext);

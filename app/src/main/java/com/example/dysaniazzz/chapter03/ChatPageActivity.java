@@ -1,4 +1,4 @@
-package com.example.dysaniazzz.activity;
+package com.example.dysaniazzz.chapter03;
 
 import android.content.Context;
 import android.content.Intent;
@@ -9,6 +9,7 @@ import android.text.TextUtils;
 import android.widget.EditText;
 
 import com.example.dysaniazzz.R;
+import com.example.dysaniazzz.activity.BaseActivity;
 import com.example.dysaniazzz.adapter.MsgAdapter;
 import com.example.dysaniazzz.bean.MsgBean;
 import com.example.dysaniazzz.utils.StreamUtils;
@@ -31,9 +32,9 @@ import butterknife.Unbinder;
 
 /**
  * Created by DysaniazzZ on 16/12/2016.
- * 聊天页面
+ * 第三章：聊天页面
  */
-public class ChatActivity extends BaseActivity {
+public class ChatPageActivity extends BaseActivity {
 
     @BindView(R.id.rv_chat_msg)
     RecyclerView mRvChatMsg;
@@ -46,14 +47,14 @@ public class ChatActivity extends BaseActivity {
     private List<MsgBean> mMsgBeanList = new ArrayList<>();
 
     public static void actionStart(Context context) {
-        Intent intent = new Intent(context, ChatActivity.class);
+        Intent intent = new Intent(context, ChatPageActivity.class);
         context.startActivity(intent);
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_chat);
+        setContentView(R.layout.activity_chat_page);
         mUnbinder = ButterKnife.bind(this);
         initData();
         initView();
