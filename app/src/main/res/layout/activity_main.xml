@@ -22,17 +22,11 @@
             style="@style/primary_button"
             android:text="Chapter 02"/>
 
-        <!-- 菜单页面 -->
+        <!-- 第三章 -->
         <Button
-            android:id="@+id/btn_main_to_menu"
+            android:id="@+id/btn_main_to_chapter03"
             style="@style/primary_button"
-            android:text="MainActivity to MenuActivity"/>
-
-        <!-- RecyclerView页面 -->
-        <Button
-            android:id="@+id/btn_main_to_recyclerview"
-            style="@style/primary_button"
-            android:text="MainActivity to RecyclerViewActivity"/>
+            android:text="Chapter 03"/>
 
         <!-- 聊天页面 -->
         <Button

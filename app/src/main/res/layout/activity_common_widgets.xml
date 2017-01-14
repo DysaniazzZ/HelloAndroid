@@ -6,22 +6,27 @@
               android:orientation="vertical">
 
     <Button
-        android:id="@+id/btn_menu_changeProgress"
+        android:id="@+id/btn_widgets_changeProgress"
         style="@style/primary_button"
         android:text="Change Progress"/>
 
     <Button
-        android:id="@+id/btn_menu_showAlertDialog"
+        android:id="@+id/btn_widgets_alert_dialog"
         style="@style/primary_button"
-        android:text="Show Alert Dialog"/>
+        android:text="Alert Dialog"/>
 
     <Button
-        android:id="@+id/btn_menu_showProgressDialog"
+        android:id="@+id/btn_widgets_progress_dialog"
         style="@style/primary_button"
-        android:text="Show Progress Dialog"/>
+        android:text="Progress Dialog"/>
+
+    <Button
+        android:id="@+id/btn_widgets_recycler_view"
+        style="@style/primary_button"
+        android:text="RecyclerView"/>
 
     <ProgressBar
-        android:id="@+id/pb_menu_horizontal_progress"
+        android:id="@+id/pb_widgets_horizontal_progress"
         style="?android:progressBarStyleHorizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -34,7 +39,7 @@
         android:secondaryProgressTintMode="src_atop"/>
 
     <ProgressBar
-        android:id="@+id/pb_menu_normal_progress"
+        android:id="@+id/pb_widgets_normal_progress"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
@@ -42,29 +47,29 @@
         android:indeterminateTintMode="src_atop"/>
 
     <!--<ProgressBar-->
-        <!--android:id="@+id/pb_menu_normal_progress"-->
-        <!--android:layout_width="50dp"-->
-        <!--android:layout_height="50dp"-->
-        <!--android:layout_gravity="center_horizontal"-->
-        <!--android:indeterminate="true"-->
-        <!--android:indeterminateDrawable="@drawable/rotate_progress"/>-->
+    <!--android:id="@+id/pb_widgets_normal_progress"-->
+    <!--android:layout_width="50dp"-->
+    <!--android:layout_height="50dp"-->
+    <!--android:layout_gravity="center_horizontal"-->
+    <!--android:indeterminate="true"-->
+    <!--android:indeterminateDrawable="@drawable/rotate_progress"/>-->
 
-    <SeekBar
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+    <!--<SeekBar-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"/>-->
 
-    <SeekBar
-        style="@style/Widget.AppCompat.SeekBar.Discrete"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:max="10"
-        android:progress="3"/>
+    <!--<SeekBar-->
+    <!--style="@style/Widget.AppCompat.SeekBar.Discrete"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:max="10"-->
+    <!--android:progress="3"/>-->
 
-    <RatingBar
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:max="10"
-        android:progress="5"/>
+    <!--<RatingBar-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:max="10"-->
+    <!--android:progress="5"/>-->
 
     <!--百分比布局-->
     <android.support.percent.PercentFrameLayout
@@ -90,11 +95,11 @@
             app:layout_widthPercent="30%"/>
 
         <TextView
-            app:layout_widthPercent="30%"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:gravity="center"
-            android:text="PercentLayout"/>
+            android:text="PercentLayout"
+            app:layout_widthPercent="30%"/>
 
     </android.support.percent.PercentFrameLayout>
 </LinearLayout>

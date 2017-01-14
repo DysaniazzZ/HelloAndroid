@@ -1,4 +1,4 @@
-package com.example.dysaniazzz.activity;
+package com.example.dysaniazzz.chapter03;
 
 import android.content.Context;
 import android.content.Intent;
@@ -11,6 +11,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.example.dysaniazzz.R;
+import com.example.dysaniazzz.activity.BaseActivity;
 import com.example.dysaniazzz.adapter.FruitAdapter;
 import com.example.dysaniazzz.bean.FruitBean;
 
@@ -24,7 +25,7 @@ import butterknife.Unbinder;
 
 /**
  * Created by DysaniazzZ on 15/12/2016.
- * RecyclerView页面
+ * 第三章：RecyclerView页面
  */
 public class RecyclerViewActivity extends BaseActivity {
 

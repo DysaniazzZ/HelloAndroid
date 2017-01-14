@@ -1,18 +1,15 @@
-package com.example.dysaniazzz.activity;
+package com.example.dysaniazzz.chapter03;
 
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.widget.ProgressBar;
 
 import com.example.dysaniazzz.R;
-import com.example.dysaniazzz.chapter02.DialogActivity;
+import com.example.dysaniazzz.activity.BaseActivity;
 import com.example.dysaniazzz.utils.UIUtils;
 
 import butterknife.BindView;
@@ -22,45 +19,45 @@ import butterknife.Unbinder;
 
 /**
  * Created by DysaniazzZ on 12/12/2016.
- * 菜单页面
+ * 第三章：常用控件页面
  */
-public class MenuActivity extends BaseActivity {
+public class CommonWidgetsActivity extends BaseActivity {
 
-    @BindView(R.id.pb_menu_normal_progress)
-    ProgressBar mPbMenuNormalProgress;
-    @BindView(R.id.pb_menu_horizontal_progress)
-    ProgressBar mPbMenuHorizontalProgress;
+    @BindView(R.id.pb_widgets_horizontal_progress)
+    ProgressBar mPbWidgetsHorizontalProgress;
+    @BindView(R.id.pb_widgets_normal_progress)
+    ProgressBar mPbWidgetsNormalProgress;
 
     private Unbinder mUnbinder;
 
     public static void actionStart(Context context) {
-        Intent intent = new Intent(context, MenuActivity.class);
+        Intent intent = new Intent(context, CommonWidgetsActivity.class);
         context.startActivity(intent);
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_menu);
+        setContentView(R.layout.activity_common_widgets);
         mUnbinder = ButterKnife.bind(this);
 
         //第一种兼容方案：可以设置成同一种颜色，不过在5.0之前的效果不太好
-//        mPbMenuNormalProgress.getIndeterminateDrawable().setColorFilter(ContextCompat.getColor(mContext, R.color.colorProgress), PorterDuff.Mode.SRC_IN);
-        //第二种兼容方案：直接改成自己定义的Loading效果
-//        mPbMenuNormalProgress.setIndeterminateDrawable(getResources().getDrawable(R.drawable.rotate_progress));
+        //mPbWidgetsNormalProgress.getIndeterminateDrawable().setColorFilter(ContextCompat.getColor(mContext, R.color.colorProgress), PorterDuff.Mode.SRC_IN);
+        //第二种兼容方案：直接改成自己定义的Loading效果(虽然可以保证在多个版本保证统一，但是显示效果也不太好）
+        //mPbWidgetsNormalProgress.setIndeterminateDrawable(getResources().getDrawable(R.drawable.rotate_progress));
     }
 
-    @OnClick(R.id.btn_menu_changeProgress)
-    public void onShowProgressClick() {
-        int progress = mPbMenuHorizontalProgress.getProgress();
-        int secondProgress = mPbMenuHorizontalProgress.getSecondaryProgress();
+    @OnClick(R.id.btn_widgets_changeProgress)
+    public void onChangeProgressClick() {
+        int progress = mPbWidgetsHorizontalProgress.getProgress();
+        int secondProgress = mPbWidgetsHorizontalProgress.getSecondaryProgress();
         progress += 10;
         secondProgress += 20;
-        mPbMenuHorizontalProgress.setProgress(progress);
-        mPbMenuHorizontalProgress.setSecondaryProgress(secondProgress);
+        mPbWidgetsHorizontalProgress.setProgress(progress);
+        mPbWidgetsHorizontalProgress.setSecondaryProgress(secondProgress);
     }
 
-    @OnClick(R.id.btn_menu_showAlertDialog)
+    @OnClick(R.id.btn_widgets_alert_dialog)
     public void onShowAlertDialogClick() {
         AlertDialog.Builder dialog = new AlertDialog.Builder(mContext);
         //对话框标题
@@ -109,7 +106,7 @@ public class MenuActivity extends BaseActivity {
         dialog.show();
     }
 
-    @OnClick(R.id.btn_menu_showProgressDialog)
+    @OnClick(R.id.btn_widgets_progress_dialog)
     public void onShowProgressDialogClick() {
         ProgressDialog dialog = new ProgressDialog(mContext);
         dialog.setTitle("This is a progress dialog");
@@ -118,33 +115,9 @@ public class MenuActivity extends BaseActivity {
         dialog.show();
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.to_browser:
-                Intent viewIntent = new Intent(Intent.ACTION_VIEW);
-                viewIntent.setData(Uri.parse("http://www.baidu.com"));
-                startActivity(viewIntent);
-                break;
-            case R.id.to_dial:
-                Intent dialIntent = new Intent(Intent.ACTION_DIAL);
-                dialIntent.setData(Uri.parse("tel:10086"));
-                startActivity(dialIntent);
-                break;
-            case R.id.to_dialog:
-                Intent dialogIntent = new Intent(mContext, DialogActivity.class);
-                startActivity(dialogIntent);
-                break;
-            default:
-                break;
-        }
-        return true;
+    @OnClick(R.id.btn_widgets_recycler_view)
+    public void onRecyclerViewClick() {
+        RecyclerViewActivity.actionStart(mContext);
     }
 
     @Override

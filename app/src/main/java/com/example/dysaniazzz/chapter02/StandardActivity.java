@@ -16,7 +16,7 @@ import butterknife.Unbinder;
 
 /**
  * Created by DysaniazzZ on 13/01/2017.
- * Standard页面
+ * 第二章：Standard页面
  */
 public class StandardActivity extends BaseActivity {
 

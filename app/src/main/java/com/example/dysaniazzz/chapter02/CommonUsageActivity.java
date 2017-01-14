@@ -2,6 +2,7 @@ package com.example.dysaniazzz.chapter02;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.Menu;
@@ -45,14 +46,15 @@ public class CommonUsageActivity extends BaseActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.item_01:
-                UIUtils.createToast(mContext, "You clicked item01");
+            case R.id.dial:
+                Intent dialIntent = new Intent(Intent.ACTION_DIAL);
+                dialIntent.setData(Uri.parse("tel:10086"));
+                startActivity(dialIntent);
                 break;
-            case R.id.item_02:
-                UIUtils.createToast(mContext, "You clicked item02");
-                break;
-            case R.id.item_03:
-                UIUtils.createToast(mContext, "You clicked item03");
+            case R.id.browse:
+                Intent viewIntent = new Intent(Intent.ACTION_VIEW);
+                viewIntent.setData(Uri.parse("https://www.baidu.com"));
+                startActivity(viewIntent);
                 break;
         }
         return true;

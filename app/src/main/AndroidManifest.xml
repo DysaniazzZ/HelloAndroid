@@ -97,10 +97,11 @@
             android:name=".chapter02.SingleInstanceActivity"
             android:launchMode="singleInstance"/>
 
-        <!-- 菜单页面 -->
-        <activity android:name=".activity.MenuActivity"/>
-        <!-- RecyclerView页面 -->
-        <activity android:name=".activity.RecyclerViewActivity"/>
+        <!--第三章页面-->
+        <activity android:name=".chapter03.Chapter03Activity"/>
+        <activity android:name=".chapter03.CommonWidgetsActivity"/>
+        <activity android:name=".chapter03.RecyclerViewActivity"/>
+
         <!-- 聊天页面 -->
         <activity android:name=".activity.ChatActivity"/>
         <!-- Fragment页面 -->

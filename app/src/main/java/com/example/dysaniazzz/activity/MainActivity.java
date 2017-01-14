@@ -7,6 +7,7 @@ import android.os.Bundle;
 import com.example.dysaniazzz.R;
 import com.example.dysaniazzz.chapter01.Chapter01Activity;
 import com.example.dysaniazzz.chapter02.Chapter02Activity;
+import com.example.dysaniazzz.chapter03.Chapter03Activity;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -42,14 +43,9 @@ public class MainActivity extends BaseActivity {
         Chapter02Activity.actionStart(mContext);
     }
 
-    @OnClick(R.id.btn_main_to_menu)
-    public void onMenuClick() {
-        MenuActivity.actionStart(mContext);
-    }
-
-    @OnClick(R.id.btn_main_to_recyclerview)
-    public void onRecyclerViewClick() {
-        RecyclerViewActivity.actionStart(mContext);
+    @OnClick(R.id.btn_main_to_chapter03)
+    public void onChapter03Click() {
+        Chapter03Activity.actionStart(mContext);
     }
 
     @OnClick(R.id.btn_main_to_chat)
