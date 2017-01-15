@@ -12,6 +12,7 @@ import com.baidu.mapapi.map.MarkerOptions;
 import com.baidu.mapapi.map.OverlayOptions;
 import com.baidu.mapapi.model.LatLng;
 import com.example.dysaniazzz.R;
+import com.example.dysaniazzz.common.BaseActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

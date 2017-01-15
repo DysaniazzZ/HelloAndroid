@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.example.dysaniazzz.R;
-import com.example.dysaniazzz.activity.BaseActivity;
+import com.example.dysaniazzz.common.BaseActivity;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;

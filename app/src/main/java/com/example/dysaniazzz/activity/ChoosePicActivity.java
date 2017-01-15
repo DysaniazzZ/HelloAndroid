@@ -12,6 +12,7 @@ import android.provider.MediaStore;
 import android.widget.ImageView;
 
 import com.example.dysaniazzz.R;
+import com.example.dysaniazzz.common.BaseActivity;
 import com.example.dysaniazzz.utils.UIUtils;
 import com.example.dysaniazzz.view.ChoosePicPopView;
 

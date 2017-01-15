@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import com.example.dysaniazzz.R;
 import com.example.dysaniazzz.bean.NewsBean;
-import com.example.dysaniazzz.fragment.BaseFragment;
+import com.example.dysaniazzz.common.BaseFragment;
 
 import java.util.ArrayList;
 import java.util.List;

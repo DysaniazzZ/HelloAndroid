@@ -15,6 +15,7 @@ import android.text.TextUtils;
 import android.widget.TextView;
 
 import com.example.dysaniazzz.R;
+import com.example.dysaniazzz.common.BaseActivity;
 import com.example.dysaniazzz.utils.HttpUtils;
 import com.example.dysaniazzz.utils.UIUtils;
 import com.google.gson.Gson;

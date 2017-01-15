@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.dysaniazzz.R;
-import com.example.dysaniazzz.fragment.BaseFragment;
+import com.example.dysaniazzz.common.BaseFragment;
 
 /**
  * Created by DysaniazzZ on 18/12/2016.

@@ -11,8 +11,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.example.dysaniazzz.R;
-import com.example.dysaniazzz.activity.BaseActivity;
 import com.example.dysaniazzz.adapter.FruitAdapter;
+import com.example.dysaniazzz.common.BaseActivity;
 import com.example.dysaniazzz.bean.FruitBean;
 
 import java.util.ArrayList;

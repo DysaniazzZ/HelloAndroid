@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.os.Environment;
 
 import com.example.dysaniazzz.R;
+import com.example.dysaniazzz.common.BaseActivity;
 
 import java.io.File;
 

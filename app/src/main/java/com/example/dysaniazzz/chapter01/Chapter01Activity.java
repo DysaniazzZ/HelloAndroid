@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.example.dysaniazzz.R;
-import com.example.dysaniazzz.activity.BaseActivity;
+import com.example.dysaniazzz.common.BaseActivity;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;

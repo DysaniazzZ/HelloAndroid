@@ -1,15 +1,30 @@
-package com.example.dysaniazzz.activity;
+package com.example.dysaniazzz.welcome;
 
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
 import com.example.dysaniazzz.R;
+import com.example.dysaniazzz.activity.AudioPlayActivity;
+import com.example.dysaniazzz.activity.BaiduMapActivity;
+import com.example.dysaniazzz.activity.ChoosePicActivity;
+import com.example.dysaniazzz.activity.CompassActivity;
+import com.example.dysaniazzz.activity.ContactsActivity;
+import com.example.dysaniazzz.activity.DatabaseActivity;
+import com.example.dysaniazzz.activity.LocationActivity;
+import com.example.dysaniazzz.activity.NotificationActivity;
+import com.example.dysaniazzz.activity.RuntimePermissionActivity;
+import com.example.dysaniazzz.activity.SensorActivity;
+import com.example.dysaniazzz.activity.ServiceActivity;
+import com.example.dysaniazzz.activity.SmsActivity;
+import com.example.dysaniazzz.activity.VideoPlayActivity;
+import com.example.dysaniazzz.activity.WebActivity;
 import com.example.dysaniazzz.chapter01.Chapter01Activity;
 import com.example.dysaniazzz.chapter02.Chapter02Activity;
 import com.example.dysaniazzz.chapter03.Chapter03Activity;
 import com.example.dysaniazzz.chapter04.Chapter04Activity;
 import com.example.dysaniazzz.chapter05.Chapter05Activity;
+import com.example.dysaniazzz.common.BaseActivity;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;

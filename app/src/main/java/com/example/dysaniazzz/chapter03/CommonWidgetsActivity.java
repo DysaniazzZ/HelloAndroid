@@ -9,7 +9,7 @@ import android.os.Bundle;
 import android.widget.ProgressBar;
 
 import com.example.dysaniazzz.R;
-import com.example.dysaniazzz.activity.BaseActivity;
+import com.example.dysaniazzz.common.BaseActivity;
 import com.example.dysaniazzz.utils.UIUtils;
 
 import butterknife.BindView;

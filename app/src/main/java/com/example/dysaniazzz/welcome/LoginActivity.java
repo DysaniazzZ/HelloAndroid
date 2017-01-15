@@ -1,4 +1,4 @@
-package com.example.dysaniazzz.activity;
+package com.example.dysaniazzz.welcome;
 
 import android.content.Context;
 import android.content.Intent;
@@ -8,6 +8,7 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 
 import com.example.dysaniazzz.R;
+import com.example.dysaniazzz.common.BaseActivity;
 import com.example.dysaniazzz.utils.IGlobalConstants;
 import com.example.dysaniazzz.utils.PreferencesUtils;
 import com.example.dysaniazzz.utils.UIUtils;

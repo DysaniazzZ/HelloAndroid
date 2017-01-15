@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 
 import com.example.dysaniazzz.R;
-import com.example.dysaniazzz.activity.BaseActivity;
+import com.example.dysaniazzz.common.BaseActivity;
 import com.example.dysaniazzz.utils.UIUtils;
 
 import butterknife.ButterKnife;

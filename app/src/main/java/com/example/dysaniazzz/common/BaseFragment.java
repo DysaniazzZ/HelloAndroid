@@ -1,4 +1,4 @@
-package com.example.dysaniazzz.fragment;
+package com.example.dysaniazzz.common;
 
 import android.support.v4.app.Fragment;
 

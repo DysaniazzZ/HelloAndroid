@@ -14,6 +14,7 @@ import java.util.List;
 
 /**
  * Created by DysaniazzZ on 17/12/2016.
+ * 第三章：聊天页面的Adapter
  */
 public class MsgAdapter extends RecyclerView.Adapter<MsgAdapter.ViewHolder> {
 

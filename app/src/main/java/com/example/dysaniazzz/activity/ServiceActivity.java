@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.os.IBinder;
 
 import com.example.dysaniazzz.R;
+import com.example.dysaniazzz.common.BaseActivity;
 import com.example.dysaniazzz.service.DemoService;
 import com.example.dysaniazzz.service.LongRunningService;
 

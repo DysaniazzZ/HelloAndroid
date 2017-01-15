@@ -11,6 +11,8 @@ import android.net.Uri;
 import android.os.Bundle;
 
 import com.example.dysaniazzz.R;
+import com.example.dysaniazzz.common.BaseActivity;
+import com.example.dysaniazzz.welcome.MainActivity;
 
 import java.io.File;
 

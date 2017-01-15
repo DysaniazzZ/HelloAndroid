@@ -1,4 +1,4 @@
-package com.example.dysaniazzz.activity;
+package com.example.dysaniazzz.common;
 
 import android.app.AlertDialog;
 import android.content.BroadcastReceiver;
@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
 import com.example.dysaniazzz.BuildConfig;
+import com.example.dysaniazzz.welcome.LoginActivity;
 import com.example.dysaniazzz.utils.ActivityCollector;
 import com.example.dysaniazzz.utils.IGlobalConstants;
 import com.orhanobut.logger.LogLevel;

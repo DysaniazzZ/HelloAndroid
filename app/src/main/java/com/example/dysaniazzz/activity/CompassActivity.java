@@ -12,6 +12,7 @@ import android.view.animation.RotateAnimation;
 import android.widget.ImageView;
 
 import com.example.dysaniazzz.R;
+import com.example.dysaniazzz.common.BaseActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

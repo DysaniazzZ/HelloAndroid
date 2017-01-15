@@ -10,7 +10,7 @@ import android.os.Bundle;
 import android.support.v4.content.LocalBroadcastManager;
 
 import com.example.dysaniazzz.R;
-import com.example.dysaniazzz.activity.BaseActivity;
+import com.example.dysaniazzz.common.BaseActivity;
 import com.example.dysaniazzz.utils.IGlobalConstants;
 import com.example.dysaniazzz.utils.UIUtils;
 

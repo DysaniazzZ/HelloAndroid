@@ -1,4 +1,4 @@
-package com.example.dysaniazzz;
+package com.example.dysaniazzz.common;
 
 import android.app.Application;
 import android.content.Context;

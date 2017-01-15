@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 import com.example.dysaniazzz.R;
+import com.example.dysaniazzz.common.BaseActivity;
 import com.example.dysaniazzz.utils.UIUtils;
 
 import butterknife.BindView;

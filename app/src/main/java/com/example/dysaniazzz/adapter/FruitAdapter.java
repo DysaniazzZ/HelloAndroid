@@ -15,6 +15,7 @@ import java.util.List;
 
 /**
  * Created by DysaniazzZ on 15/12/2016.
+ * 第三章：RecyclerView的Adapter
  */
 public class FruitAdapter extends RecyclerView.Adapter<FruitAdapter.ViewHolder> {
 
