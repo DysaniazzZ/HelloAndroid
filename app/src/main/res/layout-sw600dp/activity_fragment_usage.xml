@@ -6,7 +6,7 @@
 
     <fragment
         android:id="@+id/fr_news_title"
-        android:name="com.example.dysaniazzz.fragment.NewsTitleFragment"
+        android:name="com.example.dysaniazzz.chapter04.NewsTitleFragment"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"/>
@@ -19,7 +19,7 @@
 
         <fragment
             android:id="@+id/fr_news_content"
-            android:name="com.example.dysaniazzz.fragment.NewsContentFragment"
+            android:name="com.example.dysaniazzz.chapter04.NewsContentFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
 

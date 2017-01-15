@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/fr_news_title"
-        android:name="com.example.dysaniazzz.fragment.NewsTitleFragment"
+        android:name="com.example.dysaniazzz.chapter04.NewsTitleFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 

@@ -103,10 +103,11 @@
         <activity android:name=".chapter03.RecyclerViewActivity"/>
         <activity android:name=".chapter03.ChatPageActivity"/>
 
-        <!-- Fragment页面 -->
-        <activity android:name=".activity.FragmentActivity"/>
-        <!-- 新闻内容页面 -->
-        <activity android:name=".activity.NewsContentActivity"/>
+        <!--第四章页面-->
+        <activity android:name=".chapter04.Chapter04Activity"/>
+        <activity android:name=".chapter04.FragmentUsageActivity"/>
+        <activity android:name=".chapter04.NewsContentActivity"/>
+
         <!-- 广播接收者页面 -->
         <activity android:name=".activity.BroadcastActivity"/>
         <!-- 数据库操作页面 -->

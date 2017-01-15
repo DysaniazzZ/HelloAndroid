@@ -8,6 +8,7 @@ import com.example.dysaniazzz.R;
 import com.example.dysaniazzz.chapter01.Chapter01Activity;
 import com.example.dysaniazzz.chapter02.Chapter02Activity;
 import com.example.dysaniazzz.chapter03.Chapter03Activity;
+import com.example.dysaniazzz.chapter04.Chapter04Activity;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -48,9 +49,9 @@ public class MainActivity extends BaseActivity {
         Chapter03Activity.actionStart(mContext);
     }
 
-    @OnClick(R.id.btn_main_to_fragment)
-    public void onFragmentClick() {
-        FragmentActivity.actionStart(mContext);
+    @OnClick(R.id.btn_main_to_chapter04)
+    public void onChapter04Click() {
+        Chapter04Activity.actionStart(mContext);
     }
 
     @OnClick(R.id.btn_main_to_broadcast)

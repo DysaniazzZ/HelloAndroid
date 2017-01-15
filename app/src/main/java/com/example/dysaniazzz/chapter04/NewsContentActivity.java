@@ -1,15 +1,15 @@
-package com.example.dysaniazzz.activity;
+package com.example.dysaniazzz.chapter04;
 
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
 import com.example.dysaniazzz.R;
-import com.example.dysaniazzz.fragment.NewsContentFragment;
+import com.example.dysaniazzz.activity.BaseActivity;
 
 /**
  * Created by DysaniazzZ on 18/12/2016.
- * 新闻内容页面
+ * 第四章：新闻内容页面
  */
 public class NewsContentActivity extends BaseActivity {
 
@@ -26,7 +26,7 @@ public class NewsContentActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_newscontent);
+        setContentView(R.layout.activity_news_content);
         init();
     }
 

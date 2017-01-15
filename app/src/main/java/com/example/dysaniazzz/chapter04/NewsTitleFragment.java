@@ -1,4 +1,4 @@
-package com.example.dysaniazzz.fragment;
+package com.example.dysaniazzz.chapter04;
 
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -9,8 +9,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.dysaniazzz.R;
-import com.example.dysaniazzz.activity.NewsContentActivity;
 import com.example.dysaniazzz.bean.NewsBean;
+import com.example.dysaniazzz.fragment.BaseFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,6 +18,7 @@ import java.util.Random;
 
 /**
  * Created by DysaniazzZ on 18/12/2016.
+ * 第四章：新闻标题页面
  */
 public class NewsTitleFragment extends BaseFragment {
 
@@ -37,6 +38,7 @@ public class NewsTitleFragment extends BaseFragment {
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+        //判断是否加载出了内容页面
         if (getActivity().findViewById(R.id.news_content_layout) != null) {
             isTwoPane = true;       //双页模式
         } else {

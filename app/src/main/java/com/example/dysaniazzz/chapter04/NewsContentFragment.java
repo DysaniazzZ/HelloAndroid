@@ -1,4 +1,4 @@
-package com.example.dysaniazzz.fragment;
+package com.example.dysaniazzz.chapter04;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -7,9 +7,11 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.dysaniazzz.R;
+import com.example.dysaniazzz.fragment.BaseFragment;
 
 /**
  * Created by DysaniazzZ on 18/12/2016.
+ * 第四章：新闻内容页面
  */
 public class NewsContentFragment extends BaseFragment {
 
