@@ -1,4 +1,4 @@
-package com.example.dysaniazzz.activity;
+package com.example.dysaniazzz.chapter05;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.support.v4.content.LocalBroadcastManager;
 
 import com.example.dysaniazzz.R;
+import com.example.dysaniazzz.activity.BaseActivity;
 import com.example.dysaniazzz.utils.IGlobalConstants;
 import com.example.dysaniazzz.utils.UIUtils;
 
@@ -19,9 +20,9 @@ import butterknife.Unbinder;
 
 /**
  * Created by DysaniazzZ on 19/12/2016.
- * 广播接收者页面
+ * 第五章：广播接收者的使用页面
  */
-public class BroadcastActivity extends BaseActivity {
+public class BroadcastReceiverActivity extends BaseActivity {
 
     private Unbinder mUnbinder;
     private IntentFilter mIntentFilter;
@@ -32,14 +33,14 @@ public class BroadcastActivity extends BaseActivity {
     private static final String CUSTOM_LOCAL_BROADCAST = "com.example.dysaniazzz.LOCAL_BROADCAST";
 
     public static void actionStart(Context context) {
-        Intent intent = new Intent(context, BroadcastActivity.class);
+        Intent intent = new Intent(context, BroadcastReceiverActivity.class);
         context.startActivity(intent);
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_broadcast);
+        setContentView(R.layout.activity_broadcast_receiver);
         mUnbinder = ButterKnife.bind(this);
         registerLocalReceiver();
     }
@@ -55,15 +56,14 @@ public class BroadcastActivity extends BaseActivity {
 
     //发送本地广播
     @OnClick(R.id.btn_broadcast_send_local_broadcast)
-    public void onSendLocalClick() {
+    public void onSendLocalBroadcastClick() {
         Intent intent = new Intent(CUSTOM_LOCAL_BROADCAST);
         mLocalBroadcastManager.sendBroadcast(intent);
     }
 
     //发送强制下线广播
-    @OnClick(R.id.btn_broadcast_force_offline)
-    public void onOfflineClick() {
-        //发送强制下线的广播
+    @OnClick(R.id.btn_broadcast_send_offline_broadcast)
+    public void onSendOfflineBroadcastClick() {
         Intent intent = new Intent(IGlobalConstants.FORCE_OFFLINE_BROADCAST);
         sendBroadcast(intent);
     }
@@ -109,7 +109,7 @@ public class BroadcastActivity extends BaseActivity {
             mNetworkChangeReceiver = null;
         }
         if(mCustomLocalReceiver != null) {
-            unregisterReceiver(mCustomLocalReceiver);
+            mLocalBroadcastManager.unregisterReceiver(mCustomLocalReceiver);
             mCustomLocalReceiver = null;
         }
         mUnbinder.unbind();

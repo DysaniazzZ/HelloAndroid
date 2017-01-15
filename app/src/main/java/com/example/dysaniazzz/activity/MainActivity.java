@@ -9,6 +9,7 @@ import com.example.dysaniazzz.chapter01.Chapter01Activity;
 import com.example.dysaniazzz.chapter02.Chapter02Activity;
 import com.example.dysaniazzz.chapter03.Chapter03Activity;
 import com.example.dysaniazzz.chapter04.Chapter04Activity;
+import com.example.dysaniazzz.chapter05.Chapter05Activity;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -54,9 +55,9 @@ public class MainActivity extends BaseActivity {
         Chapter04Activity.actionStart(mContext);
     }
 
-    @OnClick(R.id.btn_main_to_broadcast)
-    public void onBroadcastClick() {
-        BroadcastActivity.actionStart(mContext);
+    @OnClick(R.id.btn_main_to_chapter05)
+    public void onChapter05Click() {
+        Chapter05Activity.actionStart(mContext);
     }
 
     @OnClick(R.id.btn_main_to_database)

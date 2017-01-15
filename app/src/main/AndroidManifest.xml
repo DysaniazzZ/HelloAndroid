@@ -7,8 +7,6 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <!-- 接收开机启动广播 -->
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
-    <!-- 系统级别的对话框 -->
-    <!--<uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>-->
     <!-- 拨打电话 -->
     <uses-permission android:name="android.permission.CALL_PHONE"/>
     <!-- 读取系统联系人 -->
@@ -108,8 +106,10 @@
         <activity android:name=".chapter04.FragmentUsageActivity"/>
         <activity android:name=".chapter04.NewsContentActivity"/>
 
-        <!-- 广播接收者页面 -->
-        <activity android:name=".activity.BroadcastActivity"/>
+        <!--第五章页面-->
+        <activity android:name=".chapter05.Chapter05Activity"/>
+        <activity android:name=".chapter05.BroadcastReceiverActivity"/>
+
         <!-- 数据库操作页面 -->
         <activity android:name=".activity.DatabaseActivity"/>
         <!-- 运行时权限页面 -->
@@ -142,7 +142,7 @@
         <!-- Receiver -->
         <!-- 开机启动的Receiver，这个广播已经被好多定制ROM屏蔽掉了 -->
         <receiver
-            android:name=".receiver.BootCompleteReceiver"
+            android:name=".chapter05.BootCompleteReceiver"
             android:enabled="true"
             android:exported="true">
             <intent-filter>

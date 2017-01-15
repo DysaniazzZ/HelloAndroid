@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
               android:layout_width="match_parent"
-              android:layout_height="match_parent">
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              android:padding="@dimen/common_padding">
 
     <!-- 动态注册网络变化监听广播 -->
     <Button
@@ -18,7 +19,7 @@
 
     <!-- 发送强制下线广播 -->
     <Button
-        android:id="@+id/btn_broadcast_force_offline"
+        android:id="@+id/btn_broadcast_send_offline_broadcast"
         style="@style/primary_button"
         android:text="Send force offline broadcast"/>
 
