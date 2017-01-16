@@ -110,6 +110,10 @@
         <activity android:name=".chapter05.Chapter05Activity"/>
         <activity android:name=".chapter05.BroadcastReceiverActivity"/>
 
+        <!--第六章页面-->
+        <activity android:name=".chapter06.Chapter06Activity"/>
+        <activity android:name=".chapter06.FileStorageActivity"/>
+
         <!-- 数据库操作页面 -->
         <activity android:name=".activity.DatabaseActivity"/>
         <!-- 运行时权限页面 -->

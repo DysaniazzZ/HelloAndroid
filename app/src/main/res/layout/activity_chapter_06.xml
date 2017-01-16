@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              android:padding="@dimen/common_padding">
+
+    <Button
+        android:id="@+id/btn_chapter06_file_storage"
+        style="@style/primary_button"
+        android:text="File Storage"/>
+
+    <Button
+        android:id="@+id/btn_chapter06_shared_preference_storage"
+        style="@style/primary_button"
+        android:text="SharedPreference Storage"/>
+
+    <Button
+        android:id="@+id/btn_chapter06_sqlite_storage"
+        style="@style/primary_button"
+        android:text="SQLite Storage"/>
+
+</LinearLayout>
