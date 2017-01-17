@@ -85,18 +85,16 @@ public class FileStorageActivity extends BaseActivity {
 
     //使用文件存储将输入的内容保存到文件中
     private void save(String inputText) {
-        if (!TextUtils.isEmpty(inputText)) {
-            FileOutputStream out = null;
-            BufferedWriter writer = null;
-            try {
-                out = openFileOutput("data", Context.MODE_PRIVATE);
-                writer = new BufferedWriter(new OutputStreamWriter(out));
-                writer.write(inputText);
-            } catch (IOException e) {
-                e.printStackTrace();
-            } finally {
-                StreamUtils.endStream(writer);
-            }
+        FileOutputStream out = null;
+        BufferedWriter writer = null;
+        try {
+            out = openFileOutput("data", Context.MODE_PRIVATE);
+            writer = new BufferedWriter(new OutputStreamWriter(out));
+            writer.write(inputText);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            StreamUtils.endStream(writer);
         }
     }
 }

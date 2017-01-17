@@ -97,7 +97,7 @@ public class ChatPageActivity extends BaseActivity {
         if (!TextUtils.isEmpty(mChatMsg)) {
             mEtChatInput.setText(mChatMsg);
             mEtChatInput.setSelection(mChatMsg.length());
-            UIUtils.createToast(mContext, "Restoring Succeed");
+            UIUtils.createToast(mContext, "Restoring Succeeded");
         }
     }
 
