@@ -11,9 +11,9 @@
         android:text="File Storage"/>
 
     <Button
-        android:id="@+id/btn_chapter06_shared_preference_storage"
+        android:id="@+id/btn_chapter06_shared_preferences_storage"
         style="@style/primary_button"
-        android:text="SharedPreference Storage"/>
+        android:text="SharedPreferences Storage"/>
 
     <Button
         android:id="@+id/btn_chapter06_sqlite_storage"

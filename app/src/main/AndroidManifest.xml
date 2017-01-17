@@ -113,6 +113,7 @@
         <!--第六章页面-->
         <activity android:name=".chapter06.Chapter06Activity"/>
         <activity android:name=".chapter06.FileStorageActivity"/>
+        <activity android:name=".chapter06.SharedPreferencesStorageActivity"/>
 
         <!-- 数据库操作页面 -->
         <activity android:name=".activity.DatabaseActivity"/>

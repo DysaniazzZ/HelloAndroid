@@ -29,15 +29,16 @@ public class Chapter06Activity extends BaseActivity {
         ButterKnife.bind(this);
     }
 
-    @OnClick({R.id.btn_chapter06_file_storage, R.id.btn_chapter06_shared_preference_storage, R.id.btn_chapter06_sqlite_storage})
+    @OnClick({R.id.btn_chapter06_file_storage, R.id.btn_chapter06_shared_preferences_storage, R.id.btn_chapter06_sqlite_storage})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_chapter06_file_storage:
                 //文件存储
                 FileStorageActivity.actionStart(mContext);
                 break;
-            case R.id.btn_chapter06_shared_preference_storage:
+            case R.id.btn_chapter06_shared_preferences_storage:
                 //SP存储
+                SharedPreferencesStorageActivity.actionStart(mContext);
                 break;
             case R.id.btn_chapter06_sqlite_storage:
                 //SQLite存储
