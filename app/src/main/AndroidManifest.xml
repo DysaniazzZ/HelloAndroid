@@ -114,9 +114,8 @@
         <activity android:name=".chapter06.Chapter06Activity"/>
         <activity android:name=".chapter06.FileStorageActivity"/>
         <activity android:name=".chapter06.SharedPreferencesStorageActivity"/>
+        <activity android:name=".chapter06.DatabaseStorageActivity"/>
 
-        <!-- 数据库操作页面 -->
-        <activity android:name=".activity.DatabaseActivity"/>
         <!-- 运行时权限页面 -->
         <activity android:name=".activity.RuntimePermissionActivity"/>
         <!-- 联系人页面 -->

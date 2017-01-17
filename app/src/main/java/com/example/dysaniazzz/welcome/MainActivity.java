@@ -10,7 +10,6 @@ import com.example.dysaniazzz.activity.BaiduMapActivity;
 import com.example.dysaniazzz.activity.ChoosePicActivity;
 import com.example.dysaniazzz.activity.CompassActivity;
 import com.example.dysaniazzz.activity.ContactsActivity;
-import com.example.dysaniazzz.activity.DatabaseActivity;
 import com.example.dysaniazzz.activity.LocationActivity;
 import com.example.dysaniazzz.activity.NotificationActivity;
 import com.example.dysaniazzz.activity.RuntimePermissionActivity;
@@ -79,11 +78,6 @@ public class MainActivity extends BaseActivity {
     @OnClick(R.id.btn_main_to_chapter06)
     public void onChapter06Click() {
         Chapter06Activity.actionStart(mContext);
-    }
-
-    @OnClick(R.id.btn_main_to_database)
-    public void onDatabaseClick() {
-        DatabaseActivity.actionStart(mContext);
     }
 
     @OnClick(R.id.btn_main_to_runtimepermission)

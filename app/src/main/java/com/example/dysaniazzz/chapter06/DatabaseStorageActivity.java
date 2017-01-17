@@ -1,4 +1,4 @@
-package com.example.dysaniazzz.activity;
+package com.example.dysaniazzz.chapter06;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -19,9 +19,9 @@ import butterknife.Unbinder;
 
 /**
  * Created by DysaniazzZ on 2016/9/12.
- * 数据库操作页面(CRUD)
+ * 第六章：数据库存储并操作页面(CRUD)
  */
-public class DatabaseActivity extends BaseActivity {
+public class DatabaseStorageActivity extends BaseActivity {
 
     @BindView(R.id.tv_database_info)
     TextView mTvDatabaseInfo;
@@ -31,14 +31,14 @@ public class DatabaseActivity extends BaseActivity {
     private SQLiteDatabase mDatabase;
 
     public static void actionStart(Context context) {
-        Intent intent = new Intent(context, DatabaseActivity.class);
+        Intent intent = new Intent(context, DatabaseStorageActivity.class);
         context.startActivity(intent);
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_database);
+        setContentView(R.layout.activity_database_storage);
         mUnbinder = ButterKnife.bind(this);
         init();
     }

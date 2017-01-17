@@ -42,6 +42,7 @@ public class Chapter06Activity extends BaseActivity {
                 break;
             case R.id.btn_chapter06_sqlite_storage:
                 //SQLite存储
+                DatabaseStorageActivity.actionStart(mContext);
                 break;
         }
     }
