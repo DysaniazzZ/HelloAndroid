@@ -105,7 +105,7 @@ public class DatabaseStorageActivity extends BaseActivity {
                 String author = cursor.getString(cursor.getColumnIndex("author"));
                 int pages = cursor.getInt(cursor.getColumnIndex("pages"));
                 double price = cursor.getDouble(cursor.getColumnIndex("price"));
-                sb.append("book name is " + name + "\nbook author is " + author + "\nbook pages is " + pages + "\nbook price is " + price + "\n\n");
+                sb.append("Book name is " + name + "\nBook author is " + author + "\nBook pages is " + pages + "\nBook price is " + price + "\n\n");
             } while (cursor.moveToNext());
         }
         mTvDatabaseInfo.setText(sb.toString());
@@ -139,7 +139,7 @@ public class DatabaseStorageActivity extends BaseActivity {
                 String author = cursor.getString(cursor.getColumnIndex("author"));
                 int pages = cursor.getInt(cursor.getColumnIndex("pages"));
                 double price = cursor.getDouble(cursor.getColumnIndex("price"));
-                sb.append("book name is " + name + "\nbook author is " + author + "\nbook pages is " + pages + "\nbook price is " + price + "\n\n");
+                sb.append("Book name is " + name + "\nBook author is " + author + "\nBook pages is " + pages + "\nBook price is " + price + "\n\n");
 
             } while (cursor.moveToNext());
         }

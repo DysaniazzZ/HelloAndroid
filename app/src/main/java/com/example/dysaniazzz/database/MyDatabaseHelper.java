@@ -15,7 +15,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     /**
      * 创建表的语句
      */
-    public static final String CREATE_BOOK = "create table book ("
+    public static final String CREATE_BOOK = "create table Book ("
             + "id integer primary key autoincrement, "
             + "author text, "
             + "price real, "    //real代表浮点类型

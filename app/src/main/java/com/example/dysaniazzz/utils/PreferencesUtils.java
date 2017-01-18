@@ -13,7 +13,7 @@ public class PreferencesUtils {
 
     public static SharedPreferences getSharedPreferences(Context context) {
         if (sp == null) {
-            sp = context.getSharedPreferences("config", Context.MODE_PRIVATE);
+            sp = context.getSharedPreferences("App_Config", Context.MODE_PRIVATE);
         }
         return sp;
     }
