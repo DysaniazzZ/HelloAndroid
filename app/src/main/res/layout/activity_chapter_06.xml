@@ -20,4 +20,10 @@
         style="@style/primary_button"
         android:text="SQLite Storage"/>
 
+    <Button
+        android:id="@+id/btn_chapter06_litepal_usage"
+        style="@style/primary_button"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:text="LitePal Usage"/>
+
 </LinearLayout>

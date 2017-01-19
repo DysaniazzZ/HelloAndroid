@@ -7,6 +7,8 @@ import android.os.Environment;
 import com.baidu.mapapi.SDKInitializer;
 import com.example.dysaniazzz.utils.StreamUtils;
 
+import org.litepal.LitePal;
+
 import java.io.File;
 import java.io.PrintWriter;
 
@@ -61,7 +63,9 @@ public class MyApplication extends Application {
      * 初始化一些集成的SDK
      */
     private void initializeSdk() {
-        //initialize baidu map
-        SDKInitializer.initialize(getApplicationContext());
+        //初始化 LitePal SDK
+        LitePal.initialize(mContext);
+        //初始化 百度地图 SDK
+        SDKInitializer.initialize(mContext);
     }
 }

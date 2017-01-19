@@ -29,4 +29,5 @@ dependencies {
     compile 'com.orhanobut:logger:1.15'
     compile 'com.google.code.gson:gson:2.7'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
+    compile 'org.litepal.android:core:1.4.1'
 }

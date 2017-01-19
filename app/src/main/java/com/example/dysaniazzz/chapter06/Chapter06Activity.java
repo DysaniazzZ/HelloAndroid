@@ -29,7 +29,7 @@ public class Chapter06Activity extends BaseActivity {
         ButterKnife.bind(this);
     }
 
-    @OnClick({R.id.btn_chapter06_file_storage, R.id.btn_chapter06_shared_preferences_storage, R.id.btn_chapter06_sqlite_storage})
+    @OnClick({R.id.btn_chapter06_file_storage, R.id.btn_chapter06_shared_preferences_storage, R.id.btn_chapter06_sqlite_storage, R.id.btn_chapter06_litepal_usage})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_chapter06_file_storage:
@@ -43,6 +43,10 @@ public class Chapter06Activity extends BaseActivity {
             case R.id.btn_chapter06_sqlite_storage:
                 //SQLite存储
                 DatabaseStorageActivity.actionStart(mContext);
+                break;
+            case R.id.btn_chapter06_litepal_usage:
+                //LitePal的使用
+                LitePalUsageActivity.actionStart(mContext);
                 break;
         }
     }
