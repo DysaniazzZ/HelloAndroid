@@ -1,4 +1,4 @@
-package com.example.dysaniazzz.database;
+package com.example.dysaniazzz.chapter06;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
@@ -6,11 +6,9 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 /**
  * Created by DysaniazzZ on 2016/9/11.
- * 数据库的操作类
+ * 第六章：数据库的操作类
  */
 public class MyDatabaseHelper extends SQLiteOpenHelper {
-
-    private Context mContext;
 
     /**
      * 创建表的语句
@@ -36,7 +34,6 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
      */
     public MyDatabaseHelper(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
         super(context, name, factory, version);
-        mContext = context;
     }
 
     /**
@@ -48,7 +45,6 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(CREATE_BOOK);
         db.execSQL(CREATE_CATEGORY);
-        //UIUtils.createToast(mContext, "Create succeeded");
     }
 
     /**

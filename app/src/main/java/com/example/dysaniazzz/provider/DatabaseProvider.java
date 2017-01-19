@@ -8,7 +8,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.support.annotation.Nullable;
 
-import com.example.dysaniazzz.database.MyDatabaseHelper;
+import com.example.dysaniazzz.chapter06.MyDatabaseHelper;
 
 /**
  * Created by DysaniazzZ on 2016/9/18.
