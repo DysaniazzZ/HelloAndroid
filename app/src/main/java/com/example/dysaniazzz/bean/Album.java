@@ -25,6 +25,8 @@ public class Album extends DataSupport {
 
     private List<Song> songs = new ArrayList<>();
 
+    private Singer singer;
+
     public String getName() {
         return name;
     }
@@ -63,5 +65,13 @@ public class Album extends DataSupport {
 
     public void setSongs(List<Song> songs) {
         this.songs = songs;
+    }
+
+    public Singer getSinger() {
+        return singer;
+    }
+
+    public void setSinger(Singer singer) {
+        this.singer = singer;
     }
 }

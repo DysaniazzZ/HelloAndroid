@@ -4,11 +4,12 @@
     <!--configure the database name of project-->
     <dbname value="LitePalDemo"/>
     <!--configure the version of database-->
-    <version value="1"/>
+    <version value="2"/>
     <!--configure the mapping classes -->
     <list>
         <mapping class="com.example.dysaniazzz.bean.Album"/>
         <mapping class="com.example.dysaniazzz.bean.Song"/>
+        <mapping class="com.example.dysaniazzz.bean.Singer"/>
     </list>
 
     <!--configure where the database file should be stored-->
