@@ -122,7 +122,7 @@ public class CommonWidgetsActivity extends BaseActivity {
 
     @Override
     protected void onDestroy() {
-        super.onDestroy();
         mUnbinder.unbind();
+        super.onDestroy();
     }
 }

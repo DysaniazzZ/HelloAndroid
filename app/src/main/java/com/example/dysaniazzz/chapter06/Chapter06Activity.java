@@ -10,12 +10,15 @@ import com.example.dysaniazzz.common.BaseActivity;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import butterknife.Unbinder;
 
 /**
  * Created by DysaniazzZ on 16/01/2017.
  * 第六章：数据存储全方案，详解持久化技术
  */
 public class Chapter06Activity extends BaseActivity {
+
+    private Unbinder mUnbinder;
 
     public static void actionStart(Context context) {
         Intent intent = new Intent(context, Chapter06Activity.class);
@@ -26,7 +29,7 @@ public class Chapter06Activity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chapter_06);
-        ButterKnife.bind(this);
+        mUnbinder = ButterKnife.bind(this);
     }
 
     @OnClick({R.id.btn_chapter06_file_storage, R.id.btn_chapter06_shared_preferences_storage, R.id.btn_chapter06_sqlite_storage, R.id.btn_chapter06_litepal_usage})
@@ -49,5 +52,11 @@ public class Chapter06Activity extends BaseActivity {
                 LitePalUsageActivity.actionStart(mContext);
                 break;
         }
+    }
+
+    @Override
+    protected void onDestroy() {
+        mUnbinder.unbind();
+        super.onDestroy();
     }
 }
