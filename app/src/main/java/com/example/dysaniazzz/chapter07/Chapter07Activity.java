@@ -32,12 +32,16 @@ public class Chapter07Activity extends BaseActivity {
         mUnbinder = ButterKnife.bind(this);
     }
 
-    @OnClick({R.id.btn_chapter07_runtime_permission})
+    @OnClick({R.id.btn_chapter07_runtime_permission, R.id.btn_chapter07_read_contacts})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_chapter07_runtime_permission:
                 //动态申请权限
                 RuntimePermissionActivity.actionStart(mContext);
+                break;
+            case R.id.btn_chapter07_read_contacts:
+                //读取系统联系人
+                ReadContactsActivity.actionStart(mContext);
                 break;
         }
     }

@@ -9,7 +9,6 @@ import com.example.dysaniazzz.activity.AudioPlayActivity;
 import com.example.dysaniazzz.activity.BaiduMapActivity;
 import com.example.dysaniazzz.activity.ChoosePicActivity;
 import com.example.dysaniazzz.activity.CompassActivity;
-import com.example.dysaniazzz.activity.ContactsActivity;
 import com.example.dysaniazzz.activity.LocationActivity;
 import com.example.dysaniazzz.activity.NotificationActivity;
 import com.example.dysaniazzz.activity.SensorActivity;
@@ -83,11 +82,6 @@ public class MainActivity extends BaseActivity {
     @OnClick(R.id.btn_main_to_chapter07)
     public void onChapter07Click() {
         Chapter07Activity.actionStart(mContext);
-    }
-
-    @OnClick(R.id.btn_main_to_contacts)
-    public void onContactsClick() {
-        ContactsActivity.actionStart(mContext);
     }
 
     @OnClick(R.id.btn_main_to_notification)

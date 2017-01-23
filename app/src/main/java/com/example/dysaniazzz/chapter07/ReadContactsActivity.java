@@ -1,19 +1,17 @@
-package com.example.dysaniazzz.activity;
+package com.example.dysaniazzz.chapter07;
 
 import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.provider.ContactsContract;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.example.dysaniazzz.R;
 import com.example.dysaniazzz.common.BaseActivity;
+import com.example.dysaniazzz.utils.IPermissionListener;
 import com.example.dysaniazzz.utils.UIUtils;
 
 import java.util.ArrayList;
@@ -25,9 +23,9 @@ import butterknife.Unbinder;
 
 /**
  * Created by DysaniazzZ on 2016/9/18.
- * 联系人页面
+ * 第七章：读取系统联系人页面
  */
-public class ContactsActivity extends BaseActivity {
+public class ReadContactsActivity extends BaseActivity {
 
     @BindView(R.id.lv_contacts_info)
     ListView mLvContactsInfo;
@@ -37,14 +35,14 @@ public class ContactsActivity extends BaseActivity {
     private List<String> mContactsList = new ArrayList<>();
 
     public static void actionStart(Context context) {
-        Intent intent = new Intent(context, ContactsActivity.class);
+        Intent intent = new Intent(context, ReadContactsActivity.class);
         context.startActivity(intent);
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_contacts);
+        setContentView(R.layout.activity_read_contacts);
         mUnbinder = ButterKnife.bind(this);
         init();
     }
@@ -53,11 +51,17 @@ public class ContactsActivity extends BaseActivity {
         mContactsAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, mContactsList);
         mLvContactsInfo.setAdapter(mContactsAdapter);
         //动态获取联系人权限
-        if(ContextCompat.checkSelfPermission(mContext, Manifest.permission.READ_CONTACTS) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_CONTACTS}, 1);
-        } else {
-            readContacts();
-        }
+        requestRuntimePermissions(new String[]{Manifest.permission.READ_CONTACTS}, new IPermissionListener() {
+            @Override
+            public void onGranted() {
+                readContacts();
+            }
+
+            @Override
+            public void onDenied(List<String> deniedPermissionList) {
+                UIUtils.createToast(mContext, "Your denied the read contact permission");
+            }
+        });
     }
 
     private void readContacts() {
@@ -65,7 +69,7 @@ public class ContactsActivity extends BaseActivity {
         try {
             //查询联系人数据
             cursor = getContentResolver().query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI, null, null, null, null);
-            if(cursor != null) {
+            if (cursor != null) {
                 while (cursor.moveToNext()) {
                     //获取联系人姓名
                     String displayName = cursor.getString(cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME));
@@ -85,23 +89,8 @@ public class ContactsActivity extends BaseActivity {
     }
 
     @Override
-    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
-        switch (requestCode) {
-            case 1:
-                if(grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    readContacts();
-                } else {
-                    UIUtils.createToast(mContext, "Your denied the read contact permission");
-                }
-                break;
-            default:
-                break;
-        }
-    }
-
-    @Override
     protected void onDestroy() {
-        super.onDestroy();
         mUnbinder.unbind();
+        super.onDestroy();
     }
 }

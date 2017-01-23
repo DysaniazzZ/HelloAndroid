@@ -120,9 +120,8 @@
         <!--第七章页面-->
         <activity android:name=".chapter07.Chapter07Activity"/>
         <activity android:name=".chapter07.RuntimePermissionActivity"/>
+        <activity android:name=".chapter07.ReadContactsActivity"/>
 
-        <!-- 联系人页面 -->
-        <activity android:name=".activity.ContactsActivity"/>
         <!-- 通知栏页面 -->
         <activity android:name=".activity.NotificationActivity"/>
         <!-- 短信页面 -->
