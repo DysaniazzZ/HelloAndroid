@@ -117,8 +117,10 @@
         <activity android:name=".chapter06.DatabaseStorageActivity"/>
         <activity android:name=".chapter06.LitePalUsageActivity"/>
 
-        <!-- 运行时权限页面 -->
-        <activity android:name=".activity.RuntimePermissionActivity"/>
+        <!--第七章页面-->
+        <activity android:name=".chapter07.Chapter07Activity"/>
+        <activity android:name=".chapter07.RuntimePermissionActivity"/>
+
         <!-- 联系人页面 -->
         <activity android:name=".activity.ContactsActivity"/>
         <!-- 通知栏页面 -->

@@ -46,11 +46,11 @@
             style="@style/primary_button"
             android:text="Chapter 06"/>
 
-        <!-- 动态权限页面 -->
+        <!--第七章-->
         <Button
-            android:id="@+id/btn_main_to_runtimepermission"
+            android:id="@+id/btn_main_to_chapter07"
             style="@style/primary_button"
-            android:text="MainActivity to RuntimePermissionActivity"/>
+            android:text="Chapter 07"/>
 
         <!-- 联系人页面 -->
         <Button

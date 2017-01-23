@@ -1,18 +1,27 @@
 package com.example.dysaniazzz.common;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 
 import com.example.dysaniazzz.utils.ActivityCollector;
 import com.example.dysaniazzz.utils.IGlobalConstants;
+import com.example.dysaniazzz.utils.IPermissionListener;
 import com.example.dysaniazzz.welcome.LoginActivity;
 import com.orhanobut.logger.Logger;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by DysaniazzZ on 2016/9/5.
@@ -22,6 +31,7 @@ public class BaseActivity extends AppCompatActivity {
 
     public Context mContext;
     private ForceOfflineReceiver mForceOfflineReceiver;
+    private static IPermissionListener sIPermissionListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,6 +81,54 @@ public class BaseActivity extends AppCompatActivity {
                 }
             });
             dialogBuilder.show();
+        }
+    }
+
+    public static void requestRuntimePermissions(String[] permissions, IPermissionListener iPermissionListener) {
+        Activity topActivity = ActivityCollector.getTopActivity();
+        if (topActivity == null) {
+            return;
+        }
+        sIPermissionListener = iPermissionListener;
+        List<String> permissionList = new ArrayList<>();
+        for (String permission : permissions) {
+            //查看还有哪些未被授予的权限，加入集合
+            if (ContextCompat.checkSelfPermission(topActivity, permission) != PackageManager.PERMISSION_GRANTED) {
+                permissionList.add(permission);
+            }
+        }
+        if (!permissionList.isEmpty()) {
+            //动态申请权限
+            ActivityCompat.requestPermissions(topActivity, permissionList.toArray(new String[permissionList.size() - 1]), 1);
+        } else {
+            //权限都被授予了
+            sIPermissionListener.onGranted();
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        switch (requestCode) {
+            case 1:
+                if (grantResults.length > 0) {
+                    List<String> deniedPermissionList = new ArrayList<>();
+                    for (int i = 0; i < grantResults.length; i++) {
+                        int grantResult = grantResults[i];
+                        String permission = permissions[i];
+                        if (grantResult != PackageManager.PERMISSION_GRANTED) {
+                            deniedPermissionList.add(permission);
+                        }
+                    }
+                    if (deniedPermissionList.isEmpty()) {
+                        sIPermissionListener.onGranted();
+                    } else {
+                        sIPermissionListener.onDenied(deniedPermissionList);
+                    }
+                }
+                break;
+            default:
+                break;
         }
     }
 

@@ -23,6 +23,14 @@ public class ActivityCollector {
         mActivities.remove(activity);
     }
 
+    public static Activity getTopActivity() {
+        if (mActivities.isEmpty()) {
+            return null;
+        } else {
+            return mActivities.get(mActivities.size() - 1);
+        }
+    }
+
     public static void finishAll() {
         for (Activity activity : mActivities) {
             if (!activity.isFinishing()) {

@@ -12,7 +12,6 @@ import com.example.dysaniazzz.activity.CompassActivity;
 import com.example.dysaniazzz.activity.ContactsActivity;
 import com.example.dysaniazzz.activity.LocationActivity;
 import com.example.dysaniazzz.activity.NotificationActivity;
-import com.example.dysaniazzz.activity.RuntimePermissionActivity;
 import com.example.dysaniazzz.activity.SensorActivity;
 import com.example.dysaniazzz.activity.ServiceActivity;
 import com.example.dysaniazzz.activity.SmsActivity;
@@ -24,6 +23,7 @@ import com.example.dysaniazzz.chapter03.Chapter03Activity;
 import com.example.dysaniazzz.chapter04.Chapter04Activity;
 import com.example.dysaniazzz.chapter05.Chapter05Activity;
 import com.example.dysaniazzz.chapter06.Chapter06Activity;
+import com.example.dysaniazzz.chapter07.Chapter07Activity;
 import com.example.dysaniazzz.common.BaseActivity;
 
 import butterknife.ButterKnife;
@@ -80,9 +80,9 @@ public class MainActivity extends BaseActivity {
         Chapter06Activity.actionStart(mContext);
     }
 
-    @OnClick(R.id.btn_main_to_runtimepermission)
-    public void onPermissionClick() {
-        RuntimePermissionActivity.actionStart(mContext);
+    @OnClick(R.id.btn_main_to_chapter07)
+    public void onChapter07Click() {
+        Chapter07Activity.actionStart(mContext);
     }
 
     @OnClick(R.id.btn_main_to_contacts)
