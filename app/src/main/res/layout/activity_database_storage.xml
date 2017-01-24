@@ -2,7 +2,8 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:padding="@dimen/common_padding">
+            android:padding="@dimen/common_padding"
+            android:scrollbars="none">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -63,8 +64,8 @@
             android:id="@+id/tv_database_info"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text=""/>
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:layout_weight="1"/>
 
     </LinearLayout>
 

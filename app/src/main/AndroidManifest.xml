@@ -165,11 +165,13 @@
         <service android:name=".service.LongRunningService"/>
 
         <!-- Provider -->
-        <!-- 自定义的数据库Provider -->
+        <!-- 自定义对外共享数据的Provider -->
+        <!--exported属性表示是否允许外部程序访问我们的内容提供器，enabled属性表示是否启用这个内容提供器-->
         <provider
-            android:name=".provider.DatabaseProvider"
+            android:name=".chapter07.MyDatabaseProvider"
             android:authorities="com.example.dysaniazzz.provider"
-            android:exported="true">
+            android:exported="true"
+            android:enabled="true">
         </provider>
     </application>
 

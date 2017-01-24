@@ -1,4 +1,4 @@
-package com.example.dysaniazzz.provider;
+package com.example.dysaniazzz.chapter07;
 
 import android.content.ContentProvider;
 import android.content.ContentValues;
@@ -12,9 +12,9 @@ import com.example.dysaniazzz.chapter06.MyDatabaseHelper;
 
 /**
  * Created by DysaniazzZ on 2016/9/18.
- * 自定义的内容提供者，用来共享数据库数据
+ * 第七章：自定义的内容提供者，用来共享数据库数据
  */
-public class DatabaseProvider extends ContentProvider {
+public class MyDatabaseProvider extends ContentProvider {
 
     public static final int BOOK_DIR = 0;
     public static final int BOOK_ITEM = 1;
@@ -23,15 +23,15 @@ public class DatabaseProvider extends ContentProvider {
 
     public static final String AUTHORITY = "com.example.dysaniazzz.provider";
 
-    private static UriMatcher mUriMatcher;
+    private static UriMatcher sUriMatcher;
     private MyDatabaseHelper mMyDatabaseHelper;
 
     static {
-        mUriMatcher = new UriMatcher(UriMatcher.NO_MATCH);
-        mUriMatcher.addURI("com.example.dysaniazzz.provider", "book", BOOK_DIR);
-        mUriMatcher.addURI("com.example.dysaniazzz.provider", "book/#", BOOK_ITEM);
-        mUriMatcher.addURI("com.example.dysaniazzz.provider", "category", CATEGORY_ITEM);
-        mUriMatcher.addURI("com.example.dysaniazzz.provider", "category/#", CATEGORY_ITEM);
+        sUriMatcher = new UriMatcher(UriMatcher.NO_MATCH);
+        sUriMatcher.addURI("com.example.dysaniazzz.provider", "book", BOOK_DIR);
+        sUriMatcher.addURI("com.example.dysaniazzz.provider", "book/#", BOOK_ITEM);
+        sUriMatcher.addURI("com.example.dysaniazzz.provider", "category", CATEGORY_ITEM);
+        sUriMatcher.addURI("com.example.dysaniazzz.provider", "category/#", CATEGORY_ITEM);
     }
 
     /**
@@ -60,7 +60,7 @@ public class DatabaseProvider extends ContentProvider {
          * 2. 如果内容 URI 以路径结尾，则后接 android.cursor.dir/，如果内容 URI 以 id 结尾，则后接 android.cursor.item/；
          * 3. 最后接上 vnd.<authority>.<path>；
          */
-        switch (mUriMatcher.match(uri)) {
+        switch (sUriMatcher.match(uri)) {
             case BOOK_DIR:
                 return "vnd.android.cursor.dir/vnd.com.example.dysaniazzz.provider.book";
             case BOOK_ITEM:
@@ -89,7 +89,7 @@ public class DatabaseProvider extends ContentProvider {
         //查询数据
         SQLiteDatabase db = mMyDatabaseHelper.getReadableDatabase();
         Cursor cursor = null;
-        switch (mUriMatcher.match(uri)) {
+        switch (sUriMatcher.match(uri)) {
             case BOOK_DIR:
                 //查询book表中的所有数据
                 cursor = db.query("Book", projection, selection, selectionArgs, null, null, sortOrder);
@@ -127,7 +127,7 @@ public class DatabaseProvider extends ContentProvider {
         //添加数据
         SQLiteDatabase db = mMyDatabaseHelper.getWritableDatabase();
         Uri uriReturn = null;
-        switch (mUriMatcher.match(uri)) {
+        switch (sUriMatcher.match(uri)) {
             case BOOK_DIR:
             case BOOK_ITEM:
                 long newBookId = db.insert("Book", null, values);
@@ -157,7 +157,7 @@ public class DatabaseProvider extends ContentProvider {
         //删除数据
         SQLiteDatabase db = mMyDatabaseHelper.getWritableDatabase();
         int deletedRows = 0;
-        switch (mUriMatcher.match(uri)) {
+        switch (sUriMatcher.match(uri)) {
             case BOOK_DIR:
                 deletedRows = db.delete("Book", selection, selectionArgs);
                 break;
@@ -192,7 +192,7 @@ public class DatabaseProvider extends ContentProvider {
         //更新数据
         SQLiteDatabase db = mMyDatabaseHelper.getWritableDatabase();
         int updatedRows = 0;
-        switch (mUriMatcher.match(uri)) {
+        switch (sUriMatcher.match(uri)) {
             case BOOK_DIR:
                 updatedRows = db.update("Book", values, selection, selectionArgs);
                 break;

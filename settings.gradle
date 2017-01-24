@@ -1,1 +1,1 @@
-include ':app', ':databaseprovidertest'
+include ':app', ':providertest'
