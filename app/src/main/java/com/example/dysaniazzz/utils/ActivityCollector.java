@@ -37,5 +37,6 @@ public class ActivityCollector {
                 activity.finish();
             }
         }
+        mActivities.clear();
     }
 }
