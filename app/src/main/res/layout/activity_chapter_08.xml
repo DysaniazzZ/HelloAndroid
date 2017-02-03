@@ -2,12 +2,12 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
-              android:orientation="vertical">
+              android:orientation="vertical"
+              android:padding="@dimen/common_padding">
 
-    <!-- 发送通知 -->
     <Button
-        android:id="@+id/btn_notification_send"
+        android:id="@+id/btn_chapter08_notification_usage"
         style="@style/primary_button"
-        android:text="Send Notice"/>
+        android:text="Notification Usage"/>
 
 </LinearLayout>

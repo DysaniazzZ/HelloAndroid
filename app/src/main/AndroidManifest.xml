@@ -3,15 +3,15 @@
           package="com.example.dysaniazzz">
 
     <!-- Permission -->
-    <!-- 访问系统的网络状态 -->
+    <!-- 第五章：访问系统的网络状态 -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-    <!-- 接收开机启动广播 -->
+    <!-- 第五章：接收开机启动广播 -->
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
-    <!-- 拨打电话 -->
+    <!-- 第七章：拨打电话 -->
     <uses-permission android:name="android.permission.CALL_PHONE"/>
-    <!-- 读取系统联系人 -->
+    <!-- 第七章：读取系统联系人 -->
     <uses-permission android:name="android.permission.READ_CONTACTS"/>
-    <!-- 控制手机震动 -->
+    <!-- 第八章：控制手机震动 -->
     <uses-permission android:name="android.permission.VIBRATE"/>
     <!-- 接收短信 -->
     <uses-permission android:name="android.permission.RECEIVE_SMS"/>
@@ -122,8 +122,10 @@
         <activity android:name=".chapter07.RuntimePermissionActivity"/>
         <activity android:name=".chapter07.ReadContactsActivity"/>
 
-        <!-- 通知栏页面 -->
-        <activity android:name=".activity.NotificationActivity"/>
+        <!--第八章页面-->
+        <activity android:name=".chapter08.Chapter08Activity"/>
+        <activity android:name=".chapter08.NotificationUsageActivity"/>
+
         <!-- 短信页面 -->
         <activity android:name=".activity.SmsActivity"/>
         <!-- 选择相片页面 -->
@@ -146,7 +148,7 @@
         <activity android:name=".activity.CompassActivity"/>
 
         <!-- Receiver -->
-        <!-- 开机启动的Receiver，这个广播已经被好多定制ROM屏蔽掉了 -->
+        <!-- 第五章：开机启动的Receiver，这个广播已经被好多定制ROM屏蔽掉了 -->
         <receiver
             android:name=".chapter05.BootCompleteReceiver"
             android:enabled="true"
@@ -165,7 +167,7 @@
         <service android:name=".service.LongRunningService"/>
 
         <!-- Provider -->
-        <!-- 自定义对外共享数据的Provider -->
+        <!-- 第七章：自定义对外共享数据的Provider -->
         <!--exported属性表示是否允许外部程序访问我们的内容提供器，enabled属性表示是否启用这个内容提供器-->
         <provider
             android:name=".chapter07.MyDatabaseProvider"

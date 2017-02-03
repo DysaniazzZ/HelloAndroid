@@ -10,7 +10,6 @@ import com.example.dysaniazzz.activity.BaiduMapActivity;
 import com.example.dysaniazzz.activity.ChoosePicActivity;
 import com.example.dysaniazzz.activity.CompassActivity;
 import com.example.dysaniazzz.activity.LocationActivity;
-import com.example.dysaniazzz.activity.NotificationActivity;
 import com.example.dysaniazzz.activity.SensorActivity;
 import com.example.dysaniazzz.activity.ServiceActivity;
 import com.example.dysaniazzz.activity.SmsActivity;
@@ -23,6 +22,7 @@ import com.example.dysaniazzz.chapter04.Chapter04Activity;
 import com.example.dysaniazzz.chapter05.Chapter05Activity;
 import com.example.dysaniazzz.chapter06.Chapter06Activity;
 import com.example.dysaniazzz.chapter07.Chapter07Activity;
+import com.example.dysaniazzz.chapter08.Chapter08Activity;
 import com.example.dysaniazzz.common.BaseActivity;
 
 import butterknife.ButterKnife;
@@ -84,9 +84,9 @@ public class MainActivity extends BaseActivity {
         Chapter07Activity.actionStart(mContext);
     }
 
-    @OnClick(R.id.btn_main_to_notification)
-    public void onNotificationClick() {
-        NotificationActivity.actionStart(mContext);
+    @OnClick(R.id.btn_main_to_chapter08)
+    public void onChapter08Click() {
+        Chapter08Activity.actionStart(mContext);
     }
 
     @OnClick(R.id.btn_main_to_sms)

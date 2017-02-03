@@ -52,11 +52,11 @@
             style="@style/primary_button"
             android:text="Chapter 07"/>
 
-        <!-- 通知栏页面 -->
+        <!--第八章-->
         <Button
-            android:id="@+id/btn_main_to_notification"
+            android:id="@+id/btn_main_to_chapter08"
             style="@style/primary_button"
-            android:text="MainActivity to NotificationActivity"/>
+            android:text="Chapter 08"/>
 
         <!-- 短信页面 -->
         <Button
