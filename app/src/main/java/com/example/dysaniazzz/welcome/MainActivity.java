@@ -7,7 +7,6 @@ import android.os.Bundle;
 import com.example.dysaniazzz.R;
 import com.example.dysaniazzz.activity.AudioPlayActivity;
 import com.example.dysaniazzz.activity.BaiduMapActivity;
-import com.example.dysaniazzz.activity.ChoosePicActivity;
 import com.example.dysaniazzz.activity.CompassActivity;
 import com.example.dysaniazzz.activity.LocationActivity;
 import com.example.dysaniazzz.activity.SensorActivity;
@@ -92,11 +91,6 @@ public class MainActivity extends BaseActivity {
     @OnClick(R.id.btn_main_to_sms)
     public void onSmsClick() {
         SmsActivity.actionStart(mContext);
-    }
-
-    @OnClick(R.id.btn_main_to_choosepic)
-    public void onChoosePicClick() {
-        ChoosePicActivity.actionStart(mContext);
     }
 
     @OnClick(R.id.btn_main_to_audioplay)

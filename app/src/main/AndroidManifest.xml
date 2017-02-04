@@ -13,17 +13,22 @@
     <uses-permission android:name="android.permission.READ_CONTACTS"/>
     <!-- 第八章：控制手机震动 -->
     <uses-permission android:name="android.permission.VIBRATE"/>
+    <!-- 第八章：向SD卡中写数据，注意：1、该权限隐含读权限；2、如果读写操作都是在应用关联目录，从Android 4.4开始是不需要申请这项权限的，可以使用maxSdkVersion="18"标识 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <!-- 接收短信 -->
     <uses-permission android:name="android.permission.RECEIVE_SMS"/>
     <!-- 发送短信 -->
     <uses-permission android:name="android.permission.SEND_SMS"/>
-    <!-- 向SD卡中写数据 -->
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <!-- 访问网络 -->
     <uses-permission android:name="android.permission.INTERNET"/>
     <!-- GPS定位 -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+
+    <!--用于表明我们的应用是需要相机的，但并不是正常运行所必不可少的组件，当然在使用时需要调用hasSystemFeature(PackageManager.FEATURE_CAMERA)判断相机是否可用-->
+    <uses-feature
+        android:name="android.hardware.camera2"
+        android:required="false"/>
 
     <!-- Baidu Map Start -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
@@ -35,8 +40,8 @@
     <uses-permission android:name="android.permission.GET_TASKS"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
-
     <!-- Baidu Map Stop -->
+
     <application
         android:name=".common.MyApplication"
         android:allowBackup="true"
@@ -124,12 +129,11 @@
 
         <!--第八章页面-->
         <activity android:name=".chapter08.Chapter08Activity"/>
+        <activity android:name=".chapter08.CameraAlbumActivity"/>
         <activity android:name=".chapter08.NotificationUsageActivity"/>
 
         <!-- 短信页面 -->
         <activity android:name=".activity.SmsActivity"/>
-        <!-- 选择相片页面 -->
-        <activity android:name=".activity.ChoosePicActivity"/>
         <!-- 音频播放页面 -->
         <activity android:name=".activity.AudioPlayActivity"/>
         <!-- 视频播放页面 -->
@@ -172,8 +176,18 @@
         <provider
             android:name=".chapter07.MyDatabaseProvider"
             android:authorities="com.example.dysaniazzz.provider"
-            android:exported="true"
-            android:enabled="true">
+            android:enabled="true"
+            android:exported="true">
+        </provider>
+        <!--第八章：Android 7.0开始需要的内容提供器-->
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.example.dysaniazzz.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths"/>
         </provider>
     </application>
 

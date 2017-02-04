@@ -32,11 +32,14 @@ public class Chapter08Activity extends BaseActivity {
         mUnbinder = ButterKnife.bind(this);
     }
 
-    @OnClick({R.id.btn_chapter08_notification_usage})
+    @OnClick({R.id.btn_chapter08_notification_usage, R.id.btn_chapter08_camera_album})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_chapter08_notification_usage:
                 NotificationUsageActivity.actionStart(mContext);
+                break;
+            case R.id.btn_chapter08_camera_album:
+                CameraAlbumActivity.actionStart(mContext);
                 break;
         }
     }
