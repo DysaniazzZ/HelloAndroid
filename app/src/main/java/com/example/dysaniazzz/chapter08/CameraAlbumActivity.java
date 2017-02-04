@@ -32,8 +32,6 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
 
-import static android.R.attr.path;
-
 /**
  * Created by DysaniazzZ on 03/02/2017.
  * 第八章：调用摄像头和相册
