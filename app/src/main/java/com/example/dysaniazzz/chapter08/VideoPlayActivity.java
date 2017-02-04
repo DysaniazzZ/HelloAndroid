@@ -59,7 +59,7 @@ public class VideoPlayActivity extends BaseActivity {
     private void initVideoPath() {
         //直到视频文件路径
         File file = new File(Environment.getExternalStorageDirectory(), "Movie.mp4");
-        if(!file.exists()) {
+        if (!file.exists()) {
             UIUtils.createToast(mContext, "File not found");
             finish();
             return;
