@@ -32,7 +32,7 @@ public class Chapter08Activity extends BaseActivity {
         mUnbinder = ButterKnife.bind(this);
     }
 
-    @OnClick({R.id.btn_chapter08_notification_usage, R.id.btn_chapter08_camera_album})
+    @OnClick({R.id.btn_chapter08_notification_usage, R.id.btn_chapter08_camera_album, R.id.btn_chapter08_audio_play, R.id.btn_chapter08_video_play})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_chapter08_notification_usage:
@@ -40,6 +40,12 @@ public class Chapter08Activity extends BaseActivity {
                 break;
             case R.id.btn_chapter08_camera_album:
                 CameraAlbumActivity.actionStart(mContext);
+                break;
+            case R.id.btn_chapter08_audio_play:
+                AudioPlayActivity.actionStart(mContext);
+                break;
+            case R.id.btn_chapter08_video_play:
+                VideoPlayActivity.actionStart(mContext);
                 break;
         }
     }

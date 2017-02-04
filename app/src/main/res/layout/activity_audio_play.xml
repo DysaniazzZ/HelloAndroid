@@ -6,23 +6,18 @@
               android:padding="@dimen/common_padding">
 
     <Button
-        android:id="@+id/btn_chapter08_notification_usage"
+        android:id="@+id/btn_audio_play_play"
         style="@style/primary_button"
-        android:text="Notification Usage"/>
+        android:text="Play"/>
 
     <Button
-        android:id="@+id/btn_chapter08_camera_album"
+        android:id="@+id/btn_audio_play_pause"
         style="@style/primary_button"
-        android:text="Camera &amp; Album"/>
+        android:text="Pause"/>
 
     <Button
-        android:id="@+id/btn_chapter08_audio_play"
+        android:id="@+id/btn_audio_play_stop"
         style="@style/primary_button"
-        android:text="Audio Play"/>
-
-    <Button
-        android:id="@+id/btn_chapter08_video_play"
-        style="@style/primary_button"
-        android:text="Video Play"/>
+        android:text="Stop"/>
 
 </LinearLayout>

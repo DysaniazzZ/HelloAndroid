@@ -5,14 +5,12 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.example.dysaniazzz.R;
-import com.example.dysaniazzz.activity.AudioPlayActivity;
 import com.example.dysaniazzz.activity.BaiduMapActivity;
 import com.example.dysaniazzz.activity.CompassActivity;
 import com.example.dysaniazzz.activity.LocationActivity;
 import com.example.dysaniazzz.activity.SensorActivity;
 import com.example.dysaniazzz.activity.ServiceActivity;
 import com.example.dysaniazzz.activity.SmsActivity;
-import com.example.dysaniazzz.activity.VideoPlayActivity;
 import com.example.dysaniazzz.activity.WebActivity;
 import com.example.dysaniazzz.chapter01.Chapter01Activity;
 import com.example.dysaniazzz.chapter02.Chapter02Activity;
@@ -91,16 +89,6 @@ public class MainActivity extends BaseActivity {
     @OnClick(R.id.btn_main_to_sms)
     public void onSmsClick() {
         SmsActivity.actionStart(mContext);
-    }
-
-    @OnClick(R.id.btn_main_to_audioplay)
-    public void onAudioPlayClick() {
-        AudioPlayActivity.actionStart(mContext);
-    }
-
-    @OnClick(R.id.btn_main_to_videoplay)
-    public void onVideoPlayClick() {
-        VideoPlayActivity.actionStart(mContext);
     }
 
     @OnClick(R.id.btn_main_to_service)

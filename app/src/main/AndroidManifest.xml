@@ -131,13 +131,11 @@
         <activity android:name=".chapter08.Chapter08Activity"/>
         <activity android:name=".chapter08.CameraAlbumActivity"/>
         <activity android:name=".chapter08.NotificationUsageActivity"/>
+        <activity android:name=".chapter08.AudioPlayActivity"/>
+        <activity android:name=".chapter08.VideoPlayActivity"/>
 
         <!-- 短信页面 -->
         <activity android:name=".activity.SmsActivity"/>
-        <!-- 音频播放页面 -->
-        <activity android:name=".activity.AudioPlayActivity"/>
-        <!-- 视频播放页面 -->
-        <activity android:name=".activity.VideoPlayActivity"/>
         <!-- 操作服务页面 -->
         <activity android:name=".activity.ServiceActivity"/>
         <!-- 展示网页页面 -->
