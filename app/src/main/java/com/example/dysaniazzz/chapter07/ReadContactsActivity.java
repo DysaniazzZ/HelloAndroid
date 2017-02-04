@@ -59,7 +59,8 @@ public class ReadContactsActivity extends BaseActivity {
 
             @Override
             public void onDenied(List<String> deniedPermissionList) {
-                UIUtils.createToast(mContext, "Your denied the read contact permission");
+                UIUtils.createToast(mContext, "You denied the read contacts permission");
+                finish();
             }
         });
     }
