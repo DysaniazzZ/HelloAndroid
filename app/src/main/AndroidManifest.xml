@@ -15,12 +15,12 @@
     <uses-permission android:name="android.permission.VIBRATE"/>
     <!-- 第八章：向SD卡中写数据，注意：1、该权限隐含读权限；2、如果读写操作都是在应用关联目录，从Android 4.4开始是不需要申请这项权限的，可以使用maxSdkVersion="18"标识 -->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <!-- 第九章：访问网络 -->
+    <uses-permission android:name="android.permission.INTERNET"/>
     <!-- 接收短信 -->
     <uses-permission android:name="android.permission.RECEIVE_SMS"/>
     <!-- 发送短信 -->
     <uses-permission android:name="android.permission.SEND_SMS"/>
-    <!-- 访问网络 -->
-    <uses-permission android:name="android.permission.INTERNET"/>
     <!-- GPS定位 -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
@@ -134,12 +134,16 @@
         <activity android:name=".chapter08.AudioPlayActivity"/>
         <activity android:name=".chapter08.VideoPlayActivity"/>
 
+        <!--第九章页面-->
+        <activity android:name=".chapter09.Chapter09Activity"/>
+        <activity android:name=".chapter09.WebViewUsageActivity"/>
+        <activity android:name=".chapter09.NetworkRequestActivity"/>
+        <activity android:name=".chapter09.OkHttpUsageActivity"/>
+
         <!-- 短信页面 -->
         <activity android:name=".activity.SmsActivity"/>
         <!-- 操作服务页面 -->
         <activity android:name=".activity.ServiceActivity"/>
-        <!-- 展示网页页面 -->
-        <activity android:name=".activity.WebActivity"/>
         <!-- 获取定位页面 -->
         <activity android:name=".activity.LocationActivity"/>
         <!-- 百度地图页面 -->

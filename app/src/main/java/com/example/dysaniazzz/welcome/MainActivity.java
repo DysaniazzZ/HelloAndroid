@@ -11,7 +11,6 @@ import com.example.dysaniazzz.activity.LocationActivity;
 import com.example.dysaniazzz.activity.SensorActivity;
 import com.example.dysaniazzz.activity.ServiceActivity;
 import com.example.dysaniazzz.activity.SmsActivity;
-import com.example.dysaniazzz.activity.WebActivity;
 import com.example.dysaniazzz.chapter01.Chapter01Activity;
 import com.example.dysaniazzz.chapter02.Chapter02Activity;
 import com.example.dysaniazzz.chapter03.Chapter03Activity;
@@ -20,6 +19,7 @@ import com.example.dysaniazzz.chapter05.Chapter05Activity;
 import com.example.dysaniazzz.chapter06.Chapter06Activity;
 import com.example.dysaniazzz.chapter07.Chapter07Activity;
 import com.example.dysaniazzz.chapter08.Chapter08Activity;
+import com.example.dysaniazzz.chapter09.Chapter09Activity;
 import com.example.dysaniazzz.common.BaseActivity;
 
 import butterknife.ButterKnife;
@@ -86,6 +86,11 @@ public class MainActivity extends BaseActivity {
         Chapter08Activity.actionStart(mContext);
     }
 
+    @OnClick(R.id.btn_main_to_chapter09)
+    public void onChapter09Click() {
+        Chapter09Activity.actionStart(mContext);
+    }
+
     @OnClick(R.id.btn_main_to_sms)
     public void onSmsClick() {
         SmsActivity.actionStart(mContext);
@@ -94,11 +99,6 @@ public class MainActivity extends BaseActivity {
     @OnClick(R.id.btn_main_to_service)
     public void onServiceClick() {
         ServiceActivity.actionStart(mContext);
-    }
-
-    @OnClick(R.id.btn_main_to_web)
-    public void onWebClick() {
-        WebActivity.actionStart(mContext);
     }
 
     @OnClick(R.id.btn_main_to_location)

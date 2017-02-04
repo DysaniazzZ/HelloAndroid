@@ -20,4 +20,8 @@
 -keep class com.baidu.** {*;}
 -keep class vi.com.** {*;}
 -dontwarn com.baidu.**
-# Baidu Map Stop
+# Baidu Map End
+
+# OkHttp Start
+-dontwarn okhttp3.**
+# OkHttp End
