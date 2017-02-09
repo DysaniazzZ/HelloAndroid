@@ -8,6 +8,7 @@ import android.widget.TextView;
 import com.example.dysaniazzz.R;
 import com.example.dysaniazzz.bean.App;
 import com.example.dysaniazzz.common.BaseActivity;
+import com.example.dysaniazzz.utils.HttpUtils;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.orhanobut.logger.Logger;
@@ -19,6 +20,7 @@ import org.xml.sax.XMLReader;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserFactory;
 
+import java.io.IOException;
 import java.io.StringReader;
 import java.util.List;
 
@@ -28,8 +30,8 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
+import okhttp3.Call;
+import okhttp3.Callback;
 import okhttp3.Response;
 
 /**
@@ -61,27 +63,39 @@ public class OkHttpUsageActivity extends BaseActivity {
     }
 
     private void sendRequestWithOkHttp() {
-        new Thread(new Runnable() {
+//        new Thread(new Runnable() {
+//            @Override
+//            public void run() {
+//                try {
+//                    OkHttpClient okHttpClient = new OkHttpClient();
+//                    Request request = new Request.Builder()
+//                            //.url("http://172.16.10.143/get_data.xml")
+//                            .url("http://172.16.10.143/get_data.json")
+//                            .build();
+//                    Response response = okHttpClient.newCall(request).execute(); //OkHttp的同步请求方法
+//                    String responseData = response.body().string();
+//                    //showResponse(responseData);
+//                    //parseXMLWithPull(responseData);
+//                    //parseXMLWithSAX(responseData);
+//                    //parseJSONWithJSONObject(responseData);
+//                    parseJSONWithGson(responseData);
+//                } catch (Exception e) {
+//                    e.printStackTrace();
+//                }
+//            }
+//        }).start();
+
+        HttpUtils.sendOkHttpRequest("http://172.16.10.143/get_data.json", new Callback() {
             @Override
-            public void run() {
-                try {
-                    OkHttpClient okHttpClient = new OkHttpClient();
-                    Request request = new Request.Builder()
-                            //.url("http://172.16.10.143/get_data.xml")
-                            .url("http://172.16.10.143/get_data.json")
-                            .build();
-                    Response response = okHttpClient.newCall(request).execute(); //OkHttp的同步请求方法
-                    String responseData = response.body().string();
-                    //showResponse(responseData);
-                    //parseXMLWithPull(responseData);
-                    //parseXMLWithSAX(responseData);
-                    //parseJSONWithJSONObject(responseData);
-                    parseJSONWithGson(responseData);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+            public void onFailure(Call call, IOException e) {
+                Logger.e(e.getMessage(), null);
             }
-        }).start();
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                parseJSONWithGson(response.body().string());
+            }
+        });
     }
 
     private void showResponse(final String response) {
@@ -162,12 +176,16 @@ public class OkHttpUsageActivity extends BaseActivity {
     }
 
     private void parseJSONWithGson(String jsonData) {
-        Gson gson = new Gson();
-        List<App> appList = gson.fromJson(jsonData, new TypeToken<List<App>>() {}.getType());
-        for (App app : appList) {
-            Logger.d("id is " + app.getId());
-            Logger.d("name is " + app.getName());
-            Logger.d("version is " + app.getVersion());
+        try {
+            Gson gson = new Gson();
+            List<App> appList = gson.fromJson(jsonData, new TypeToken<List<App>>() {}.getType());
+            for (App app : appList) {
+                Logger.d("id is " + app.getId());
+                Logger.d("name is " + app.getName());
+                Logger.d("version is " + app.getVersion());
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 

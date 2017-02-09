@@ -6,9 +6,13 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
+import okhttp3.Callback;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+
 /**
  * Created by DysaniazzZ on 2016/9/23.
- * 网络请求的工具类
+ * 第九章：网络请求的工具类
  */
 public class HttpUtils {
 
@@ -54,10 +58,19 @@ public class HttpUtils {
         }).start();
     }
 
+    public static void sendOkHttpRequest(String address, Callback callback) {
+        OkHttpClient okHttpClient = new OkHttpClient();
+        Request request = new Request.Builder()
+                .url(address)
+                .build();
+        okHttpClient.newCall(request).enqueue(callback);
+    }
+
     /**
      * 网络请求的回调
      */
     public interface HttpCallbackListener {
+
         void onFinish(String response);
 
         void onError(Exception e);
