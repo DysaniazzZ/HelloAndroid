@@ -9,6 +9,8 @@ import com.example.dysaniazzz.R;
 import com.example.dysaniazzz.common.BaseActivity;
 import com.orhanobut.logger.Logger;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
 import org.xml.sax.InputSource;
 import org.xml.sax.XMLReader;
 import org.xmlpull.v1.XmlPullParser;
@@ -61,13 +63,15 @@ public class OkHttpUsageActivity extends BaseActivity {
                 try {
                     OkHttpClient okHttpClient = new OkHttpClient();
                     Request request = new Request.Builder()
-                            .url("http://172.16.10.143/get_data.xml")
+                            //.url("http://172.16.10.143/get_data.xml")
+                            .url("http://172.16.10.143/get_data.json")
                             .build();
-                    Response response = okHttpClient.newCall(request).execute();
+                    Response response = okHttpClient.newCall(request).execute(); //OkHttp的同步请求方法
                     String responseData = response.body().string();
                     //showResponse(responseData);
                     //parseXMLWithPull(responseData);
-                    parseXMLWithSAX(responseData);
+                    //parseXMLWithSAX(responseData);
+                    parseJSONWithJSONObject(responseData);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -130,6 +134,23 @@ public class OkHttpUsageActivity extends BaseActivity {
             xmlReader.setContentHandler(saxHandler);
             //开始执行解析
             xmlReader.parse(new InputSource(new StringReader(xmlData)));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void parseJSONWithJSONObject(String jsonData) {
+        try {
+            JSONArray jsonArray = new JSONArray(jsonData);
+            for (int i = 0; i < jsonArray.length(); i++) {
+                JSONObject jsonObject = jsonArray.getJSONObject(i);
+                String id = jsonObject.getString("id");
+                String name = jsonObject.getString("name");
+                String version = jsonObject.getString("version");
+                Logger.d("id is " + id);
+                Logger.d("name is " + name);
+                Logger.d("version is " + version);
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
