@@ -7,6 +7,12 @@ import android.widget.TextView;
 
 import com.example.dysaniazzz.R;
 import com.example.dysaniazzz.common.BaseActivity;
+import com.orhanobut.logger.Logger;
+
+import org.xmlpull.v1.XmlPullParser;
+import org.xmlpull.v1.XmlPullParserFactory;
+
+import java.io.StringReader;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -51,10 +57,12 @@ public class OkHttpUsageActivity extends BaseActivity {
                 try {
                     OkHttpClient okHttpClient = new OkHttpClient();
                     Request request = new Request.Builder()
-                            .url("https://www.baidu.com")
+                            .url("http://172.16.10.143/get_data.xml")
                             .build();
                     Response response = okHttpClient.newCall(request).execute();
-                    showResponse(response.body().string());
+                    String responseData = response.body().string();
+                    parseXMLWithPull(responseData);
+                    //showResponse(responseData);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -69,6 +77,44 @@ public class OkHttpUsageActivity extends BaseActivity {
                 mTvOkhttpResponse.setText(response);
             }
         });
+    }
+
+    private void parseXMLWithPull(String xmlData) {
+        try {
+            XmlPullParserFactory factory = XmlPullParserFactory.newInstance();
+            XmlPullParser xmlPullParser = factory.newPullParser();
+            xmlPullParser.setInput(new StringReader(xmlData));
+            int eventType = xmlPullParser.getEventType();
+            String id = "";
+            String name = "";
+            String version = "";
+            while (eventType != XmlPullParser.END_DOCUMENT) {
+                String nodeName = xmlPullParser.getName();
+                switch (eventType) {
+                    //开始解析某个节点
+                    case XmlPullParser.START_TAG:
+                        if ("id".equals(nodeName)) {
+                            id = xmlPullParser.nextText();
+                        } else if ("name".equals(nodeName)) {
+                            name = xmlPullParser.nextText();
+                        } else if ("version".equals(nodeName)) {
+                            version = xmlPullParser.nextText();
+                        }
+                        break;
+                    //完成解析某个节点
+                    case XmlPullParser.END_TAG:
+                        if ("app".equals(nodeName)) {
+                            Logger.d("id is " + id);
+                            Logger.d("name is " + name);
+                            Logger.d("version is " + version);
+                        }
+                        break;
+                }
+                eventType = xmlPullParser.next();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
