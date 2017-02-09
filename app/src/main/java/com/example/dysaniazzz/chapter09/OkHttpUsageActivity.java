@@ -6,7 +6,10 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 import com.example.dysaniazzz.R;
+import com.example.dysaniazzz.bean.App;
 import com.example.dysaniazzz.common.BaseActivity;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import com.orhanobut.logger.Logger;
 
 import org.json.JSONArray;
@@ -17,6 +20,7 @@ import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserFactory;
 
 import java.io.StringReader;
+import java.util.List;
 
 import javax.xml.parsers.SAXParserFactory;
 
@@ -71,7 +75,8 @@ public class OkHttpUsageActivity extends BaseActivity {
                     //showResponse(responseData);
                     //parseXMLWithPull(responseData);
                     //parseXMLWithSAX(responseData);
-                    parseJSONWithJSONObject(responseData);
+                    //parseJSONWithJSONObject(responseData);
+                    parseJSONWithGson(responseData);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -153,6 +158,16 @@ public class OkHttpUsageActivity extends BaseActivity {
             }
         } catch (Exception e) {
             e.printStackTrace();
+        }
+    }
+
+    private void parseJSONWithGson(String jsonData) {
+        Gson gson = new Gson();
+        List<App> appList = gson.fromJson(jsonData, new TypeToken<List<App>>() {}.getType());
+        for (App app : appList) {
+            Logger.d("id is " + app.getId());
+            Logger.d("name is " + app.getName());
+            Logger.d("version is " + app.getVersion());
         }
     }
 
