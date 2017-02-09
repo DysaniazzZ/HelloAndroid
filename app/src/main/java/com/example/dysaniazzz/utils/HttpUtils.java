@@ -16,7 +16,7 @@ import okhttp3.Request;
  */
 public class HttpUtils {
 
-    public static void sendHttpRequest(final String address, final HttpCallbackListener listener) {
+    public static void sendHttpUrlConnectionRequest(final String address, final HttpCallbackListener listener) {
         //开启线程来发起网络请求
         new Thread(new Runnable() {
             @Override

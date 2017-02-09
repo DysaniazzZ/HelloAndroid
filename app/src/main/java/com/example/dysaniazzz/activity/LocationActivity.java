@@ -143,7 +143,7 @@ public class LocationActivity extends BaseActivity {
         url.append("&lng=");
         url.append(mLongitude);
         url.append("&cst=1");
-        HttpUtils.sendHttpRequest(url.toString(), new HttpUtils.HttpCallbackListener() {
+        HttpUtils.sendHttpUrlConnectionRequest(url.toString(), new HttpUtils.HttpCallbackListener() {
             @Override
             public void onFinish(String response) {
                 if (!TextUtils.isEmpty(response)) {
