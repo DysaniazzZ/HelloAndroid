@@ -9,10 +9,14 @@ import com.example.dysaniazzz.R;
 import com.example.dysaniazzz.common.BaseActivity;
 import com.orhanobut.logger.Logger;
 
+import org.xml.sax.InputSource;
+import org.xml.sax.XMLReader;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserFactory;
 
 import java.io.StringReader;
+
+import javax.xml.parsers.SAXParserFactory;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -24,7 +28,7 @@ import okhttp3.Response;
 
 /**
  * Created by DysaniazzZ on 04/02/2017.
- * 第九章：OkHttp的使用
+ * 第九章：OkHttp的使用及XML解析
  */
 public class OkHttpUsageActivity extends BaseActivity {
 
@@ -61,8 +65,9 @@ public class OkHttpUsageActivity extends BaseActivity {
                             .build();
                     Response response = okHttpClient.newCall(request).execute();
                     String responseData = response.body().string();
-                    parseXMLWithPull(responseData);
                     //showResponse(responseData);
+                    //parseXMLWithPull(responseData);
+                    parseXMLWithSAX(responseData);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -112,6 +117,19 @@ public class OkHttpUsageActivity extends BaseActivity {
                 }
                 eventType = xmlPullParser.next();
             }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void parseXMLWithSAX(String xmlData) {
+        try {
+            SAXParserFactory factory = SAXParserFactory.newInstance();
+            XMLReader xmlReader = factory.newSAXParser().getXMLReader();
+            SAXHandler saxHandler = new SAXHandler();
+            xmlReader.setContentHandler(saxHandler);
+            //开始执行解析
+            xmlReader.parse(new InputSource(new StringReader(xmlData)));
         } catch (Exception e) {
             e.printStackTrace();
         }
