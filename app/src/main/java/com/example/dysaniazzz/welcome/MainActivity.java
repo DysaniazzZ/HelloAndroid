@@ -20,6 +20,7 @@ import com.example.dysaniazzz.chapter06.Chapter06Activity;
 import com.example.dysaniazzz.chapter07.Chapter07Activity;
 import com.example.dysaniazzz.chapter08.Chapter08Activity;
 import com.example.dysaniazzz.chapter09.Chapter09Activity;
+import com.example.dysaniazzz.chapter10.Chapter10Activity;
 import com.example.dysaniazzz.common.BaseActivity;
 
 import butterknife.ButterKnife;
@@ -89,6 +90,11 @@ public class MainActivity extends BaseActivity {
     @OnClick(R.id.btn_main_to_chapter09)
     public void onChapter09Click() {
         Chapter09Activity.actionStart(mContext);
+    }
+
+    @OnClick(R.id.btn_main_to_chapter10)
+    public void onChapter10Click() {
+        Chapter10Activity.actionStart(mContext);
     }
 
     @OnClick(R.id.btn_main_to_sms)

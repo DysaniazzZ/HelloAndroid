@@ -140,6 +140,10 @@
         <activity android:name=".chapter09.NetworkRequestActivity"/>
         <activity android:name=".chapter09.OkHttpUsageActivity"/>
 
+        <!--第十章页面-->
+        <activity android:name=".chapter10.Chapter10Activity"/>
+        <activity android:name=".chapter10.ThreadTestActivity"/>
+
         <!-- 短信页面 -->
         <activity android:name=".activity.SmsActivity"/>
         <!-- 操作服务页面 -->
