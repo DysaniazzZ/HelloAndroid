@@ -1,10 +1,16 @@
 package com.example.dysaniazzz.chapter10;
 
+import android.app.Notification;
+import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Intent;
+import android.graphics.BitmapFactory;
 import android.os.Binder;
 import android.os.IBinder;
+import android.support.v4.app.NotificationCompat;
 
+import com.example.dysaniazzz.R;
+import com.example.dysaniazzz.welcome.MainActivity;
 import com.orhanobut.logger.Logger;
 
 /**
@@ -37,6 +43,18 @@ public class LifeCycleTestService extends Service {
     public void onCreate() {
         super.onCreate();
         Logger.d("onCreate");
+        Intent intent = new Intent(this, MainActivity.class);
+        PendingIntent pi = PendingIntent.getActivity(this, 0, intent, 0);
+        Notification notification = new NotificationCompat.Builder(this)
+                .setTicker("Service Started")
+                .setContentTitle("Foreground Service")
+                .setContentText("The Service is running...")
+                .setWhen(System.currentTimeMillis())
+                .setSmallIcon(R.drawable.ic_notification)
+                .setLargeIcon(BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher))
+                .setContentIntent(pi)
+                .build();
+        startForeground(1, notification);
     }
 
     @Override
