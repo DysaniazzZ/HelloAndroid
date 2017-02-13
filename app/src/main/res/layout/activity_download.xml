@@ -6,19 +6,18 @@
               android:padding="@dimen/common_padding">
 
     <Button
-        android:id="@+id/btn_chapter10_thread_test"
+        android:id="@+id/btn_download_start"
         style="@style/primary_button"
-        android:text="Thread Test"/>
+        android:text="Start Download"/>
 
     <Button
-        android:id="@+id/btn_chapter10_service_usage"
+        android:id="@+id/btn_download_pause"
         style="@style/primary_button"
-        android:text="Service Usage"/>
+        android:text="Pause Download"/>
 
     <Button
-        android:id="@+id/btn_chapter10_best_practice"
+        android:id="@+id/btn_download_cancel"
         style="@style/primary_button"
-        android:layout_marginTop="@dimen/activity_vertical_margin"
-        android:text="Best Practice - Download File"/>
+        android:text="Cancel Download"/>
 
 </LinearLayout>

@@ -144,6 +144,7 @@
         <activity android:name=".chapter10.Chapter10Activity"/>
         <activity android:name=".chapter10.ThreadTestActivity"/>
         <activity android:name=".chapter10.ServiceOperateActivity"/>
+        <activity android:name=".chapter10.best_practice.DownloadActivity"/>
 
         <!-- 短信页面 -->
         <activity android:name=".activity.SmsActivity"/>
@@ -176,6 +177,8 @@
             android:exported="true"/>
         <!--第十章：IntentService的使用-->
         <service android:name=".chapter10.MyIntentService"/>
+        <!--第十章：下载任务开启的服务-->
+        <service android:name=".chapter10.best_practice.DownloadService"/>
         <!-- LongRunningService -->
         <service android:name=".service.LongRunningService"/>
 
