@@ -9,7 +9,6 @@ import com.example.dysaniazzz.activity.BaiduMapActivity;
 import com.example.dysaniazzz.activity.CompassActivity;
 import com.example.dysaniazzz.activity.LocationActivity;
 import com.example.dysaniazzz.activity.SensorActivity;
-import com.example.dysaniazzz.activity.ServiceActivity;
 import com.example.dysaniazzz.activity.SmsActivity;
 import com.example.dysaniazzz.chapter01.Chapter01Activity;
 import com.example.dysaniazzz.chapter02.Chapter02Activity;
@@ -100,11 +99,6 @@ public class MainActivity extends BaseActivity {
     @OnClick(R.id.btn_main_to_sms)
     public void onSmsClick() {
         SmsActivity.actionStart(mContext);
-    }
-
-    @OnClick(R.id.btn_main_to_service)
-    public void onServiceClick() {
-        ServiceActivity.actionStart(mContext);
     }
 
     @OnClick(R.id.btn_main_to_location)

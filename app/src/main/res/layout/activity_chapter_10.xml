@@ -10,4 +10,9 @@
         style="@style/primary_button"
         android:text="Thread Test"/>
 
+    <Button
+        android:id="@+id/btn_chapter10_service_usage"
+        style="@style/primary_button"
+        android:text="Service Usage"/>
+
 </LinearLayout>

@@ -143,11 +143,10 @@
         <!--第十章页面-->
         <activity android:name=".chapter10.Chapter10Activity"/>
         <activity android:name=".chapter10.ThreadTestActivity"/>
+        <activity android:name=".chapter10.ServiceOperateActivity"/>
 
         <!-- 短信页面 -->
         <activity android:name=".activity.SmsActivity"/>
-        <!-- 操作服务页面 -->
-        <activity android:name=".activity.ServiceActivity"/>
         <!-- 获取定位页面 -->
         <activity android:name=".activity.LocationActivity"/>
         <!-- 百度地图页面 -->
@@ -171,8 +170,10 @@
         <receiver android:name=".receiver.AlarmReceiver"/>
 
         <!-- Service -->
-        <!-- MyService -->
-        <service android:name=".service.DemoService"/>
+        <!-- 第十章：用于演示生命周期的Service -->
+        <service android:name=".chapter10.LifeCycleTestService"
+            android:enabled="true"
+            android:exported="true"/>
         <!-- LongRunningService -->
         <service android:name=".service.LongRunningService"/>
 

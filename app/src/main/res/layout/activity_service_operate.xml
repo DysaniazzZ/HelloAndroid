@@ -2,35 +2,36 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
-              android:orientation="vertical">
+              android:orientation="vertical"
+              android:padding="@dimen/common_padding">
 
     <Button
-        android:id="@+id/btn_service_startservice"
+        android:id="@+id/btn_service_start_service"
         style="@style/primary_button"
         android:text="Start Service"/>
 
     <Button
-        android:id="@+id/btn_service_stopservice"
+        android:id="@+id/btn_service_stop_service"
         style="@style/primary_button"
         android:text="Stop Service"/>
 
     <Button
-        android:id="@+id/btn_service_bindservice"
+        android:id="@+id/btn_service_bind_service"
         style="@style/primary_button"
         android:text="Bind Service"/>
 
     <Button
-        android:id="@+id/btn_service_unbindservice"
+        android:id="@+id/btn_service_unbind_service"
         style="@style/primary_button"
         android:text="Unbind Service"/>
 
     <Button
-        android:id="@+id/btn_service_starttask"
+        android:id="@+id/btn_service_start_task"
         style="@style/primary_button"
         android:text="Start Alarm Task"/>
 
     <Button
-        android:id="@+id/btn_service_stoptask"
+        android:id="@+id/btn_service_stop_task"
         style="@style/primary_button"
         android:text="Stop Alarm Task"/>
 

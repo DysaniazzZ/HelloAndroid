@@ -76,12 +76,6 @@
             style="@style/primary_button"
             android:text="MainActivity to SmsActivity"/>
 
-        <!-- 操作服务页面 -->
-        <Button
-            android:id="@+id/btn_main_to_service"
-            style="@style/primary_button"
-            android:text="MainActivity to ServiceActivity"/>
-
         <!-- 获取定位页面 -->
         <Button
             android:id="@+id/btn_main_to_location"

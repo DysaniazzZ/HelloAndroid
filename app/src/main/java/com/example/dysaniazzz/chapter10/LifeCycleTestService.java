@@ -1,18 +1,17 @@
-package com.example.dysaniazzz.service;
+package com.example.dysaniazzz.chapter10;
 
 import android.app.Service;
 import android.content.Intent;
 import android.os.Binder;
 import android.os.IBinder;
-import android.support.annotation.Nullable;
 
 import com.orhanobut.logger.Logger;
 
 /**
  * Created by DysaniazzZ on 2016/9/22.
- * 用来演示服务的生命周期
+ * 第十章：测试服务的生命周期
  */
-public class DemoService extends Service {
+public class LifeCycleTestService extends Service {
 
     private DownloadBinder mBinder = new DownloadBinder();
 
@@ -28,9 +27,9 @@ public class DemoService extends Service {
         }
     }
 
-    @Nullable
     @Override
     public IBinder onBind(Intent intent) {
+        Logger.d("onBind");
         return mBinder;
     }
 

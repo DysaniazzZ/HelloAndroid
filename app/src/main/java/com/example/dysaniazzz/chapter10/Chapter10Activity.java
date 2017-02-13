@@ -3,6 +3,7 @@ package com.example.dysaniazzz.chapter10;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import com.example.dysaniazzz.R;
 import com.example.dysaniazzz.common.BaseActivity;
@@ -31,9 +32,16 @@ public class Chapter10Activity extends BaseActivity {
         mUnbinder = ButterKnife.bind(this);
     }
 
-    @OnClick(R.id.btn_chapter10_thread_test)
-    public void onClick() {
-        ThreadTestActivity.actionStart(mContext);
+    @OnClick({R.id.btn_chapter10_thread_test, R.id.btn_chapter10_service_usage})
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.btn_chapter10_thread_test:
+                ThreadTestActivity.actionStart(mContext);
+                break;
+            case R.id.btn_chapter10_service_usage:
+                ServiceOperateActivity.actionStart(mContext);
+                break;
+        }
     }
 
     @Override
