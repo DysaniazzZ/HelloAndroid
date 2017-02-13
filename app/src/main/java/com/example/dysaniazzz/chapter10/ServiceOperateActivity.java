@@ -94,6 +94,11 @@ public class ServiceOperateActivity extends BaseActivity {
     @Override
     protected void onDestroy() {
         mUnbinder.unbind();
+        try {
+            unbindService(mConnection); //避免内存泄露
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         super.onDestroy();
     }
 }
