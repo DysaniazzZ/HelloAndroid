@@ -26,6 +26,11 @@
         android:text="Unbind Service"/>
 
     <Button
+        android:id="@+id/btn_service_start_intent_service"
+        style="@style/primary_button"
+        android:text="Start Intent Service"/>
+
+    <Button
         android:id="@+id/btn_service_start_task"
         style="@style/primary_button"
         android:text="Start Alarm Task"/>

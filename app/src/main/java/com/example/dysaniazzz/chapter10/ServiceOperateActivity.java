@@ -6,10 +6,12 @@ import android.content.Intent;
 import android.content.ServiceConnection;
 import android.os.Bundle;
 import android.os.IBinder;
+import android.view.View;
 
 import com.example.dysaniazzz.R;
 import com.example.dysaniazzz.common.BaseActivity;
 import com.example.dysaniazzz.service.LongRunningService;
+import com.orhanobut.logger.Logger;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -50,44 +52,43 @@ public class ServiceOperateActivity extends BaseActivity {
         mUnbinder = ButterKnife.bind(this);
     }
 
-    @OnClick(R.id.btn_service_start_service)
-    public void onStartServiceClick() {
-        Intent startIntent = new Intent(mContext, LifeCycleTestService.class);
-        startService(startIntent);  //启动服务
-    }
-
-    @OnClick(R.id.btn_service_stop_service)
-    public void onStopServiceClick() {
-        Intent stopIntent = new Intent(mContext, LifeCycleTestService.class);
-        stopService(stopIntent);    //停止服务
-    }
-
-    @OnClick(R.id.btn_service_bind_service)
-    public void onBindServiceClick() {
-        Intent bindIntent = new Intent(mContext, LifeCycleTestService.class);
-        //BIND_AUTO_CREATE标志位表示Activity和Service进行绑定后自动创建Service
-        bindService(bindIntent, mConnection, BIND_AUTO_CREATE); //绑定服务
-    }
-
-    @OnClick(R.id.btn_service_unbind_service)
-    public void onUnbindServiceClick() {
-        try {
-            unbindService(mConnection); //解绑服务（只能解绑一次）
-        } catch (Exception e) {
-            e.printStackTrace();
+    @OnClick({R.id.btn_service_start_service, R.id.btn_service_stop_service, R.id.btn_service_bind_service, R.id.btn_service_unbind_service, R.id.btn_service_start_intent_service, R.id.btn_service_start_task, R.id.btn_service_stop_task})
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.btn_service_start_service:
+                Intent startServiceIntent = new Intent(mContext, LifeCycleTestService.class);
+                startService(startServiceIntent);  //启动服务
+                break;
+            case R.id.btn_service_stop_service:
+                Intent stopServiceIntent = new Intent(mContext, LifeCycleTestService.class);
+                stopService(stopServiceIntent);    //停止服务
+                break;
+            case R.id.btn_service_bind_service:
+                Intent bindServiceIntent = new Intent(mContext, LifeCycleTestService.class);
+                //BIND_AUTO_CREATE标志位表示Activity和Service进行绑定后自动创建Service
+                bindService(bindServiceIntent, mConnection, BIND_AUTO_CREATE);     //绑定服务
+                break;
+            case R.id.btn_service_unbind_service:
+                try {
+                    unbindService(mConnection); //解绑服务（只能解绑一次）
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                break;
+            case R.id.btn_service_start_intent_service:
+                Logger.d("Thread id is " + Thread.currentThread().getId());
+                Intent startIntentServiceIntent = new Intent(mContext, MyIntentService.class);
+                startService(startIntentServiceIntent);
+                break;
+            case R.id.btn_service_start_task:
+                Intent startTaskIntent = new Intent(mContext, LongRunningService.class);
+                startService(startTaskIntent);
+                break;
+            case R.id.btn_service_stop_task:
+                Intent stopTaskIntent = new Intent(mContext, LongRunningService.class);
+                stopService(stopTaskIntent);
+                break;
         }
-    }
-
-    @OnClick(R.id.btn_service_stop_task)
-    public void onStartTaskClick() {
-        Intent intent = new Intent(mContext, LongRunningService.class);
-        startService(intent);
-    }
-
-    @OnClick(R.id.btn_service_stop_task)
-    public void onStopTaskClick() {
-        Intent intent = new Intent(mContext, LongRunningService.class);
-        stopService(intent);
     }
 
     @Override
