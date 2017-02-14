@@ -1,4 +1,4 @@
-package com.example.dysaniazzz.adapter;
+package com.example.dysaniazzz.chapter03;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;

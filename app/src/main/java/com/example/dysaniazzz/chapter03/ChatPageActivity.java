@@ -9,7 +9,6 @@ import android.text.TextUtils;
 import android.widget.EditText;
 
 import com.example.dysaniazzz.R;
-import com.example.dysaniazzz.adapter.MsgAdapter;
 import com.example.dysaniazzz.common.BaseActivity;
 import com.example.dysaniazzz.bean.MsgBean;
 import com.example.dysaniazzz.utils.StreamUtils;
