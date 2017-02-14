@@ -3,6 +3,7 @@ package com.example.dysaniazzz.common;
 import android.app.Application;
 import android.content.Context;
 
+import com.baidu.mapapi.SDKInitializer;
 import com.example.dysaniazzz.BuildConfig;
 import com.example.dysaniazzz.R;
 import com.orhanobut.logger.LogLevel;
@@ -42,5 +43,7 @@ public class MyApplication extends Application {
         Logger.init(getString(R.string.app_name)).logLevel(BuildConfig.DEBUG ? LogLevel.FULL : LogLevel.NONE);
         //初始化 LitePal SDK
         LitePal.initialize(mContext);
+        //初始化 百度地图 SDK (如果在Activity中初始化，一定要在setContentView之前）
+        SDKInitializer.initialize(mContext);
     }
 }

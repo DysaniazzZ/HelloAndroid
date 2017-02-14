@@ -10,6 +10,12 @@ import com.baidu.location.BDLocation;
 import com.baidu.location.BDLocationListener;
 import com.baidu.location.LocationClient;
 import com.baidu.location.LocationClientOption;
+import com.baidu.mapapi.map.BaiduMap;
+import com.baidu.mapapi.map.MapStatusUpdate;
+import com.baidu.mapapi.map.MapStatusUpdateFactory;
+import com.baidu.mapapi.map.MapView;
+import com.baidu.mapapi.map.MyLocationData;
+import com.baidu.mapapi.model.LatLng;
 import com.example.dysaniazzz.R;
 import com.example.dysaniazzz.common.BaseActivity;
 import com.example.dysaniazzz.utils.IPermissionListener;
@@ -29,9 +35,13 @@ public class BaiduMapUsageActivity extends BaseActivity {
 
     @BindView(R.id.tv_baidu_map_position)
     TextView mTvBaiduMapPosition;
+    @BindView(R.id.mv_baidu_map_view)
+    MapView mMvBaiduMapView;
 
     private Unbinder mUnbinder;
-    public LocationClient mLocationClient;
+    private LocationClient mLocationClient;
+    private BaiduMap mBaiduMap;
+    private boolean mIsFirstLocate = true;
 
     public static void actionStart(Context context) {
         Intent intent = new Intent(context, BaiduMapUsageActivity.class);
@@ -61,6 +71,8 @@ public class BaiduMapUsageActivity extends BaseActivity {
                 finish();
             }
         });
+        mBaiduMap = mMvBaiduMapView.getMap();
+        mBaiduMap.setMyLocationEnabled(true);
     }
 
     private void requestLocation() {
@@ -73,13 +85,31 @@ public class BaiduMapUsageActivity extends BaseActivity {
         option.setLocationMode(LocationClientOption.LocationMode.Hight_Accuracy);   //设置定位模式，High_Accuracy高精度模式，可优先使用GPS定位，无法接受GPS信号时使用网络定位；Battery_Saving节电模式，只使用网络定位；Device_Sensors传感器模式，只使用GPS定位
         option.setScanSpan(5000);                                                   //设置发起定位请求的间隔，要大于等于1000ms才会生效。默认为0，即只定位一次。
         option.setIsNeedAddress(true);                                              //设置是否需要地址信息，默认不需要
+        option.setOpenGps(true);                                                    //设置是否使用GPS
+        option.setCoorType("bd09ll");                                               //设置定位结果的坐标系，默认为gcj02
         mLocationClient.setLocOption(option);
+    }
+
+    private void navigateTo(BDLocation bdLocation) {
+        if (mIsFirstLocate) {
+            LatLng ll = new LatLng(bdLocation.getLatitude(), bdLocation.getLongitude());
+            MapStatusUpdate mapStatusUpdate = MapStatusUpdateFactory.newLatLng(ll);
+            mBaiduMap.animateMapStatus(mapStatusUpdate);
+            mapStatusUpdate = MapStatusUpdateFactory.zoomTo(16.5f);
+            mBaiduMap.animateMapStatus(mapStatusUpdate);
+            mIsFirstLocate = false;     //防止多次调用animateMapStatus方法
+        }
+        MyLocationData.Builder myLocationDataBuilder = new MyLocationData.Builder();
+        myLocationDataBuilder.latitude(bdLocation.getLatitude());
+        myLocationDataBuilder.longitude(bdLocation.getLongitude());
+        MyLocationData myLocationData = myLocationDataBuilder.build();
+        mBaiduMap.setMyLocationData(myLocationData);
     }
 
     public class MyLocationListener implements BDLocationListener {
 
         @Override
-        public void onReceiveLocation(BDLocation bdLocation) {
+        public void onReceiveLocation(final BDLocation bdLocation) {
             final StringBuilder currentPosition = new StringBuilder();
             currentPosition.append("纬度：").append(bdLocation.getLatitude()).append("\n")
                     .append("经度：").append(bdLocation.getLongitude()).append("\n")
@@ -89,15 +119,16 @@ public class BaiduMapUsageActivity extends BaseActivity {
                     .append("区：").append(bdLocation.getDistrict()).append("\n")
                     .append("街道：").append(bdLocation.getStreet()).append("\n")
                     .append("定位方式：");
-            if(bdLocation.getLocType() == BDLocation.TypeGpsLocation) {
+            if (bdLocation.getLocType() == BDLocation.TypeGpsLocation) {
                 currentPosition.append("GPS");
-            } else if(bdLocation.getLocType() == BDLocation.TypeNetWorkLocation) {
+            } else if (bdLocation.getLocType() == BDLocation.TypeNetWorkLocation) {
                 currentPosition.append("网络");
             }
             runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
                     mTvBaiduMapPosition.setText(currentPosition.toString());
+                    navigateTo(bdLocation);
                 }
             });
         }
@@ -109,9 +140,23 @@ public class BaiduMapUsageActivity extends BaseActivity {
     }
 
     @Override
+    protected void onResume() {
+        super.onResume();
+        mMvBaiduMapView.onResume();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        mMvBaiduMapView.onPause();
+    }
+
+    @Override
     protected void onDestroy() {
-        mUnbinder.unbind();
+        mMvBaiduMapView.onDestroy();
         mLocationClient.stop();
+        mBaiduMap.setMyLocationEnabled(false);
+        mUnbinder.unbind();
         super.onDestroy();
     }
 }
