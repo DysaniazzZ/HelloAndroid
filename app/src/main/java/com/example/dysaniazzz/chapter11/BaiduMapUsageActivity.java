@@ -70,7 +70,8 @@ public class BaiduMapUsageActivity extends BaseActivity {
 
     private void initLocation() {
         LocationClientOption option = new LocationClientOption();
-        option.setScanSpan(5000);   //设置发起定位请求的间隔，要大于等于1000ms才会生效。默认为0，即只定位一次。
+        option.setLocationMode(LocationClientOption.LocationMode.Hight_Accuracy);   //设置定位模式，High_Accuracy高精度模式，可优先使用GPS定位，无法接受GPS信号时使用网络定位；Battery_Saving节电模式，只使用网络定位；Device_Sensors传感器模式，只使用GPS定位
+        option.setScanSpan(5000);                                                   //设置发起定位请求的间隔，要大于等于1000ms才会生效。默认为0，即只定位一次。
         mLocationClient.setLocOption(option);
     }
 
