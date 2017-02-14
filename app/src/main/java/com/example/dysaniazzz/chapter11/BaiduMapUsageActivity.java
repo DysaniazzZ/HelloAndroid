@@ -72,6 +72,7 @@ public class BaiduMapUsageActivity extends BaseActivity {
         LocationClientOption option = new LocationClientOption();
         option.setLocationMode(LocationClientOption.LocationMode.Hight_Accuracy);   //设置定位模式，High_Accuracy高精度模式，可优先使用GPS定位，无法接受GPS信号时使用网络定位；Battery_Saving节电模式，只使用网络定位；Device_Sensors传感器模式，只使用GPS定位
         option.setScanSpan(5000);                                                   //设置发起定位请求的间隔，要大于等于1000ms才会生效。默认为0，即只定位一次。
+        option.setIsNeedAddress(true);                                              //设置是否需要地址信息，默认不需要
         mLocationClient.setLocOption(option);
     }
 
@@ -82,6 +83,11 @@ public class BaiduMapUsageActivity extends BaseActivity {
             final StringBuilder currentPosition = new StringBuilder();
             currentPosition.append("纬度：").append(bdLocation.getLatitude()).append("\n")
                     .append("经度：").append(bdLocation.getLongitude()).append("\n")
+                    .append("国家：").append(bdLocation.getCountry()).append("\n")
+                    .append("省：").append(bdLocation.getProvince()).append("\n")
+                    .append("市：").append(bdLocation.getCity()).append("\n")
+                    .append("区：").append(bdLocation.getDistrict()).append("\n")
+                    .append("街道：").append(bdLocation.getStreet()).append("\n")
                     .append("定位方式：");
             if(bdLocation.getLocType() == BDLocation.TypeGpsLocation) {
                 currentPosition.append("GPS");
@@ -97,7 +103,8 @@ public class BaiduMapUsageActivity extends BaseActivity {
         }
 
         @Override
-        public void onConnectHotSpotMessage(String s, int i) {
+        public void onConnectHotSpotMessage(String connectWifiMac, int hotSpotState) {
+            //可以通过判断当前用户手机的上网状态是否为WIFI、移动热点来执行对应的业务逻辑
         }
     }
 
