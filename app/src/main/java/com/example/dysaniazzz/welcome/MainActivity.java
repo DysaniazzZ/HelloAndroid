@@ -5,11 +5,8 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.example.dysaniazzz.R;
-import com.example.dysaniazzz.activity.BaiduMapActivity;
 import com.example.dysaniazzz.activity.CompassActivity;
-import com.example.dysaniazzz.activity.LocationActivity;
 import com.example.dysaniazzz.activity.SensorActivity;
-import com.example.dysaniazzz.activity.SmsActivity;
 import com.example.dysaniazzz.chapter01.Chapter01Activity;
 import com.example.dysaniazzz.chapter02.Chapter02Activity;
 import com.example.dysaniazzz.chapter03.Chapter03Activity;
@@ -100,21 +97,6 @@ public class MainActivity extends BaseActivity {
     @OnClick(R.id.btn_main_to_chapter11)
     public void onChapter11Click() {
         Chapter11Activity.actionStart(mContext);
-    }
-
-    @OnClick(R.id.btn_main_to_sms)
-    public void onSmsClick() {
-        SmsActivity.actionStart(mContext);
-    }
-
-    @OnClick(R.id.btn_main_to_location)
-    public void onLocationClick() {
-        LocationActivity.actionStart(mContext);
-    }
-
-    @OnClick(R.id.btn_main_to_baidumap)
-    public void onBaidumapClick() {
-        BaiduMapActivity.actionStart(mContext, -1, -1);
     }
 
     @OnClick(R.id.btn_main_to_sensor)

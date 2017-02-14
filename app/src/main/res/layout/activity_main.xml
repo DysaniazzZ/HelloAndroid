@@ -76,24 +76,6 @@
             style="@style/primary_button"
             android:text="Chapter 11"/>
 
-        <!-- 短信页面 -->
-        <Button
-            android:id="@+id/btn_main_to_sms"
-            style="@style/primary_button"
-            android:text="MainActivity to SmsActivity"/>
-
-        <!-- 获取定位页面 -->
-        <Button
-            android:id="@+id/btn_main_to_location"
-            style="@style/primary_button"
-            android:text="MainActivity to LocationActivity"/>
-
-        <!-- 百度地图页面 -->
-        <Button
-            android:id="@+id/btn_main_to_baidumap"
-            style="@style/primary_button"
-            android:text="MainActivity to BaiduMapActivity"/>
-
         <!-- 传感器页面 -->
         <Button
             android:id="@+id/btn_main_to_sensor"

@@ -17,13 +17,6 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <!-- 第九章：访问网络 -->
     <uses-permission android:name="android.permission.INTERNET"/>
-    <!-- 接收短信 -->
-    <uses-permission android:name="android.permission.RECEIVE_SMS"/>
-    <!-- 发送短信 -->
-    <uses-permission android:name="android.permission.SEND_SMS"/>
-    <!-- GPS定位 -->
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
 
     <!-- Baidu Map Start -->
     <!-- 这个权限用于进行网络定位-->
@@ -161,12 +154,6 @@
         <activity android:name=".chapter11.Chapter11Activity"/>
         <activity android:name=".chapter11.BaiduMapUsageActivity"/>
 
-        <!-- 短信页面 -->
-        <activity android:name=".activity.SmsActivity"/>
-        <!-- 获取定位页面 -->
-        <activity android:name=".activity.LocationActivity"/>
-        <!-- 百度地图页面 -->
-        <activity android:name=".activity.BaiduMapActivity"/>
         <!-- 传感器页面 -->
         <activity android:name=".activity.SensorActivity"/>
         <!-- 指南针页面 -->
