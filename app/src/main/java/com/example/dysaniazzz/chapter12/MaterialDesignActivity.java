@@ -3,6 +3,9 @@ package com.example.dysaniazzz.chapter12;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBar;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -21,6 +24,8 @@ import butterknife.Unbinder;
  */
 public class MaterialDesignActivity extends BaseActivity {
 
+    @BindView(R.id.dl_material_layout)
+    DrawerLayout mDlMaterialLayout;
     @BindView(R.id.tb_material_toolbar)
     Toolbar mTbMaterialToolbar;
 
@@ -37,6 +42,11 @@ public class MaterialDesignActivity extends BaseActivity {
         setContentView(R.layout.activity_material_design);
         mUnbinder = ButterKnife.bind(this);
         setSupportActionBar(mTbMaterialToolbar);
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(true);              //让导航按钮显示出来
+            actionBar.setHomeAsUpIndicator(R.drawable.ic_menu);     //设置导航按钮的图标，默认是左箭头
+        }
     }
 
     @Override
@@ -48,6 +58,9 @@ public class MaterialDesignActivity extends BaseActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
+            case android.R.id.home:
+                mDlMaterialLayout.openDrawer(GravityCompat.START);  //将滑动菜单展示出来
+                break;
             case R.id.backup:
                 UIUtils.createToast(mContext, "You clicked Backup");
                 break;
