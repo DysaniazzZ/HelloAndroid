@@ -154,6 +154,13 @@
         <activity android:name=".chapter11.Chapter11Activity"/>
         <activity android:name=".chapter11.BaiduMapUsageActivity"/>
 
+        <!--第十二章页面-->
+        <activity android:name=".chapter12.Chapter12Activity"/>
+        <activity
+            android:name=".chapter12.MaterialDesignActivity"
+            android:label="Material Design"
+            android:theme="@style/AppTheme.NoActionBar"/>
+
         <!-- 传感器页面 -->
         <activity android:name=".activity.SensorActivity"/>
         <!-- 指南针页面 -->
