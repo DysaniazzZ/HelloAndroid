@@ -86,7 +86,7 @@ public class MaterialDesignActivity extends BaseActivity {
 
     @OnClick(R.id.fab_material_button)
     public void onClick(View view) {
-        //Snackbar的使用和Toast类似，传入的View只要是界面布局的任意一个View都可以
+        //Snackbar的使用和Toast类似，传入的View只要是界面布局的任意一个View都可以，但是如果考虑到协调布局，最好传入同一个父布局下的其他子控件
         Snackbar.make(view, "Data deleted", Snackbar.LENGTH_SHORT).setAction("Undo", new View.OnClickListener() {
             @Override
             public void onClick(View v) {
