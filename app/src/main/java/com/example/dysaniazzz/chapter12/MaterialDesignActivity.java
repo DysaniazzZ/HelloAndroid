@@ -17,6 +17,7 @@ import com.example.dysaniazzz.utils.UIUtils;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import butterknife.Unbinder;
 
 /**
@@ -79,6 +80,11 @@ public class MaterialDesignActivity extends BaseActivity {
                 return true;
             }
         });
+    }
+
+    @OnClick(R.id.fab_material_button)
+    public void onClick() {
+        UIUtils.createToast(mContext, "You clicked FAB");
     }
 
     @Override
