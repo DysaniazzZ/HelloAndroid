@@ -4,12 +4,14 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
+import android.support.design.widget.Snackbar;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.example.dysaniazzz.R;
 import com.example.dysaniazzz.common.BaseActivity;
@@ -83,8 +85,14 @@ public class MaterialDesignActivity extends BaseActivity {
     }
 
     @OnClick(R.id.fab_material_button)
-    public void onClick() {
-        UIUtils.createToast(mContext, "You clicked FAB");
+    public void onClick(View view) {
+        //Snackbar的使用和Toast类似，传入的View只要是界面布局的任意一个View都可以
+        Snackbar.make(view, "Data deleted", Snackbar.LENGTH_SHORT).setAction("Undo", new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                UIUtils.createToast(mContext, "Data restored");
+            }
+        }).show();
     }
 
     @Override
