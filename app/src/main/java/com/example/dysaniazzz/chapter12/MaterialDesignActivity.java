@@ -8,14 +8,21 @@ import android.support.design.widget.Snackbar;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
 import com.example.dysaniazzz.R;
+import com.example.dysaniazzz.bean.FruitBean;
 import com.example.dysaniazzz.common.BaseActivity;
 import com.example.dysaniazzz.utils.UIUtils;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -34,8 +41,23 @@ public class MaterialDesignActivity extends BaseActivity {
     Toolbar mTbMaterialToolbar;
     @BindView(R.id.nv_material_navigation)
     NavigationView mNvMaterialNavigation;
+    @BindView(R.id.rv_material_recycler)
+    RecyclerView mRvMaterialRecycler;
 
     private Unbinder mUnbinder;
+    private FruitBean[] mFruitBeans = {
+            new FruitBean("Apple", R.drawable.bg_apple),
+            new FruitBean("Banana", R.drawable.bg_banana),
+            new FruitBean("Orange", R.drawable.bg_orange),
+            new FruitBean("Watermelon", R.drawable.bg_watermelon),
+            new FruitBean("Pear", R.drawable.bg_pear),
+            new FruitBean("Pineapple", R.drawable.bg_pineapple),
+            new FruitBean("Grape", R.drawable.bg_grape),
+            new FruitBean("Strawberry", R.drawable.bg_strawberry),
+            new FruitBean("Cherry", R.drawable.bg_cherry),
+            new FruitBean("Mango", R.drawable.bg_mango)
+    };
+    private List<FruitBean> mFruitBeanList = new ArrayList<>();
 
     public static void actionStart(Context context) {
         Intent intent = new Intent(context, MaterialDesignActivity.class);
@@ -47,16 +69,21 @@ public class MaterialDesignActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_material_design);
         mUnbinder = ButterKnife.bind(this);
-        init();
+        initToolbar();
+        initNavigationView();
+        initRecyclerView();
     }
 
-    private void init() {
+    private void initToolbar() {
         setSupportActionBar(mTbMaterialToolbar);
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);              //让导航按钮显示出来
             actionBar.setHomeAsUpIndicator(R.drawable.ic_menu);     //设置导航按钮的图标，默认是左箭头
         }
+    }
+
+    private void initNavigationView() {
         mNvMaterialNavigation.setCheckedItem(R.id.nav_call);
         mNvMaterialNavigation.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -82,6 +109,23 @@ public class MaterialDesignActivity extends BaseActivity {
                 return true;
             }
         });
+    }
+
+    private void initRecyclerView() {
+        initFruits();
+        GridLayoutManager layoutManager = new GridLayoutManager(mContext, 2);
+        mRvMaterialRecycler.setLayoutManager(layoutManager);
+        MaterialFruitAdapter fruitAdapter = new MaterialFruitAdapter(mFruitBeanList);
+        mRvMaterialRecycler.setAdapter(fruitAdapter);
+    }
+
+    private void initFruits() {
+        mFruitBeanList.clear();
+        for (int i = 0; i < 50; i++) {
+            Random random = new Random();
+            int index = random.nextInt(mFruitBeans.length);
+            mFruitBeanList.add(mFruitBeans[index]);
+        }
     }
 
     @OnClick(R.id.fab_material_button)

@@ -17,6 +17,11 @@
             android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
 
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_material_recycler"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/fab_material_button"
             android:layout_width="wrap_content"
