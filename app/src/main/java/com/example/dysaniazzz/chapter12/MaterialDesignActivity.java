@@ -3,10 +3,12 @@ package com.example.dysaniazzz.chapter12;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -43,6 +45,8 @@ public class MaterialDesignActivity extends BaseActivity {
     NavigationView mNvMaterialNavigation;
     @BindView(R.id.rv_material_recycler)
     RecyclerView mRvMaterialRecycler;
+    @BindView(R.id.srl_material_refresh)
+    SwipeRefreshLayout mSrlMaterialRefresh;
 
     private Unbinder mUnbinder;
     private FruitBean[] mFruitBeans = {
@@ -58,6 +62,7 @@ public class MaterialDesignActivity extends BaseActivity {
             new FruitBean("Mango", R.drawable.bg_mango)
     };
     private List<FruitBean> mFruitBeanList = new ArrayList<>();
+    private MaterialFruitAdapter mMaterialFruitAdapter;
 
     public static void actionStart(Context context) {
         Intent intent = new Intent(context, MaterialDesignActivity.class);
@@ -72,6 +77,7 @@ public class MaterialDesignActivity extends BaseActivity {
         initToolbar();
         initNavigationView();
         initRecyclerView();
+        initSwipeRefreshLayout();
     }
 
     private void initToolbar() {
@@ -115,8 +121,8 @@ public class MaterialDesignActivity extends BaseActivity {
         initFruits();
         GridLayoutManager layoutManager = new GridLayoutManager(mContext, 2);
         mRvMaterialRecycler.setLayoutManager(layoutManager);
-        MaterialFruitAdapter fruitAdapter = new MaterialFruitAdapter(mFruitBeanList);
-        mRvMaterialRecycler.setAdapter(fruitAdapter);
+        mMaterialFruitAdapter = new MaterialFruitAdapter(mFruitBeanList);
+        mRvMaterialRecycler.setAdapter(mMaterialFruitAdapter);
     }
 
     private void initFruits() {
@@ -126,6 +132,33 @@ public class MaterialDesignActivity extends BaseActivity {
             int index = random.nextInt(mFruitBeans.length);
             mFruitBeanList.add(mFruitBeans[index]);
         }
+    }
+
+    private void initSwipeRefreshLayout() {
+        mSrlMaterialRefresh.setColorSchemeResources(R.color.colorPrimary);  //设置下拉进度条的颜色
+        mSrlMaterialRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                refreshFruits();
+            }
+        });
+    }
+
+    private void refreshFruits() {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                SystemClock.sleep(2000);
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        initFruits();
+                        mMaterialFruitAdapter.notifyDataSetChanged();
+                        mSrlMaterialRefresh.setRefreshing(false);
+                    }
+                });
+            }
+        }).start();
     }
 
     @OnClick(R.id.fab_material_button)
