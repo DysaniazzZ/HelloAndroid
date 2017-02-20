@@ -12,8 +12,13 @@
         android:title="Delete"
         app:showAsAction="ifRoom"/>
     <item
-        android:id="@+id/settings"
-        android:icon="@drawable/ic_settings"
-        android:title="Settings"
+        android:id="@+id/share"
+        android:icon="@drawable/ic_share"
+        android:title="Share"
+        app:showAsAction="ifRoom"/>
+    <item
+        android:id="@+id/favorite"
+        android:icon="@drawable/ic_favorite"
+        android:title="Favorite"
         app:showAsAction="never"/>
 </menu>

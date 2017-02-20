@@ -90,25 +90,25 @@ public class MaterialDesignActivity extends BaseActivity {
     }
 
     private void initNavigationView() {
-        mNvMaterialNavigation.setCheckedItem(R.id.nav_call);
+        mNvMaterialNavigation.setCheckedItem(R.id.nav_profile);
         mNvMaterialNavigation.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(MenuItem item) {
                 switch (item.getItemId()) {
-                    case R.id.nav_call:
-                        UIUtils.createToast(mContext, "You clicked Call");
+                    case R.id.nav_profile:
+                        UIUtils.createToast(mContext, "You clicked Profile");
                         break;
-                    case R.id.nav_friends:
-                        UIUtils.createToast(mContext, "You clicked Friends");
+                    case R.id.nav_people:
+                        UIUtils.createToast(mContext, "You clicked People");
                         break;
-                    case R.id.nav_location:
-                        UIUtils.createToast(mContext, "You clicked Location");
+                    case R.id.nav_locations:
+                        UIUtils.createToast(mContext, "You clicked Locations");
                         break;
-                    case R.id.nav_mail:
-                        UIUtils.createToast(mContext, "You clicked Mail");
+                    case R.id.nav_events:
+                        UIUtils.createToast(mContext, "You clicked Events");
                         break;
-                    case R.id.nav_task:
-                        UIUtils.createToast(mContext, "You clicked Task");
+                    case R.id.nav_settings:
+                        UIUtils.createToast(mContext, "You clicked Settings");
                         break;
                 }
                 mDlMaterialLayout.closeDrawers();
@@ -190,8 +190,11 @@ public class MaterialDesignActivity extends BaseActivity {
             case R.id.delete:
                 UIUtils.createToast(mContext, "You clicked Delete");
                 break;
-            case R.id.settings:
-                UIUtils.createToast(mContext, "You clicked Settings");
+            case R.id.share:
+                UIUtils.createToast(mContext, "You clicked Share");
+                break;
+            case R.id.favorite:
+                UIUtils.createToast(mContext, "You clicked Favorite");
                 break;
         }
         return true;
