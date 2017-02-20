@@ -160,6 +160,9 @@
             android:name=".chapter12.MaterialDesignActivity"
             android:label="Material Design"
             android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name=".chapter12.MaterialDetailActivity"
+            android:theme="@style/AppTheme.NoActionBar.TransparentStatusBar"/>
 
         <!-- 传感器页面 -->
         <activity android:name=".activity.SensorActivity"/>

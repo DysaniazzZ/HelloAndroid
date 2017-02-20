@@ -52,10 +52,17 @@ public class MaterialFruitAdapter extends RecyclerView.Adapter<MaterialFruitAdap
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
+    public void onBindViewHolder(ViewHolder holder, final int position) {
         FruitBean fruitBean = mFruitBeanList.get(position);
         holder.mFruitName.setText(fruitBean.getName());
         Glide.with(mContext).load(fruitBean.getImageId()).into(holder.mFruitImage);
+        holder.mCardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FruitBean fruitBean = mFruitBeanList.get(position);
+                MaterialDetailActivity.actionStart(mContext, fruitBean.getName(), fruitBean.getImageId());
+            }
+        });
     }
 
     @Override
