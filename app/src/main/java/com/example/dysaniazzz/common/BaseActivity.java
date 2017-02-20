@@ -14,7 +14,7 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 
-import com.example.dysaniazzz.utils.ActivityCollector;
+import com.example.dysaniazzz.utils.ActivityUtils;
 import com.example.dysaniazzz.utils.IGlobalConstants;
 import com.example.dysaniazzz.utils.IPermissionListener;
 import com.example.dysaniazzz.welcome.LoginActivity;
@@ -37,7 +37,7 @@ public class BaseActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mContext = this;
-        ActivityCollector.addActivity(this);
+        ActivityUtils.addActivity(this);
         Logger.d(getClass().getSimpleName());
     }
 
@@ -75,7 +75,7 @@ public class BaseActivity extends AppCompatActivity {
             dialogBuilder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialogInterface, int i) {
-                    ActivityCollector.finishAll();      //销毁所有活动
+                    ActivityUtils.finishAll();      //销毁所有活动
                     Intent intent = new Intent(context, LoginActivity.class);
                     context.startActivity(intent);      //重启LoginActivity
                 }
@@ -85,7 +85,7 @@ public class BaseActivity extends AppCompatActivity {
     }
 
     public static void requestRuntimePermissions(String[] permissions, IPermissionListener iPermissionListener) {
-        Activity topActivity = ActivityCollector.getTopActivity();
+        Activity topActivity = ActivityUtils.getTopActivity();
         if (topActivity == null) {
             return;
         }
@@ -135,6 +135,6 @@ public class BaseActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        ActivityCollector.removeActivity(this);
+        ActivityUtils.removeActivity(this);
     }
 }

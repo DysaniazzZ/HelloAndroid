@@ -5,7 +5,7 @@ import java.io.IOException;
 
 /**
  * Created by DysaniazzZ on 2016/9/10.
- * 关于流的操作
+ * 流操作的工具类
  */
 public class StreamUtils {
 

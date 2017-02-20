@@ -4,9 +4,11 @@ import java.util.List;
 
 /**
  * Created by DysaniazzZ on 23/01/2017.
- * 第七章：动态申请权限的回调
+ * 动态申请权限的回调
  */
 public interface IPermissionListener {
+
     void onGranted();
+
     void onDenied(List<String> deniedPermissionList);
 }

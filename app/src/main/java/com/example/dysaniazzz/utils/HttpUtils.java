@@ -12,10 +12,16 @@ import okhttp3.Request;
 
 /**
  * Created by DysaniazzZ on 2016/9/23.
- * 第九章：网络请求的工具类
+ * 网络请求的工具类
  */
 public class HttpUtils {
 
+    /**
+     * 使用HttpUrlConnection发送网络请求
+     *
+     * @param address
+     * @param listener
+     */
     public static void sendHttpUrlConnectionRequest(final String address, final HttpCallbackListener listener) {
         //开启线程来发起网络请求
         new Thread(new Runnable() {
@@ -29,7 +35,7 @@ public class HttpUtils {
                     connection.setConnectTimeout(8000);
                     connection.setReadTimeout(8000);
                     //添加API KEY到HTTP请求头
-                    connection.setRequestProperty("apikey", "1ace5a5fc9b05ec68706295e075bd5a3");
+                    //connection.setRequestProperty("apikey", "1ace5a5fc9b05ec68706295e075bd5a3");
                     connection.setDoInput(true);
                     connection.setDoOutput(true);
                     //对获取到的输入流进行读取
@@ -58,21 +64,27 @@ public class HttpUtils {
         }).start();
     }
 
-    public static void sendOkHttpRequest(String address, Callback callback) {
-        OkHttpClient okHttpClient = new OkHttpClient();
-        Request request = new Request.Builder()
-                .url(address)
-                .build();
-        okHttpClient.newCall(request).enqueue(callback);
-    }
-
     /**
-     * 网络请求的回调
+     * 使用HttpUrlConnection发送网络请求的回调
      */
     public interface HttpCallbackListener {
 
         void onFinish(String response);
 
         void onError(Exception e);
+    }
+
+    /**
+     * 使用OkHttp发送网络请求
+     *
+     * @param address
+     * @param callback
+     */
+    public static void sendOkHttpRequest(String address, Callback callback) {
+        OkHttpClient okHttpClient = new OkHttpClient();
+        Request request = new Request.Builder()
+                .url(address)
+                .build();
+        okHttpClient.newCall(request).enqueue(callback);
     }
 }
