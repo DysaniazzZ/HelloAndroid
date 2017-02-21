@@ -4,6 +4,7 @@ import android.app.AlarmManager;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import com.example.dysaniazzz.R;
 import com.example.dysaniazzz.common.BaseActivity;
@@ -33,13 +34,19 @@ public class Chapter13Activity extends BaseActivity {
         mUnbinder = ButterKnife.bind(this);
     }
 
-    @OnClick(R.id.btn_chapter13_alarm_task)
-    public void onClick() {
-//        Intent intent = new Intent(mContext, LongRunningService.class);
-//        startService(intent);
-
-        long intervalMills = AlarmManager.INTERVAL_FIFTEEN_MINUTES;       //测试十五分钟的误差大概是5秒
-        AlarmUtils.setRepeatAlarmTask(mContext, System.currentTimeMillis(), intervalMills);
+    @OnClick({R.id.btn_chapter13_alarm_task, R.id.btn_chapter13_sensor_usage})
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.btn_chapter13_alarm_task:
+//                Intent intent = new Intent(mContext, LongRunningService.class);
+//                startService(intent);
+                long intervalMills = AlarmManager.INTERVAL_FIFTEEN_MINUTES;       //测试十五分钟的误差大概是5秒
+                AlarmUtils.setRepeatAlarmTask(mContext, System.currentTimeMillis(), intervalMills);
+                break;
+            case R.id.btn_chapter13_sensor_usage:
+                SensorUsageActivity.actionStart(mContext);
+                break;
+        }
     }
 
     @Override

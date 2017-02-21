@@ -5,14 +5,12 @@
               android:orientation="vertical"
               android:padding="@dimen/common_padding">
 
-    <Button
-        android:id="@+id/btn_chapter13_alarm_task"
-        style="@style/primary_button"
-        android:text="Alarm Task"/>
 
-    <Button
-        android:id="@+id/btn_chapter13_sensor_usage"
-        style="@style/primary_button"
-        android:text="Sensor Usage"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:text="Shake the phone"/>
 
 </LinearLayout>

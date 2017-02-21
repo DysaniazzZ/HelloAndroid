@@ -2,7 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.example.dysaniazzz">
 
-    <!-- Permission -->
     <!-- 第五章：访问系统的网络状态 -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <!-- 第五章：接收开机启动广播 -->
@@ -166,11 +165,10 @@
 
         <!--第十三章页面-->
         <activity android:name=".chapter13.Chapter13Activity"/>
-
-        <!-- 传感器页面 -->
-        <activity android:name=".activity.SensorActivity"/>
-        <!-- 指南针页面 -->
-        <activity android:name=".activity.CompassActivity"/>
+        <activity android:name=".chapter13.SensorUsageActivity"/>
+        <activity android:name=".chapter13.LightSensorActivity"/>
+        <activity android:name=".chapter13.AccelerometerSensorActivity"/>
+        <activity android:name=".chapter13.CompassActivity"/>
 
         <!-- Receiver -->
         <!-- 第五章：开机启动的Receiver，这个广播已经被好多定制ROM屏蔽掉了 -->

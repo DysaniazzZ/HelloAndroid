@@ -1,4 +1,4 @@
-package com.example.dysaniazzz.activity;
+package com.example.dysaniazzz.chapter13;
 
 import android.content.Context;
 import android.content.Intent;
@@ -20,14 +20,12 @@ import butterknife.Unbinder;
 
 /**
  * Created by DysaniazzZ on 2016/9/24.
- * 指南针页面
+ * 第十三章：传感器实践 -- 指南针
  */
 public class CompassActivity extends BaseActivity {
 
     @BindView(R.id.iv_compass_circle)
     ImageView mIvCompassCircle;
-    @BindView(R.id.iv_compass_arrow)
-    ImageView mIvCompassArrow;
 
     Unbinder mUnbinder;
     private SensorManager mSensorManager;
@@ -90,16 +88,15 @@ public class CompassActivity extends BaseActivity {
 
         @Override
         public void onAccuracyChanged(Sensor sensor, int accuracy) {
-
         }
     };
 
     @Override
     protected void onDestroy() {
-        super.onDestroy();
         if (mSensorManager != null) {
             mSensorManager.unregisterListener(mListener);
         }
         mUnbinder.unbind();
+        super.onDestroy();
     }
 }

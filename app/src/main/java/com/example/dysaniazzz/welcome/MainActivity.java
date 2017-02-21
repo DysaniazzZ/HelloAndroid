@@ -5,8 +5,6 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.example.dysaniazzz.R;
-import com.example.dysaniazzz.activity.CompassActivity;
-import com.example.dysaniazzz.activity.SensorActivity;
 import com.example.dysaniazzz.chapter01.Chapter01Activity;
 import com.example.dysaniazzz.chapter02.Chapter02Activity;
 import com.example.dysaniazzz.chapter03.Chapter03Activity;
@@ -109,16 +107,6 @@ public class MainActivity extends BaseActivity {
     @OnClick(R.id.btn_main_to_chapter13)
     public void onChapter13Click() {
         Chapter13Activity.actionStart(mContext);
-    }
-
-    @OnClick(R.id.btn_main_to_sensor)
-    public void onSensorClick() {
-        SensorActivity.actionStart(mContext);
-    }
-
-    @OnClick(R.id.btn_main_to_compass)
-    public void onCompassClick() {
-        CompassActivity.actionStart(mContext);
     }
 
     @Override
