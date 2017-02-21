@@ -10,7 +10,6 @@ import android.view.View;
 
 import com.example.dysaniazzz.R;
 import com.example.dysaniazzz.common.BaseActivity;
-import com.example.dysaniazzz.service.LongRunningService;
 import com.orhanobut.logger.Logger;
 
 import butterknife.ButterKnife;
@@ -52,7 +51,7 @@ public class ServiceOperateActivity extends BaseActivity {
         mUnbinder = ButterKnife.bind(this);
     }
 
-    @OnClick({R.id.btn_service_start_service, R.id.btn_service_stop_service, R.id.btn_service_bind_service, R.id.btn_service_unbind_service, R.id.btn_service_start_intent_service, R.id.btn_service_start_task, R.id.btn_service_stop_task})
+    @OnClick({R.id.btn_service_start_service, R.id.btn_service_stop_service, R.id.btn_service_bind_service, R.id.btn_service_unbind_service, R.id.btn_service_start_intent_service})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_service_start_service:
@@ -79,14 +78,6 @@ public class ServiceOperateActivity extends BaseActivity {
                 Logger.d("Thread id is " + Thread.currentThread().getId());
                 Intent startIntentServiceIntent = new Intent(mContext, MyIntentService.class);
                 startService(startIntentServiceIntent);
-                break;
-            case R.id.btn_service_start_task:
-                Intent startTaskIntent = new Intent(mContext, LongRunningService.class);
-                startService(startTaskIntent);
-                break;
-            case R.id.btn_service_stop_task:
-                Intent stopTaskIntent = new Intent(mContext, LongRunningService.class);
-                stopService(stopTaskIntent);
                 break;
         }
     }

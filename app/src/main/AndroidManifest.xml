@@ -164,6 +164,9 @@
             android:name=".chapter12.MaterialDetailActivity"
             android:theme="@style/AppTheme.NoActionBar.TransparentStatusBar"/>
 
+        <!--第十三章页面-->
+        <activity android:name=".chapter13.Chapter13Activity"/>
+
         <!-- 传感器页面 -->
         <activity android:name=".activity.SensorActivity"/>
         <!-- 指南针页面 -->
@@ -171,6 +174,7 @@
 
         <!-- Receiver -->
         <!-- 第五章：开机启动的Receiver，这个广播已经被好多定制ROM屏蔽掉了 -->
+        <!--enable设置为false表示除非应用显式地启用，不然接收器将不会被调用-->
         <receiver
             android:name=".chapter05.BootCompleteReceiver"
             android:enabled="true"
@@ -179,8 +183,6 @@
                 <action android:name="android.intent.action.BOOT_COMPLETED"/>
             </intent-filter>
         </receiver>
-        <!-- 定时器的Receiver -->
-        <receiver android:name=".receiver.AlarmReceiver"/>
 
         <!-- Service -->
         <!-- 第十章：用于演示生命周期的Service -->
@@ -197,8 +199,8 @@
             android:name="com.baidu.location.f"
             android:enabled="true"
             android:process=":remote"/>
-        <!-- LongRunningService -->
-        <service android:name=".service.LongRunningService"/>
+        <!-- 第十三章：可以长期在后台运行的服务 -->
+        <service android:name=".chapter13.LongRunningService"/>
 
         <!-- Provider -->
         <!-- 第七章：自定义对外共享数据的Provider -->

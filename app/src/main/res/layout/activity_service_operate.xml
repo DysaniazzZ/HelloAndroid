@@ -30,14 +30,4 @@
         style="@style/primary_button"
         android:text="Start Intent Service"/>
 
-    <Button
-        android:id="@+id/btn_service_start_task"
-        style="@style/primary_button"
-        android:text="Start Alarm Task"/>
-
-    <Button
-        android:id="@+id/btn_service_stop_task"
-        style="@style/primary_button"
-        android:text="Stop Alarm Task"/>
-
 </LinearLayout>
