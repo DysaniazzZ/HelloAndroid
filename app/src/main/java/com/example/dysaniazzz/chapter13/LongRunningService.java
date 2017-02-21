@@ -11,7 +11,7 @@ import java.util.Date;
 
 /**
  * Created by DysaniazzZ on 2016/9/22.
- * 可以长期在后台运行的服务
+ * 第十三章：可以长期在后台运行的服务
  */
 public class LongRunningService extends Service {
 

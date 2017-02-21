@@ -32,7 +32,10 @@ public class AlarmUtils {
         long triggerAtMills = SystemClock.elapsedRealtime() + delayMills;
         Intent intent = new Intent(context, LongRunningService.class);
         PendingIntent pendingIntent = PendingIntent.getService(context, 0, intent, 0);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            //在Android 6.0以后，可以保证即使处于Doze模式也可以尽量准时
+            getAlarmManager().setExactAndAllowWhileIdle(AlarmManager.ELAPSED_REALTIME_WAKEUP, triggerAtMills, pendingIntent);
+        } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT && Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
             //从Android 4.4开始，定时任务开始不准确，可以用setExact()方法替代set()方法
             getAlarmManager().setExact(AlarmManager.ELAPSED_REALTIME_WAKEUP, triggerAtMills, pendingIntent);
         } else {
@@ -43,7 +46,10 @@ public class AlarmUtils {
     public static void setSingleAlarmTask(Context context, long triggerAtMills) {
         Intent intent = new Intent(context, LongRunningService.class);
         PendingIntent pendingIntent = PendingIntent.getService(context, 0, intent, 0);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            //在Android 6.0以后，可以保证即使处于Doze模式也可以尽量准时
+            getAlarmManager().setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, triggerAtMills, pendingIntent);
+        } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT && Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
             //从Android 4.4开始，定时任务开始不准确，可以用setExact()方法替代set()方法
             getAlarmManager().setExact(AlarmManager.RTC_WAKEUP, triggerAtMills, pendingIntent);
         } else {
