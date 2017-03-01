@@ -11,8 +11,13 @@
         android:text="Common Widgets"/>
 
     <Button
-        android:id="@+id/btn_chapter03_chat_page"
+        android:id="@+id/btn_chapter03_chat_page_lv"
         style="@style/primary_button"
-        android:text="Chat Page"/>
+        android:text="Chat Page -- ListView"/>
+
+    <Button
+        android:id="@+id/btn_chapter03_chat_page_rv"
+        style="@style/primary_button"
+        android:text="Chat Page -- RecyclerView"/>
 
 </LinearLayout>

@@ -31,9 +31,9 @@ import butterknife.Unbinder;
 
 /**
  * Created by DysaniazzZ on 16/12/2016.
- * 第三章：聊天页面
+ * 第三章：聊天页面，使用RecyclerView
  */
-public class ChatPageActivity extends BaseActivity {
+public class ChatPageRvActivity extends BaseActivity {
 
     @BindView(R.id.rv_chat_msg)
     RecyclerView mRvChatMsg;
@@ -42,18 +42,18 @@ public class ChatPageActivity extends BaseActivity {
 
     private Unbinder mUnbinder;
     private String mChatMsg;
-    private MsgAdapter mMsgAdapter;
+    private ChatRvAdapter mChatRvAdapter;
     private List<MsgBean> mMsgBeanList = new ArrayList<>();
 
     public static void actionStart(Context context) {
-        Intent intent = new Intent(context, ChatPageActivity.class);
+        Intent intent = new Intent(context, ChatPageRvActivity.class);
         context.startActivity(intent);
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_chat_page);
+        setContentView(R.layout.activity_chat_page_rv);
         mUnbinder = ButterKnife.bind(this);
         initData();
         initView();
@@ -91,8 +91,8 @@ public class ChatPageActivity extends BaseActivity {
     private void initView() {
         LinearLayoutManager layoutManager = new LinearLayoutManager(mContext);
         mRvChatMsg.setLayoutManager(layoutManager);
-        mMsgAdapter = new MsgAdapter(mMsgBeanList);
-        mRvChatMsg.setAdapter(mMsgAdapter);
+        mChatRvAdapter = new ChatRvAdapter(mMsgBeanList);
+        mRvChatMsg.setAdapter(mChatRvAdapter);
         if (!TextUtils.isEmpty(mChatMsg)) {
             mEtChatInput.setText(mChatMsg);
             mEtChatInput.setSelection(mChatMsg.length());
@@ -106,7 +106,7 @@ public class ChatPageActivity extends BaseActivity {
         if (!TextUtils.isEmpty(sendContent)) {
             MsgBean msgBean = new MsgBean(sendContent, MsgBean.TYPE_SENT);
             mMsgBeanList.add(msgBean);
-            mMsgAdapter.notifyItemInserted(mMsgBeanList.size() - 1);    //当有新消息时，刷新RecyclerView的显示
+            mChatRvAdapter.notifyItemInserted(mMsgBeanList.size() - 1);    //当有新消息时，刷新RecyclerView的显示
             mRvChatMsg.scrollToPosition(mMsgBeanList.size() - 1);       //将RecyclerView滑动到最后一条
             mEtChatInput.setText("");                                   //清空输入框
         }

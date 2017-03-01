@@ -107,7 +107,8 @@
         <activity android:name=".chapter03.Chapter03Activity"/>
         <activity android:name=".chapter03.CommonWidgetsActivity"/>
         <activity android:name=".chapter03.RecyclerViewActivity"/>
-        <activity android:name=".chapter03.ChatPageActivity"/>
+        <activity android:name=".chapter03.ChatPageRvActivity"/>
+        <activity android:name=".chapter03.ChatPageLvActivity"/>
 
         <!--第四章页面-->
         <activity android:name=".chapter04.Chapter04Activity"/>

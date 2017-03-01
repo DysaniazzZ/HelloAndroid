@@ -32,14 +32,17 @@ public class Chapter03Activity extends BaseActivity {
         mUnbinder = ButterKnife.bind(this);
     }
 
-    @OnClick({R.id.btn_chapter03_common_widgets, R.id.btn_chapter03_chat_page})
+    @OnClick({R.id.btn_chapter03_common_widgets, R.id.btn_chapter03_chat_page_lv, R.id.btn_chapter03_chat_page_rv})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_chapter03_common_widgets:
                 CommonWidgetsActivity.actionStart(mContext);
                 break;
-            case R.id.btn_chapter03_chat_page:
-                ChatPageActivity.actionStart(mContext);
+            case R.id.btn_chapter03_chat_page_lv:
+                ChatPageLvActivity.actionStart(mContext);
+                break;
+            case R.id.btn_chapter03_chat_page_rv:
+                ChatPageRvActivity.actionStart(mContext);
                 break;
         }
     }
