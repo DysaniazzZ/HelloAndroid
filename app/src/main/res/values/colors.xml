@@ -10,4 +10,10 @@
     <color name="colorGreen">#00ff00</color>
     <color name="colorYellow">#ffff00</color>
     <color name="colorBlack">#000000</color>
+    <color name="colorGray">#666666</color>
+    <color name="colorBlue">#3F51B5</color>
+
+    <color name="colorTextGray">#999999</color>
+    <color name="colorTextWhite">#ffffff</color>
+    <color name="colorTextBlack">#000000</color>
 </resources>

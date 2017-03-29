@@ -3,21 +3,21 @@ package com.example.dysaniazzz.chapter03;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
 import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.widget.EditText;
 import android.widget.ListView;
-
-import com.example.dysaniazzz.R;
-import com.example.dysaniazzz.bean.MsgBean;
-import com.example.dysaniazzz.common.BaseActivity;
-
-import java.util.ArrayList;
-import java.util.List;
-
+import android.widget.TextView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
+import com.example.dysaniazzz.R;
+import com.example.dysaniazzz.bean.MsgBean;
+import com.example.dysaniazzz.common.BaseActivity;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by DysaniazzZ on 01/03/2017.
@@ -29,6 +29,8 @@ public class ChatPageLvActivity extends BaseActivity {
     ListView mLvChatMsg;
     @BindView(R.id.et_chat_input)
     EditText mEtChatInput;
+    @BindView(R.id.tv_chat_send)
+    TextView mTvChatSend;
 
     private Unbinder mUnbinder;
     private ChatLvAdapter mChatLvAdapter;
@@ -56,9 +58,27 @@ public class ChatPageLvActivity extends BaseActivity {
         mMsgBeanList.add(msg3);
         mChatLvAdapter = new ChatLvAdapter(mContext, mMsgBeanList);
         mLvChatMsg.setAdapter(mChatLvAdapter);
+        mEtChatInput.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if(TextUtils.isEmpty(s)) {
+                    mTvChatSend.setEnabled(false);
+                } else {
+                    mTvChatSend.setEnabled(true);
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+            }
+        });
     }
 
-    @OnClick(R.id.btn_chat_send)
+    @OnClick(R.id.tv_chat_send)
     public void onSendClick() {
         String sendContent = mEtChatInput.getText().toString();
         if (!TextUtils.isEmpty(sendContent)) {

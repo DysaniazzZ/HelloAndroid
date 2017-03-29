@@ -4,12 +4,10 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
-
 import com.example.dysaniazzz.R;
 import com.example.dysaniazzz.bean.MsgBean;
-
 import java.util.List;
 
 /**
@@ -35,13 +33,13 @@ public class ChatRvAdapter extends RecyclerView.Adapter<ChatRvAdapter.ViewHolder
         MsgBean msgBean = mMsgBeanList.get(position);
         if (msgBean.getType() == MsgBean.TYPE_RECEIVED) {
             //如果是收到的消息，就显示左边布局，隐藏右边布局
-            holder.mLlLeftLayout.setVisibility(View.VISIBLE);
-            holder.mLlRightLayout.setVisibility(View.GONE);
+            holder.mRlLeftLayout.setVisibility(View.VISIBLE);
+            holder.mRlRightLayout.setVisibility(View.GONE);
             holder.mTvLeftMsg.setText(msgBean.getContent());
         } else if (msgBean.getType() == MsgBean.TYPE_SENT) {
             //如果是发送的消息，就显示右边布局，隐藏左边布局
-            holder.mLlLeftLayout.setVisibility(View.GONE);
-            holder.mLlRightLayout.setVisibility(View.VISIBLE);
+            holder.mRlLeftLayout.setVisibility(View.GONE);
+            holder.mRlRightLayout.setVisibility(View.VISIBLE);
             holder.mTvRightMsg.setText(msgBean.getContent());
         }
     }
@@ -53,15 +51,15 @@ public class ChatRvAdapter extends RecyclerView.Adapter<ChatRvAdapter.ViewHolder
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        LinearLayout mLlLeftLayout;
-        LinearLayout mLlRightLayout;
+        RelativeLayout mRlLeftLayout;
+        RelativeLayout mRlRightLayout;
         TextView mTvLeftMsg;
         TextView mTvRightMsg;
 
         public ViewHolder(View itemView) {
             super(itemView);
-            mLlLeftLayout = (LinearLayout) itemView.findViewById(R.id.ll_left_layout);
-            mLlRightLayout = (LinearLayout) itemView.findViewById(R.id.ll_right_layout);
+            mRlLeftLayout = (RelativeLayout) itemView.findViewById(R.id.rl_left_layout);
+            mRlRightLayout = (RelativeLayout) itemView.findViewById(R.id.rl_right_layout);
             mTvLeftMsg = (TextView) itemView.findViewById(R.id.tv_left_msg);
             mTvRightMsg = (TextView) itemView.findViewById(R.id.tv_right_msg);
         }

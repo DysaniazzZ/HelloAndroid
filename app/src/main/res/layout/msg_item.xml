@@ -1,51 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:orientation="vertical"
-              android:padding="10dp">
+  android:layout_width="match_parent"
+  android:layout_height="wrap_content"
+  android:padding="10dp"
+  android:orientation="vertical">
 
-    <LinearLayout
-        android:id="@+id/ll_left_layout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="left">
+  <RelativeLayout
+    android:id="@+id/rl_left_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
 
-        <ImageView
-            android:id="@+id/iv_left_avatar"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:layout_gravity="center"
-            android:src="@drawable/ic_girl"/>
+    <ImageView
+      android:id="@+id/iv_left_avatar"
+      android:layout_width="35dp"
+      android:layout_height="35dp"
+      android:src="@drawable/ic_girl"/>
 
-        <TextView
-            android:id="@+id/tv_left_msg"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/bg_msg_left"
-            android:gravity="center"
-            android:textColor="@color/colorWhite"/>
-    </LinearLayout>
+    <TextView
+      android:id="@+id/tv_left_msg"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_toRightOf="@+id/iv_left_avatar"
+      android:paddingTop="8dp"
+      android:paddingBottom="10dp"
+      android:paddingLeft="15dp"
+      android:paddingRight="8dp"
+      android:background="@drawable/bg_msg_left"
+      android:gravity="center_vertical"
+      android:textColor="@color/colorTextWhite"/>
 
-    <LinearLayout
-        android:id="@+id/ll_right_layout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="right">
+  </RelativeLayout>
 
-        <TextView
-            android:id="@+id/tv_right_msg"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@drawable/bg_msg_right"
-            android:gravity="center"/>
+  <RelativeLayout
+    android:id="@+id/rl_right_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
 
-        <ImageView
-            android:id="@+id/iv_right_avatar"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:src="@drawable/ic_boy"/>
-    </LinearLayout>
+    <TextView
+      android:id="@+id/tv_right_msg"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_toLeftOf="@+id/iv_right_avatar"
+      android:paddingTop="8dp"
+      android:paddingBottom="10dp"
+      android:paddingLeft="8dp"
+      android:paddingRight="15dp"
+      android:background="@drawable/bg_msg_right"
+      android:gravity="center_vertical"
+      android:textColor="@color/colorTextBlack"/>
+
+    <ImageView
+      android:id="@+id/iv_right_avatar"
+      android:layout_width="35dp"
+      android:layout_height="35dp"
+      android:src="@drawable/ic_boy"
+      android:layout_alignParentRight="true"/>
+
+  </RelativeLayout>
 
 </LinearLayout>

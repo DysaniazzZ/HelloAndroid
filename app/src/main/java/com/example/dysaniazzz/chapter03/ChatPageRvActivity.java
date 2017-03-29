@@ -5,9 +5,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.Editable;
 import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.widget.EditText;
 
+import android.widget.TextView;
 import com.example.dysaniazzz.R;
 import com.example.dysaniazzz.common.BaseActivity;
 import com.example.dysaniazzz.bean.MsgBean;
@@ -39,6 +42,8 @@ public class ChatPageRvActivity extends BaseActivity {
     RecyclerView mRvChatMsg;
     @BindView(R.id.et_chat_input)
     EditText mEtChatInput;
+    @BindView(R.id.tv_chat_send)
+    TextView mTvChatSend;
 
     private Unbinder mUnbinder;
     private String mChatMsg;
@@ -98,9 +103,27 @@ public class ChatPageRvActivity extends BaseActivity {
             mEtChatInput.setSelection(mChatMsg.length());
             UIUtils.createToast(mContext, "Restoring Succeeded");
         }
+        mEtChatInput.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if(TextUtils.isEmpty(s)) {
+                    mTvChatSend.setEnabled(false);
+                } else {
+                    mTvChatSend.setEnabled(true);
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+            }
+        });
     }
 
-    @OnClick(R.id.btn_chat_send)
+    @OnClick(R.id.tv_chat_send)
     public void onSendClick() {
         String sendContent = mEtChatInput.getText().toString();
         if (!TextUtils.isEmpty(sendContent)) {

@@ -1,38 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:background="@color/colorBackground"
-              android:orientation="vertical">
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:background="@color/colorBackground"
+  android:orientation="vertical">
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/rv_chat_msg"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"/>
+  <android.support.v7.widget.RecyclerView
+    android:id="@+id/rv_chat_msg"
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="1"/>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+  <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    android:orientation="horizontal">
 
-        <EditText
-            android:id="@+id/et_chat_input"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_weight="1"
-            android:hint="Type something here..."
-            android:maxLines="2"/>
+    <EditText
+      android:id="@+id/et_chat_input"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_weight="1"
+      android:paddingLeft="5dp"
+      android:paddingRight="5dp"
+      android:background="@drawable/shape_input_box"
+      android:hint="Type something here..."
+      android:maxLines="3"/>
 
-        <Button
-            android:id="@+id/btn_chat_send"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="Send"
-            android:textAllCaps="false"/>
+    <TextView
+      android:id="@+id/tv_chat_send"
+      android:layout_width="wrap_content"
+      android:layout_height="40dp"
+      android:layout_marginLeft="5dp"
+      android:layout_gravity="bottom"
+      android:padding="5dp"
+      android:background="@drawable/selector_send_button"
+      android:enabled="false"
+      android:gravity="center"
+      android:text="  Send  "
+      android:textColor="@drawable/selector_send_text"/>
 
-    </LinearLayout>
+  </LinearLayout>
+
 
 </LinearLayout>
