@@ -8,15 +8,19 @@ import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
+import android.view.View;
+import android.view.View.OnLayoutChangeListener;
 import android.widget.EditText;
-
 import android.widget.TextView;
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+import butterknife.Unbinder;
 import com.example.dysaniazzz.R;
-import com.example.dysaniazzz.common.BaseActivity;
 import com.example.dysaniazzz.bean.MsgBean;
+import com.example.dysaniazzz.common.BaseActivity;
 import com.example.dysaniazzz.utils.StreamUtils;
 import com.example.dysaniazzz.utils.UIUtils;
-
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileInputStream;
@@ -26,11 +30,6 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.List;
-
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
-import butterknife.Unbinder;
 
 /**
  * Created by DysaniazzZ on 16/12/2016.
@@ -110,7 +109,7 @@ public class ChatPageRvActivity extends BaseActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if(TextUtils.isEmpty(s)) {
+                if (TextUtils.isEmpty(s)) {
                     mTvChatSend.setEnabled(false);
                 } else {
                     mTvChatSend.setEnabled(true);
@@ -119,6 +118,21 @@ public class ChatPageRvActivity extends BaseActivity {
 
             @Override
             public void afterTextChanged(Editable s) {
+            }
+        });
+        //当软键盘弹出时自动滚动到底部
+        mRvChatMsg.addOnLayoutChangeListener(new OnLayoutChangeListener() {
+            @Override
+            public void onLayoutChange(View v, int left, int top, int right, int bottom, int oldLeft, int oldTop, int oldRight,
+                    int oldBottom) {
+                if (bottom < oldBottom) {
+                    mRvChatMsg.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            mRvChatMsg.scrollToPosition(mRvChatMsg.getAdapter().getItemCount() - 1);
+                        }
+                    });
+                }
             }
         });
     }
